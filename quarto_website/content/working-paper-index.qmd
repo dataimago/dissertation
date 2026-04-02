@@ -1,0 +1,18 @@
+---
+# This page serves as the book home page for the working paper profile.
+# It provides the abstract and overview that appears before Chapter 1.
+---
+
+## Abstract {.unnumbered}
+
+This working paper examines longitudinal achievement patterns in Reading and Mathematics using a multi-year, multi-district assessment dataset. Three research questions guide the investigation: longitudinal achievement trends and proficiency rates, between-district variation in student outcomes, and cohort progress through grade levels. Beyond the substantive findings, this work demonstrates an AI-native dissertation framework — a reproducible, forkable system for scholarly research.
+
+## Overview {.unnumbered}
+
+This document is a versioned working paper derived from the same source files as the formal dissertation. It is designed for sharing, iterating, and extending the analysis beyond the original submission:
+
+- **v1.0** — Original dissertation analysis
+- **v1.1** — Updated with new data or extended methods
+- **v2.0** — Major revision with new research questions
+
+The code, data, and analysis functions are bundled in the companion R package `dissertation`. See the [project website](https://dataimago.github.io/dissertation/) for interactive documentation and API reference.

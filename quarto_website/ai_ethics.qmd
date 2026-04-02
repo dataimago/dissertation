@@ -1,0 +1,52 @@
+---
+title: "AI Ethics in Research"
+---
+
+## Responsible AI Integration in Scholarly Work
+
+This framework integrates AI throughout the dissertation workflow. This page documents the ethical considerations and institutional policy guidelines for using AI in scholarly research.
+
+## Principles
+
+### Transparency
+
+Every AI-assisted element of this dissertation is documented and auditable. The R package source code is open, the analysis functions are tested, and the MCP tools log all interactions. Readers can verify any result by running the code themselves.
+
+### Human Agency
+
+AI in this framework enhances human decision-making — it does not replace it. The chatbot helps readers explore the research, but all analytical decisions, interpretations, and conclusions are authored by the researcher. The AI serves as a tool for access and understanding, not as an author.
+
+### Reproducibility
+
+The AI-native framework strengthens rather than undermines reproducibility. By encoding all analyses in R functions with fixed random seeds and version-controlled dependencies, every result is deterministically reproducible regardless of whether AI was used in the exploration process.
+
+### Attribution
+
+When AI tools assist in any phase of the research (analysis exploration, writing drafts, code generation), this should be documented in the dissertation's methods section and acknowledgments.
+
+## Institutional Policy Considerations
+
+Graduate students using this framework should consult their institution's policies on:
+
+1. **AI use in dissertations**: Many institutions are developing or have published guidelines on acceptable AI use in scholarly work. Check with your graduate school and department.
+
+2. **Data governance**: If your dissertation uses sensitive data, ensure that the REST API and MCP endpoints are appropriately secured and that data is not inadvertently exposed.
+
+3. **IRB considerations**: The interactive web application and chatbot may raise questions about how research data is presented and accessed. Discuss with your IRB if applicable.
+
+4. **Committee expectations**: Discuss with your dissertation committee how AI tools were used and how this framework differs from traditional dissertation formats.
+
+## AI Tool Documentation Template
+
+For transparency, consider including a section in your dissertation methods chapter:
+
+> *AI tools were used in the following capacities during this research: [list specific uses]. All AI-assisted outputs were reviewed, verified, and approved by the author. The analytical framework, interpretation of results, and scholarly conclusions represent the independent work of the author. The dissertation source code, including all analysis functions, is available at [repository URL] for verification.*
+
+## Data Security
+
+When using the REST API and MCP tools:
+
+- The default API binds to `localhost` only — it is not externally accessible
+- No authentication is required for the default configuration (appropriate for local development)
+- If deploying publicly, add authentication middleware to the RestRserve application
+- Never expose sensitive or identifiable student data through the API without appropriate de-identification

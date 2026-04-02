@@ -1,0 +1,56 @@
+---
+# ============================================================
+# Thesis Master Document
+# ============================================================
+# Assembles all chapters into a single PDF formatted per
+# thesis.cls (CU Boulder by default).
+#
+# Render with:
+#   cd quarto_website
+#   quarto render content/thesis-main.qmd --to pdf
+#
+# CUSTOMIZATION:
+# 1. Edit inst/thesis/thesis-preamble.tex with your metadata
+#    (name, title, committee, abstract, etc.)
+# 2. For other universities, replace thesis.cls with your
+#    institution's class file and update thesis-preamble.tex
+# ============================================================
+
+bibliography: ../references.bib
+
+format:
+  pdf:
+    documentclass: thesis
+    classoption: [defaultstyle, 11pt]
+    include-in-header:
+      - ../../inst/thesis/thesis-preamble.tex
+      - ../../inst/thesis/thesis-quarto-fix.tex
+    toc: false
+    number-sections: true
+    colorlinks: true
+    fig-pos: "H"
+    keep-tex: true
+    output-file: "dissertation-thesis.pdf"
+---
+
+# Introduction
+
+{{< include chapters/introduction.qmd >}}
+
+# Literature Review
+
+{{< include chapters/literature_review.qmd >}}
+
+# Methods
+
+{{< include chapters/methods.qmd >}}
+
+# Results
+
+{{< include chapters/results.qmd >}}
+
+# Discussion
+
+{{< include chapters/discussion.qmd >}}
+
+# References {.unnumbered}

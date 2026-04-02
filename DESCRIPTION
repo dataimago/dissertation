@@ -1,0 +1,35 @@
+Package: dissertation
+Version: 0.0-0.1
+Date: 2026-4-1
+Title: An AI-Native Dissertation Framework Built on R Package Architecture
+Description: A forkable framework for writing an AI-native dissertation that treats
+    AI as a collaborator in analysis, writing, and dissemination. The package unifies
+    Quarto (.qmd) source files, reproducible statistical analyses, machine-readable APIs,
+    and MCP (Model Context Protocol) endpoints. It compiles a thesis-ready PDF via
+    institutional thesis.cls and publishes an interactive website with a chatbot that
+    lets readers explore methods, results, and code. Designed as a template for graduate
+    students, advisors, and methodologists in educational measurement and adjacent fields.
+Authors@R: c(person(given=c("Damian", "W."), family="Betebenner", email="dbetebenner@nciea.org", role=c("aut", "cre"),
+		comment = c(ORCID = "0000-0003-0476-5599")),
+                person(given=c("Adam", "R."), family="Van Iwaarden", email="avaniwaarden@nciea.org", role="aut"))
+Maintainer: Damian W. Betebenner <dbetebenner@nciea.org>
+Depends: R (>= 4.5)
+Suggests: knitr, rmarkdown, testthat (>= 3.2.0)
+Imports:
+    crayon,
+    data.table (>= 1.14.0),
+    jsonlite (>= 1.9.0),
+    RestRserve (>= 1.2.0),
+    toOrdinal,
+    utils
+URL: https://dataimago.github.io/dissertation/
+BugReports: https://github.com/dataimago/dissertation/issues/
+LazyData: Yes
+LazyDataCompression: xz
+LazyLoad: Yes
+ByteCompile: TRUE
+License: MIT + file LICENSE
+Encoding: UTF-8
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.3.3
+Config/testthat/edition: 3

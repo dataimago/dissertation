@@ -1,0 +1,54 @@
+---
+title: "Discussion"
+number-sections: true
+---
+
+## Summary of Findings {#sec-summary}
+
+<!--
+  TEMPLATE NOTE: Replace this content with your own discussion.
+  The structure demonstrates how to connect findings back to the
+  literature review and research questions.
+-->
+
+This dissertation examined longitudinal student achievement patterns in Reading and Mathematics using a multi-year, multi-district assessment dataset. Three research questions guided the investigation, each yielding findings that contribute to our understanding of achievement patterns in educational measurement.
+
+## Interpretation of Results {#sec-interpretation}
+
+### Achievement Trends (RQ1)
+
+The achievement trend analyses revealed patterns in mean scores and proficiency rates across academic years. Examining trends by content area provides insight into whether improvements (or declines) are broad-based or concentrated in particular subjects. The consistency or divergence of Reading and Mathematics trajectories over time informs discussions about the relative effectiveness of curricular and instructional investments.
+
+### District Variation (RQ2)
+
+The between-district comparisons uncovered variation in achievement that reflects underlying differences in resources, instructional quality, and community characteristics. These findings align with the literature on educational inequality and suggest that district-level analyses provide a practical unit for identifying both exemplary practice and areas needing support.
+
+### Cohort Progress (RQ3)
+
+The cohort tracking analysis demonstrated how students progress through grade levels over time. Examining the achievement trajectories of students with longitudinal records provides insight into the stability of student performance and the extent to which early achievement predicts later outcomes.
+
+## Implications {#sec-implications}
+
+### For Policy
+
+The findings suggest that longitudinal achievement analyses provide richer information than cross-sectional snapshots for understanding educational effectiveness. Policymakers should consider incorporating multi-year trend data and distributional analyses alongside point-in-time proficiency rates to capture a more complete picture of system performance.
+
+### For Practice
+
+Educators can use achievement trend and distribution data to identify grade levels or content areas where performance is changing and to target instructional resources accordingly. Between-district comparisons can help districts benchmark their performance and identify peers from whom to learn.
+
+### For Research Methodology
+
+The AI-native dissertation framework demonstrates a new paradigm for scholarly work in which the analysis code, documentation, and dissemination are unified in a single reproducible system. This approach enhances transparency, replicability, and accessibility of research.
+
+## Limitations {#sec-limitations}
+
+Several limitations should be considered when interpreting these findings. First, the dataset used in this framework demonstration is intended to illustrate methodological patterns and the AI-native framework architecture rather than to support specific policy conclusions. Second, the analyses presented here are descriptive and do not account for school- or teacher-level effects that may confound district-level comparisons. Third, without demographic covariates in the dataset, equity analyses at the student level are limited to organizational comparisons (district, school) rather than individual student characteristics.
+
+## Future Directions {#sec-future}
+
+Future research could extend this work in several directions: incorporating multilevel models to account for the nested structure of educational data, adding demographic variables to enable equity-focused disaggregation, integrating growth measures alongside achievement status, and leveraging the AI-native framework to enable more interactive and exploratory analyses.
+
+## Conclusion {#sec-conclusion}
+
+This dissertation contributes both substantive findings on student achievement patterns and a methodological framework for conducting AI-native research. By open-sourcing the analysis code, documentation, and web application, this work aims to lower the barrier for future researchers to conduct rigorous, transparent, and accessible dissertation research.

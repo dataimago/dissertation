@@ -1,0 +1,58 @@
+---
+title: "AI-Native Dissertation Framework"
+subtitle: "A reproducible, forkable framework for writing dissertations with AI as a collaborator"
+---
+
+## Welcome
+
+This is a demonstration of the **AI-native dissertation framework** — a system that unifies your dissertation text, statistical analyses, and interactive dissemination into a single reproducible repository.
+
+The framework is built on three pillars:
+
+1. **An R package** (`dissertation`) that houses your data, analysis functions, and REST API
+2. **Quarto documents** (`.qmd`) that serve as both your dissertation chapters and website content
+3. **A NextJS web application** (`dissertation-ai`) that provides interactive exploration, visualizations, and an AI chatbot
+
+## How It Works
+
+Your dissertation lives in two repositories:
+
+- **`dissertation-rpkg`** (this repository): The R package containing data, analyses, documentation, and Quarto source files
+- **`dissertation-ai`**: The NextJS application that wraps the R package in an interactive web experience
+
+The same Quarto source files produce both a **thesis-ready PDF** (using your institution's formatting requirements) and an **interactive website** where readers can explore your methods, results, and code.
+
+## Quick Start
+
+```r
+# Install the package
+devtools::install(".")
+
+# Load and explore the data
+library(dissertation)
+data(assessmentData)
+summarizeAssessment(content_area = "READING", group_by = "GRADE")
+
+# Start the REST API
+run_dissertation_api(port = 8000)
+```
+
+## Dissertation Chapters
+
+- [Chapter 1: Introduction](content/chapters/introduction.qmd)
+- [Chapter 2: Literature Review](content/chapters/literature_review.qmd)
+- [Chapter 3: Methods](content/chapters/methods.qmd)
+- [Chapter 4: Results](content/chapters/results.qmd)
+- [Chapter 5: Discussion](content/chapters/discussion.qmd)
+
+## For Training Participants
+
+This framework was presented at a training session on writing AI-native dissertations. To use it for your own work:
+
+1. Fork both repositories
+2. Replace the seed dataset with your own data
+3. Modify the analysis functions for your research questions
+4. Write your dissertation chapters in the Quarto files
+5. The web application and API automatically adapt
+
+See the [Customization Guide](customization_guide.qmd) for detailed instructions.

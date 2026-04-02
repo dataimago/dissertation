@@ -1,0 +1,87 @@
+---
+title: "Framework Overview"
+---
+
+## Architecture
+
+The AI-native dissertation framework follows a layered architecture that cleanly separates concerns:
+
+```
+┌─────────────────────────────────────────────────────────┐
+│  Layer 4: Web Application (dissertation-ai / NextJS)    │
+│  Interactive visualizations, chatbot, user interface     │
+├─────────────────────────────────────────────────────────┤
+│  Layer 3: MCP Tools (Model Context Protocol)            │
+│  AI agent integration with human oversight               │
+├─────────────────────────────────────────────────────────┤
+│  Layer 2: REST API (RestRserve)                         │
+│  HTTP endpoints for cross-platform consumption           │
+├─────────────────────────────────────────────────────────┤
+│  Layer 1: R Package (dissertation)                      │
+│  Data, analysis functions, documentation, Quarto source  │
+└─────────────────────────────────────────────────────────┘
+```
+
+## Repository Structure
+
+The framework spans two repositories:
+
+**dissertation-rpkg** (R Package):
+
+- `R/` — Analysis functions and API definitions
+- `data/` — Bundled datasets
+- `tests/` — Test suite
+- `man/` — Generated documentation
+- `inst/thesis/` — Thesis formatting templates
+- `quarto_website/` — Quarto source files (shared between website and PDF)
+
+**dissertation-ai** (NextJS Application):
+
+- `apps/web-app/` — NextJS 14 web application
+- `packages/r-packages/dissertation/` — R package as git submodule
+- `packages/shared-utils/` — TypeScript API client
+- `packages/mcp-tools/` — MCP integration layer
+
+## Three Render Paths
+
+The same `.qmd` source files produce three different outputs, each serving a distinct purpose:
+
+```
+┌──────────────────────────────────────────────────────────────────┐
+│                    .qmd Source Files                              │
+│        (content/chapters/*.qmd — single source of truth)         │
+└──────┬─────────────────────┬──────────────────────┬──────────────┘
+       │                     │                      │
+       ▼                     ▼                      ▼
+ ┌──────────┐       ┌──────────────┐      ┌───────────────┐
+ │  Website  │       │  Thesis PDF  │      │ Working Paper │
+ │ (default) │       │  (--profile  │      │  (--profile   │
+ │           │       │   thesis)    │      │ working-paper)│
+ ├──────────┤       ├──────────────┤      ├───────────────┤
+ │ Quarto   │       │ thesis.cls   │      │ article.cls   │
+ │ website  │       │ + preamble   │      │ + custom CSS  │
+ │ type     │       │ (CU Boulder  │      │ (modern       │
+ │          │       │  format)     │      │  academic)    │
+ ├──────────┤       ├──────────────┤      ├───────────────┤
+ │ HTML with│       │ PDF for      │      │ HTML + PDF    │
+ │ nav, ToC,│       │ grad school  │      │ for sharing   │
+ │ search   │       │ submission   │      │ v1.0→v1.1→... │
+ └──────────┘       └──────────────┘      └───────────────┘
+```
+
+## Data Flow
+
+1. **Data** lives in the R package (`data/assessmentData.rda`)
+2. **Analysis functions** process the data and return structured lists
+3. **REST API** exposes the functions as HTTP endpoints
+4. **NextJS frontend** fetches from the API and renders visualizations
+5. **MCP tools** expose the same functions for AI agent access
+6. **Quarto** renders the source files as website, thesis PDF, and working paper
+
+## Design Principles
+
+- **Separation of Concerns**: R handles analysis; TypeScript handles presentation; Quarto handles authoring
+- **Single Source of Truth**: Dissertation text lives in `.qmd` files, rendered to both web and PDF
+- **Reproducibility**: Every result is generated from code, not manually entered
+- **AI-Native**: Analysis is accessible to AI agents via API and MCP for transparent, auditable assistance
+- **Forkable**: The entire framework is designed to be forked and customized for individual dissertations

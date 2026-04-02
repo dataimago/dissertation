@@ -1,0 +1,975 @@
+% Options for packages loaded elsewhere
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+\PassOptionsToPackage{dvipsnames,svgnames,x11names}{xcolor}
+%
+\documentclass[
+  defaultstyle,
+  11pt]{thesis}
+\usepackage{xcolor}
+\usepackage{amsmath,amssymb}
+\setcounter{secnumdepth}{5}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math} % this also loads fontspec
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else
+  % xetex/luatex font selection
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+% Make \paragraph and \subparagraph free-standing
+\makeatletter
+\ifx\paragraph\undefined\else
+  \let\oldparagraph\paragraph
+  \renewcommand{\paragraph}{
+    \@ifstar
+      \xxxParagraphStar
+      \xxxParagraphNoStar
+  }
+  \newcommand{\xxxParagraphStar}[1]{\oldparagraph*{#1}\mbox{}}
+  \newcommand{\xxxParagraphNoStar}[1]{\oldparagraph{#1}\mbox{}}
+\fi
+\ifx\subparagraph\undefined\else
+  \let\oldsubparagraph\subparagraph
+  \renewcommand{\subparagraph}{
+    \@ifstar
+      \xxxSubParagraphStar
+      \xxxSubParagraphNoStar
+  }
+  \newcommand{\xxxSubParagraphStar}[1]{\oldsubparagraph*{#1}\mbox{}}
+  \newcommand{\xxxSubParagraphNoStar}[1]{\oldsubparagraph{#1}\mbox{}}
+\fi
+\makeatother
+
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{241,243,245}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.40,0.45,0.13}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\BuiltInTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.13,0.47,0.30}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{\textit{#1}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{\textit{#1}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\ExtensionTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.28,0.35,0.67}{#1}}
+\newcommand{\ImportTok}[1]{\textcolor[rgb]{0.00,0.46,0.62}{#1}}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\RegionMarkerTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.13,0.47,0.30}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.13,0.47,0.30}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.07,0.07,0.07}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.13,0.47,0.30}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{\textit{#1}}}
+
+\usepackage{longtable,booktabs,array}
+\usepackage{calc} % for calculating minipage widths
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
+\usepackage{graphicx}
+\makeatletter
+\newsavebox\pandoc@box
+\newcommand*\pandocbounded[1]{% scales image to fit in text height/width
+  \sbox\pandoc@box{#1}%
+  \Gscale@div\@tempa{\textheight}{\dimexpr\ht\pandoc@box+\dp\pandoc@box\relax}%
+  \Gscale@div\@tempb{\linewidth}{\wd\pandoc@box}%
+  \ifdim\@tempb\p@<\@tempa\p@\let\@tempa\@tempb\fi% select the smaller of both
+  \ifdim\@tempa\p@<\p@\scalebox{\@tempa}{\usebox\pandoc@box}%
+  \else\usebox{\pandoc@box}%
+  \fi%
+}
+% Set default figure placement to htbp
+\def\fps@figure{htbp}
+\makeatother
+
+
+
+
+
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+
+
+
+ 
+
+
+%% before-body.tex — Quarto template partial for thesis.cls integration
+%%
+%% PURPOSE:
+%% The CU Boulder thesis.cls expects specific preamble commands (\author, \degree,
+%% \dept, \advisor, etc.) that are normally placed in a .tex file BEFORE
+%% \begin{document}. Quarto generates the \begin{document} automatically, so we
+%% inject these commands via Quarto's "include-before-body" mechanism — but they
+%% actually need to appear in the PREAMBLE. We use "include-in-header" for the
+%% preamble commands and "include-before-body" for any post-\begin{document} content.
+%%
+%% HOW TO USE:
+%% This file is referenced in _quarto-thesis.yml via:
+%%   include-in-header: ../inst/thesis/thesis-preamble.tex
+%%
+%% CUSTOMIZATION:
+%% Edit the values below to match YOUR dissertation. These map to the commands
+%% that thesis.cls uses to generate the title page, approval page, and abstract.
+%%
+%% For other universities: replace these commands with whatever your thesis.cls
+%% expects in the preamble. The file name and Quarto config reference stay the same.
+
+%% ============================================================
+%% DISSERTATION METADATA — Edit these for your dissertation
+%% ============================================================
+
+%% Your dissertation title (appears on title page and abstract)
+\title{Longitudinal Achievement Patterns in Reading and Mathematics: An AI-Native Dissertation Framework}
+
+%% Your name: \author{First M.}{Last}
+\author{Your}{Name}
+
+%% Other degrees you hold (each on its own line, separated by \\)
+\otherdegrees{B.A., Your University, 20XX \\
+              M.S., Another University, 20XX}
+
+%% The degree you are receiving:
+%%   First arg: full name of the degree
+%%   Second arg: abbreviation and field
+\degree{Doctor of Philosophy}
+       {Ph.D., Education Research and Methodology}
+
+%% Your department:
+%%   First arg: organizational designation (e.g., "Department of", "School of", "College of")
+%%   Second arg: name of the department
+\dept{School of}
+     {Education}
+
+%% Your dissertation advisor:
+%%   First arg: title (e.g., "Prof.", "Dr.", "Associate Professor")
+%%   Second arg: full name
+\advisor{Prof.}
+        {Your Advisor}
+
+%% Committee member who signs the thesis (required)
+\reader{Committee Member Two}
+
+%% Additional committee members (optional — comment out if not needed)
+\readerThree{Committee Member Three}
+\readerFour{Committee Member Four}
+%\readerFive{Committee Member Five}
+
+%% Optional: IRB protocol number (uncomment if applicable)
+% \IRBprotocol{E927F29.001X}
+
+%% ============================================================
+%% ABSTRACT — Edit with your actual abstract
+%% ============================================================
+
+\abstract{
+This dissertation examines longitudinal achievement patterns in Reading and
+Mathematics using a multi-year, multi-district assessment dataset. Three
+research questions guide the investigation: (1) What are the longitudinal
+achievement trends and how do proficiency rates change over time?
+(2) How does student achievement vary across districts? (3) How do cohorts
+of students progress through grade levels?
+
+Beyond the substantive findings, this work demonstrates an AI-native
+dissertation framework --- a reproducible, forkable system that unifies
+dissertation text, statistical analyses, and interactive dissemination
+into a single repository. The framework treats AI as a collaborator in
+analysis, writing, and dissemination, while maintaining full transparency
+and human authorship of all scholarly conclusions.
+}
+
+%% ============================================================
+%% DEDICATION and ACKNOWLEDGMENTS (optional)
+%% ============================================================
+
+\dedication[Dedication]{
+  To all who believe in open, reproducible scholarship.
+}
+
+\acknowledgements{ \OnePageChapter
+  The author gratefully acknowledges the support of advisors, colleagues,
+  and the open-source community. This framework builds on the work of
+  many contributors to R, Quarto, and the broader data science ecosystem.
+}
+
+%% ============================================================
+%% TABLE OF CONTENTS / LIST OF FIGURES / LIST OF TABLES
+%% ============================================================
+%% Use the "Short" versions if the list fits on one page.
+%% Use the "empty" versions if there are no figures/tables.
+
+\ToCisShort        % Use for 1-page Table of Contents
+% \LoFisShort      % Use for 1-page List of Figures
+% \emptyLoF        % Use if there is no List of Figures
+% \LoTisShort      % Use for 1-page List of Tables
+% \emptyLoT        % Use if there is no List of Tables
+%% thesis-quarto-fix.tex
+%% =====================
+%% Fixes conflicts between Quarto's auto-generated LaTeX and thesis.cls.
+%%
+%% PROBLEM: Quarto always emits \title{}, \author{}, \date{}, and
+%% \maketitle just before \begin{document}. But thesis.cls expects
+%% these to be set via its own preamble commands (in thesis-preamble.tex)
+%% and generates title page, abstract, dedication, etc. internally
+%% at \begin{document} time.
+%%
+%% SOLUTION: After thesis-preamble.tex sets all the correct metadata,
+%% we save thesis.cls's internal state and restore it after Quarto
+%% overwrites \title/\author. We also make \maketitle a no-op since
+%% thesis.cls handles title page generation itself.
+
+%% Save the thesis title set by thesis-preamble.tex before Quarto
+%% overwrites it with the last chapter's title.
+\makeatletter
+\let\saved@thesis@title\@title
+\let\saved@thesis@author\@author
+
+%% At \begin{document}, restore the thesis.cls title/author and
+%% suppress Quarto's \maketitle (thesis.cls handles this internally).
+\AddToHook{begindocument/before}{%
+  \global\let\@title\saved@thesis@title
+  \global\let\@author\saved@thesis@author
+  \renewcommand{\maketitle}{}%
+}
+\makeatother
+\makeatletter
+\@ifpackageloaded{caption}{}{\usepackage{caption}}
+\AtBeginDocument{%
+\ifdefined\contentsname
+  \renewcommand*\contentsname{Table of contents}
+\else
+  \newcommand\contentsname{Table of contents}
+\fi
+\ifdefined\listfigurename
+  \renewcommand*\listfigurename{List of Figures}
+\else
+  \newcommand\listfigurename{List of Figures}
+\fi
+\ifdefined\listtablename
+  \renewcommand*\listtablename{List of Tables}
+\else
+  \newcommand\listtablename{List of Tables}
+\fi
+\ifdefined\figurename
+  \renewcommand*\figurename{Figure}
+\else
+  \newcommand\figurename{Figure}
+\fi
+\ifdefined\tablename
+  \renewcommand*\tablename{Table}
+\else
+  \newcommand\tablename{Table}
+\fi
+}
+\@ifpackageloaded{float}{}{\usepackage{float}}
+\floatstyle{ruled}
+\@ifundefined{c@chapter}{\newfloat{codelisting}{h}{lop}}{\newfloat{codelisting}{h}{lop}[chapter]}
+\floatname{codelisting}{Listing}
+\newcommand*\listoflistings{\listof{codelisting}{List of Listings}}
+\makeatother
+\makeatletter
+\makeatother
+\makeatletter
+\@ifpackageloaded{caption}{}{\usepackage{caption}}
+\@ifpackageloaded{subcaption}{}{\usepackage{subcaption}}
+\makeatother
+\usepackage{bookmark}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same}
+\hypersetup{
+  pdftitle={Discussion},
+  colorlinks=true,
+  linkcolor={blue},
+  filecolor={Maroon},
+  citecolor={Blue},
+  urlcolor={Blue},
+  pdfcreator={LaTeX via pandoc}}
+
+
+\title{Discussion}
+\author{}
+\date{}
+\begin{document}
+\maketitle
+
+
+\section{Introduction}\label{introduction}
+
+\subsection{Background}\label{sec-background}
+
+Educational assessment data provides the foundation for understanding
+student achievement across schools, districts, and states. Standardized
+assessments in reading and mathematics generate scale scores that enable
+comparisons of student performance relative to grade-level expectations.
+When examined longitudinally --- across multiple years and grade levels
+--- these data reveal patterns of achievement that inform educational
+policy, resource allocation, and instructional practice.
+
+Achievement levels derived from scale scores (such as Beginning,
+Developing, Proficient, and Advanced) provide an accessible framework
+for categorizing student performance. Tracking the proportion of
+students reaching proficiency over time, across content areas, and
+between districts offers a practical lens on educational equity and
+effectiveness.
+
+\subsection{Problem Statement}\label{sec-problem}
+
+Despite the widespread availability of assessment data, systematic
+analyses that examine achievement patterns across multiple dimensions
+--- time, geography, grade level, and content area --- remain
+underutilized in educational research. This dissertation addresses this
+gap using 368,301 longitudinal assessment records spanning 5 academic
+years across 3 districts.
+
+\subsection{Research Questions}\label{sec-research-questions}
+
+This dissertation is guided by three research questions:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \textbf{RQ1}: What are the longitudinal achievement trends in Reading
+  and Mathematics, and how do proficiency rates change over time?
+\item
+  \textbf{RQ2}: How does student achievement vary across districts, and
+  what patterns of between-district inequality are evident?
+\item
+  \textbf{RQ3}: How do cohorts of students progress through grade
+  levels, and what do achievement trajectories reveal about the
+  stability of student performance?
+\end{enumerate}
+
+\subsection{Significance}\label{sec-significance}
+
+This work contributes to the field in three ways. First, it provides
+empirical evidence on longitudinal achievement patterns using a
+multi-year, multi-district assessment dataset. Second, it demonstrates
+analytic approaches for examining between-district variation in student
+outcomes. Third, the entire analysis is implemented as a reproducible,
+AI-native framework that other researchers can fork, customize, and
+extend for their own dissertation research.
+
+\subsection{Organization of the Dissertation}\label{sec-organization}
+
+The remainder of this dissertation is organized as follows. Chapter 2
+reviews the literature on assessment-based accountability, achievement
+measurement, and educational equity. Chapter 3 describes the data
+sources, measures, and analytic methods. Chapter 4 presents the results
+organized by research question. Chapter 5 discusses the findings,
+implications, limitations, and directions for future research.
+
+\section{Literature Review}\label{literature-review}
+
+\subsection{Overview}\label{sec-lit-overview}
+
+This chapter reviews the literature relevant to understanding student
+achievement measurement and patterns in K-12 education. The review is
+organized into four sections: the role of standardized assessment in
+educational accountability, approaches to longitudinal achievement
+analysis, equity and between-district variation, and the emerging
+intersection of reproducible research practices with educational data
+science.
+
+\subsection{Standardized Assessment and
+Accountability}\label{sec-assessment-accountability}
+
+Standardized assessments in reading and mathematics serve as the
+backbone of educational accountability systems across the United States.
+These assessments generate scale scores that enable comparisons of
+student performance across schools, districts, and states. Performance
+levels --- typically ranging from below basic to advanced --- provide an
+accessible framework for communicating achievement relative to
+grade-level standards.
+
+The use of proficiency rates as an accountability metric has been both
+widespread and contested. While proficiency-based measures offer clear
+thresholds for adequate performance, critics argue that they can obscure
+meaningful variation among students above or below the cut point and can
+incentivize instructional triage toward students near the proficiency
+boundary.
+
+\subsection{Longitudinal Achievement
+Analysis}\label{sec-longitudinal-analysis}
+
+Longitudinal analysis of assessment data --- tracking achievement
+patterns across multiple years and grade levels --- provides richer
+information than cross-sectional snapshots. By examining trends over
+time, researchers can distinguish transient fluctuations from sustained
+patterns and can identify whether improvements in achievement are
+broad-based or concentrated in particular subgroups or regions.
+
+Score distribution analysis using percentile breakpoints (e.g., the
+10th, 25th, 50th, 75th, and 90th percentiles) provides a more complete
+picture of achievement than mean scores alone. Changes in the
+distribution shape over time can reveal whether gains are driven by
+improvements at the top, middle, or bottom of the performance continuum.
+
+\subsection{Equity and Between-District Variation}\label{sec-equity}
+
+A growing body of literature examines disparities in educational
+outcomes across schools and districts. Between-district variation in
+achievement reflects differences in resources, instructional quality,
+student demographics, and community characteristics. Examining how
+achievement distributions differ across districts --- rather than
+focusing solely on mean differences --- provides a more nuanced
+understanding of educational inequality.
+
+District-level comparisons of proficiency rates, mean scores, and score
+distributions contribute to identifying both high-performing districts
+whose practices merit study and struggling districts that may benefit
+from targeted support.
+
+\subsection{Summary and Gaps}\label{sec-lit-summary}
+
+The literature reveals several gaps that this dissertation addresses.
+First, while individual assessment results are widely reported,
+systematic longitudinal analyses examining achievement trends across
+multiple years, content areas, and organizational levels remain
+relatively sparse. Second, between-district achievement variation is
+often examined only through mean comparisons rather than full
+distributional analysis. Third, the integration of reproducible research
+practices with modern AI tools represents an emerging frontier in
+educational research methodology, offering the potential to make complex
+analyses more transparent and accessible.
+
+\section{Methods}\label{methods}
+
+\subsection{Overview}\label{sec-methods-overview}
+
+This chapter describes the data, measures, and analytic methods used to
+address the research questions. All analyses are implemented as
+reproducible R functions within the \texttt{dissertation} R package,
+ensuring complete transparency and replicability.
+
+\subsection{Data Source}\label{sec-data-source}
+
+The dataset comprises 368,301 longitudinal assessment records for 67,547
+students across grades 10, 3, 4, 5, 6, 7, 8, 9 in MATHEMATICS and
+READING spanning 5 academic years (2020\_2021, 2021\_2022, 2022\_2023,
+2023\_2024, 2024\_2025).
+
+\subsection{Sample Description}\label{sec-sample}
+
+\begin{longtable}[]{@{}llrr@{}}
+
+\caption{\label{tbl-sample}Sample Size by Content Area and Year}
+
+\tabularnewline
+
+\toprule\noalign{}
+CONTENT\_AREA & YEAR & N\_Students & N\_Observations \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+MATHEMATICS & 2020\_2021 & 35,620 & 35,620 \\
+MATHEMATICS & 2021\_2022 & 36,458 & 36,458 \\
+MATHEMATICS & 2022\_2023 & 37,041 & 37,041 \\
+MATHEMATICS & 2023\_2024 & 37,640 & 37,640 \\
+MATHEMATICS & 2024\_2025 & 37,965 & 37,965 \\
+READING & 2020\_2021 & 35,404 & 35,404 \\
+READING & 2021\_2022 & 36,229 & 36,229 \\
+READING & 2022\_2023 & 36,807 & 36,807 \\
+READING & 2023\_2024 & 37,411 & 37,411 \\
+READING & 2024\_2025 & 37,726 & 37,726 \\
+
+\end{longtable}
+
+The sample includes students from 3 districts and 121 schools.
+Table~\ref{tbl-sample} presents the sample composition by content area
+and year.
+
+\subsection{Measures}\label{sec-measures}
+
+\subsubsection{Scale Scores}\label{scale-scores}
+
+Student achievement is measured using scale scores in Reading and
+Mathematics. Scale scores range from NA to NA across the dataset.
+
+\subsubsection{Achievement Levels}\label{achievement-levels}
+
+Scale scores are classified into performance levels using grade-specific
+cut points. The levels in the dataset are: Advanced, No Score, Partially
+Proficient, Proficient, Unsatisfactory. Students at the Proficient or
+Advanced level are considered to have met grade-level expectations.
+
+\subsubsection{Organizational Variables}\label{organizational-variables}
+
+Records include district identifiers (\texttt{DISTRICT\_NUMBER}) and
+school identifiers (\texttt{SCHOOL\_NUMBER}), enabling analyses of
+between-district and between-school variation.
+
+\subsection{Analytic Approach}\label{sec-analytic-approach}
+
+The analyses are organized to address each research question:
+
+\textbf{RQ1 --- Achievement Trends}: Longitudinal achievement patterns
+are examined by computing mean scores and proficiency rates by year and
+content area using the \texttt{analyzeAssessment("achievement\_trends")}
+function.
+
+\textbf{RQ2 --- District Variation}: Between-district comparisons use
+\texttt{analyzeAssessment("district\_comparison")} to examine variation
+in mean scores, proficiency rates, and sample sizes across the 3
+districts in the dataset.
+
+\textbf{RQ3 --- Cohort Progress}: Cohort tracking via
+\texttt{analyzeAssessment("cohort\_progress")} examines how students
+with longitudinal records progress through grade levels over time.
+
+Additionally, score distribution analyses using
+\texttt{analyzeAssessment("score\_distribution")} provide percentile
+breakpoints (10th, 25th, 50th, 75th, 90th) to characterize the full
+shape of the achievement distribution.
+
+\subsection{Reproducibility}\label{sec-reproducibility}
+
+All analyses are implemented in the \texttt{dissertation} R package and
+can be replicated by installing the package and calling the analysis
+functions directly:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(dissertation)}
+\FunctionTok{summarizeAssessment}\NormalTok{(}\AttributeTok{content\_area =} \StringTok{"READING"}\NormalTok{, }\AttributeTok{group\_by =} \StringTok{"GRADE"}\NormalTok{)}
+\FunctionTok{analyzeAssessment}\NormalTok{(}\StringTok{"achievement\_trends"}\NormalTok{, }\AttributeTok{content\_area =} \StringTok{"MATHEMATICS"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+The complete analysis code, data, and documentation are available via
+the package's GitHub repository and REST API.
+
+\section{Results}\label{results}
+
+\subsection{Overview}\label{sec-results-overview}
+
+This chapter presents the findings organized by research question. All
+results are generated programmatically from the \texttt{dissertation} R
+package analysis functions, ensuring that the narrative is always
+synchronized with the underlying data.
+
+\subsection{RQ1: Achievement Trends}\label{sec-rq1}
+
+Achievement trends across 5 academic years reveal the following
+patterns:
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\linewidth - 12\tabcolsep) * \real{0.1266}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 12\tabcolsep) * \real{0.1646}}
+  >{\raggedleft\arraybackslash}p{(\linewidth - 12\tabcolsep) * \real{0.1392}}
+  >{\raggedleft\arraybackslash}p{(\linewidth - 12\tabcolsep) * \real{0.1646}}
+  >{\raggedleft\arraybackslash}p{(\linewidth - 12\tabcolsep) * \real{0.1899}}
+  >{\raggedleft\arraybackslash}p{(\linewidth - 12\tabcolsep) * \real{0.1392}}
+  >{\raggedleft\arraybackslash}p{(\linewidth - 12\tabcolsep) * \real{0.0759}}@{}}
+
+\caption{\label{tbl-achievement-trends}Mean Score and Proficiency Rate
+by Year and Content Area}
+
+\tabularnewline
+
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+YEAR
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+CONTENT\_AREA
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+mean\_score
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+median\_score
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+pct\_proficient
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+n\_students
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+n
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+2020\_2021 & MATHEMATICS & 543.4 & 548 & 56.6 & 35620 & 35620 \\
+2020\_2021 & READING & 636.1 & 642 & 72.7 & 35404 & 35404 \\
+2021\_2022 & MATHEMATICS & 545.9 & 550 & 58.3 & 36458 & 36458 \\
+2021\_2022 & READING & 636.8 & 642 & 74.2 & 36229 & 36229 \\
+2022\_2023 & MATHEMATICS & 548.0 & 552 & 59.0 & 37041 & 37041 \\
+2022\_2023 & READING & 636.9 & 643 & 73.5 & 36807 & 36807 \\
+2023\_2024 & MATHEMATICS & 546.2 & 549 & 57.8 & 37640 & 37640 \\
+2023\_2024 & READING & 636.6 & 641 & 72.8 & 37411 & 37411 \\
+2024\_2025 & MATHEMATICS & 546.0 & 551 & 59.0 & 37965 & 37965 \\
+2024\_2025 & READING & 636.5 & 643 & 74.5 & 37726 & 37726 \\
+
+\end{longtable}
+
+Achievement trends across 5 year(s) show relative stability in mean
+scale scores. The overall mean score is 591.2 with a proficiency rate of
+65.8\%.
+
+\subsubsection{Reading Achievement
+Patterns}\label{reading-achievement-patterns}
+
+Achievement trends across 5 year(s) show relative stability in mean
+scale scores. The overall mean score is 636.6 with a proficiency rate of
+73.5\%.
+
+\subsubsection{Mathematics Achievement
+Patterns}\label{mathematics-achievement-patterns}
+
+Achievement trends across 5 year(s) show an upward trend in mean scale
+scores. The overall mean score is 545.9 with a proficiency rate of
+58.1\%.
+
+\subsection{RQ2: District Variation}\label{sec-rq2}
+
+\subsubsection{Between-District Achievement
+Comparisons}\label{between-district-achievement-comparisons}
+
+\begin{longtable}[]{@{}
+  >{\raggedleft\arraybackslash}p{(\linewidth - 14\tabcolsep) * \real{0.1684}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 14\tabcolsep) * \real{0.1368}}
+  >{\raggedleft\arraybackslash}p{(\linewidth - 14\tabcolsep) * \real{0.1158}}
+  >{\raggedleft\arraybackslash}p{(\linewidth - 14\tabcolsep) * \real{0.1368}}
+  >{\raggedleft\arraybackslash}p{(\linewidth - 14\tabcolsep) * \real{0.1579}}
+  >{\raggedleft\arraybackslash}p{(\linewidth - 14\tabcolsep) * \real{0.1158}}
+  >{\raggedleft\arraybackslash}p{(\linewidth - 14\tabcolsep) * \real{0.1053}}
+  >{\raggedleft\arraybackslash}p{(\linewidth - 14\tabcolsep) * \real{0.0632}}@{}}
+
+\caption{\label{tbl-district}Achievement by District}
+
+\tabularnewline
+
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedleft
+DISTRICT\_NUMBER
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+CONTENT\_AREA
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+mean\_score
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+median\_score
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+pct\_proficient
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+n\_students
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+n\_schools
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+n
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+470 & MATHEMATICS & 542.8 & 548 & 57.5 & 25022 & 49 & 69465 \\
+470 & READING & 632.8 & 640 & 71.0 & 24780 & 49 & 68428 \\
+1040 & MATHEMATICS & 568.0 & 573 & 69.7 & 23968 & 32 & 63606 \\
+1040 & READING & 655.3 & 661 & 85.2 & 23962 & 32 & 63554 \\
+2690 & MATHEMATICS & 522.7 & 526 & 44.9 & 18480 & 42 & 51653 \\
+2690 & READING & 618.4 & 622 & 62.5 & 18475 & 42 & 51595 \\
+
+\end{longtable}
+
+District comparison reveals mean scale scores ranging from 522.7 to
+655.3 across 3 districts (gap of 132.6 points). Proficiency rates range
+from 44.9\% to 85.2\%.
+
+\subsubsection{Achievement Summaries by
+Grade}\label{achievement-summaries-by-grade}
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\linewidth - 12\tabcolsep) * \real{0.0845}}
+  >{\raggedleft\arraybackslash}p{(\linewidth - 12\tabcolsep) * \real{0.1549}}
+  >{\raggedleft\arraybackslash}p{(\linewidth - 12\tabcolsep) * \real{0.1831}}
+  >{\raggedleft\arraybackslash}p{(\linewidth - 12\tabcolsep) * \real{0.1268}}
+  >{\raggedleft\arraybackslash}p{(\linewidth - 12\tabcolsep) * \real{0.2113}}
+  >{\raggedleft\arraybackslash}p{(\linewidth - 12\tabcolsep) * \real{0.1549}}
+  >{\raggedleft\arraybackslash}p{(\linewidth - 12\tabcolsep) * \real{0.0845}}@{}}
+
+\caption{\label{tbl-grade-summary}Achievement Summary by Grade}
+
+\tabularnewline
+
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+GRADE
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+mean\_score
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+median\_score
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+sd\_score
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+pct\_proficient
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+n\_students
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+n
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+10 & 642.4 & 652 & 80.4 & 53.7 & 22526 & 45553 \\
+3 & 524.0 & 531 & 89.3 & 78.9 & 22923 & 44688 \\
+4 & 549.7 & 557 & 80.2 & 74.6 & 22775 & 45491 \\
+5 & 576.9 & 583 & 80.9 & 73.5 & 22572 & 45153 \\
+6 & 588.3 & 596 & 81.5 & 69.1 & 22659 & 45403 \\
+7 & 604.3 & 610 & 78.0 & 62.0 & 22917 & 45950 \\
+8 & 616.1 & 621 & 74.8 & 60.5 & 22957 & 46010 \\
+9 & 623.0 & 633 & 76.9 & 55.6 & 24498 & 50053 \\
+
+\end{longtable}
+
+\subsection{RQ3: Cohort Progress}\label{sec-rq3}
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\linewidth - 10\tabcolsep) * \real{0.1333}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 10\tabcolsep) * \real{0.1733}}
+  >{\raggedleft\arraybackslash}p{(\linewidth - 10\tabcolsep) * \real{0.1467}}
+  >{\raggedleft\arraybackslash}p{(\linewidth - 10\tabcolsep) * \real{0.2000}}
+  >{\raggedleft\arraybackslash}p{(\linewidth - 10\tabcolsep) * \real{0.1467}}
+  >{\raggedleft\arraybackslash}p{(\linewidth - 10\tabcolsep) * \real{0.2000}}@{}}
+
+\caption{\label{tbl-cohort}Cohort Progress: Students with Longitudinal
+Records}
+
+\tabularnewline
+
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+YEAR
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+CONTENT\_AREA
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+mean\_score
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+pct\_proficient
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+n\_students
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+n\_observations
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+2020\_2021 & MATHEMATICS & 538.6 & 61.3 & 28713 & 28713 \\
+2020\_2021 & READING & 630.3 & 74.0 & 28491 & 28491 \\
+2021\_2022 & MATHEMATICS & 546.8 & 58.9 & 35104 & 35104 \\
+2021\_2022 & READING & 637.5 & 74.6 & 34880 & 34880 \\
+2022\_2023 & MATHEMATICS & 549.0 & 59.4 & 35733 & 35733 \\
+2022\_2023 & READING & 637.5 & 73.7 & 35504 & 35504 \\
+2023\_2024 & MATHEMATICS & 547.3 & 58.2 & 36248 & 36248 \\
+2023\_2024 & READING & 637.5 & 73.2 & 36046 & 36046 \\
+2024\_2025 & MATHEMATICS & 557.6 & 56.6 & 30095 & 30095 \\
+2024\_2025 & READING & 646.0 & 73.6 & 30071 & 30071 \\
+
+\end{longtable}
+
+Cohort analysis tracks 48,578 students with 2+ years of data. Across the
+cohort, the mean scale score is 592.7 with an overall proficiency rate
+of 66.3\%.
+
+\subsection{Score Distribution Properties}\label{sec-distribution}
+
+\begin{longtable}[]{@{}llrrrrrrrr@{}}
+
+\caption{\label{tbl-distribution}Score Distribution by Content Area and
+Grade}
+
+\tabularnewline
+
+\toprule\noalign{}
+CONTENT\_AREA & GRADE & p10 & p25 & p50 & p75 & p90 & mean & sd & n \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+MATHEMATICS & 10 & 502 & 552 & 600 & 642 & 676 & 593.1 & 70.3 & 22785 \\
+MATHEMATICS & 3 & 376 & 425 & 476 & 527 & 581 & 478.1 & 83.4 & 22860 \\
+MATHEMATICS & 4 & 415 & 458 & 503 & 547 & 588 & 501.9 & 71.0 & 22790 \\
+MATHEMATICS & 5 & 443 & 487 & 532 & 576 & 617 & 531.1 & 71.2 & 22576 \\
+MATHEMATICS & 6 & 454 & 497 & 545 & 592 & 635 & 544.4 & 73.3 & 22704 \\
+MATHEMATICS & 7 & 476 & 519 & 565 & 609 & 648 & 562.3 & 69.0 & 22965 \\
+MATHEMATICS & 8 & 494 & 536 & 578 & 618 & 654 & 574.7 & 65.4 & 23006 \\
+MATHEMATICS & 9 & 489 & 537 & 586 & 629 & 664 & 579.3 & 71.4 & 25038 \\
+READING & 10 & 624 & 663 & 698 & 728 & 754 & 691.9 & 55.6 & 22768 \\
+READING & 3 & 497 & 537 & 575 & 612 & 648 & 572.2 & 67.3 & 21828 \\
+READING & 4 & 530 & 568 & 603 & 634 & 661 & 597.6 & 56.8 & 22701 \\
+READING & 5 & 549 & 589 & 627 & 663 & 694 & 622.8 & 61.9 & 22577 \\
+READING & 6 & 555 & 598 & 639 & 674 & 703 & 632.3 & 63.6 & 22699 \\
+READING & 7 & 570 & 612 & 652 & 688 & 717 & 646.3 & 62.4 & 22985 \\
+READING & 8 & 583 & 624 & 663 & 698 & 726 & 657.6 & 59.0 & 23004 \\
+READING & 9 & 600 & 637 & 672 & 703 & 728 & 666.8 & 53.8 & 25015 \\
+
+\end{longtable}
+
+Scale score distributions show a median of 598 with an interquartile
+range of 120 points, indicating substantial variation in student
+achievement.
+
+\subsection{Summary of Findings}\label{sec-results-summary}
+
+The results reveal several key patterns across the three research
+questions. Achievement trends show the trajectory of proficiency rates
+and mean scores over the years examined. District comparisons reveal
+variation in outcomes that warrants further investigation. The cohort
+analysis demonstrates how student achievement trajectories develop over
+the longitudinal span of the dataset, while score distribution analyses
+reveal the full shape of the achievement continuum beyond mean-level
+summaries.
+
+\section{Discussion}\label{discussion}
+
+\subsection{Summary of Findings}\label{sec-summary}
+
+This dissertation examined longitudinal student achievement patterns in
+Reading and Mathematics using a multi-year, multi-district assessment
+dataset. Three research questions guided the investigation, each
+yielding findings that contribute to our understanding of achievement
+patterns in educational measurement.
+
+\subsection{Interpretation of Results}\label{sec-interpretation}
+
+\subsubsection{Achievement Trends (RQ1)}\label{achievement-trends-rq1}
+
+The achievement trend analyses revealed patterns in mean scores and
+proficiency rates across academic years. Examining trends by content
+area provides insight into whether improvements (or declines) are
+broad-based or concentrated in particular subjects. The consistency or
+divergence of Reading and Mathematics trajectories over time informs
+discussions about the relative effectiveness of curricular and
+instructional investments.
+
+\subsubsection{District Variation (RQ2)}\label{district-variation-rq2}
+
+The between-district comparisons uncovered variation in achievement that
+reflects underlying differences in resources, instructional quality, and
+community characteristics. These findings align with the literature on
+educational inequality and suggest that district-level analyses provide
+a practical unit for identifying both exemplary practice and areas
+needing support.
+
+\subsubsection{Cohort Progress (RQ3)}\label{cohort-progress-rq3}
+
+The cohort tracking analysis demonstrated how students progress through
+grade levels over time. Examining the achievement trajectories of
+students with longitudinal records provides insight into the stability
+of student performance and the extent to which early achievement
+predicts later outcomes.
+
+\subsection{Implications}\label{sec-implications}
+
+\subsubsection{For Policy}\label{for-policy}
+
+The findings suggest that longitudinal achievement analyses provide
+richer information than cross-sectional snapshots for understanding
+educational effectiveness. Policymakers should consider incorporating
+multi-year trend data and distributional analyses alongside
+point-in-time proficiency rates to capture a more complete picture of
+system performance.
+
+\subsubsection{For Practice}\label{for-practice}
+
+Educators can use achievement trend and distribution data to identify
+grade levels or content areas where performance is changing and to
+target instructional resources accordingly. Between-district comparisons
+can help districts benchmark their performance and identify peers from
+whom to learn.
+
+\subsubsection{For Research Methodology}\label{for-research-methodology}
+
+The AI-native dissertation framework demonstrates a new paradigm for
+scholarly work in which the analysis code, documentation, and
+dissemination are unified in a single reproducible system. This approach
+enhances transparency, replicability, and accessibility of research.
+
+\subsection{Limitations}\label{sec-limitations}
+
+Several limitations should be considered when interpreting these
+findings. First, the dataset used in this framework demonstration is
+intended to illustrate methodological patterns and the AI-native
+framework architecture rather than to support specific policy
+conclusions. Second, the analyses presented here are descriptive and do
+not account for school- or teacher-level effects that may confound
+district-level comparisons. Third, without demographic covariates in the
+dataset, equity analyses at the student level are limited to
+organizational comparisons (district, school) rather than individual
+student characteristics.
+
+\subsection{Future Directions}\label{sec-future}
+
+Future research could extend this work in several directions:
+incorporating multilevel models to account for the nested structure of
+educational data, adding demographic variables to enable equity-focused
+disaggregation, integrating growth measures alongside achievement
+status, and leveraging the AI-native framework to enable more
+interactive and exploratory analyses.
+
+\subsection{Conclusion}\label{sec-conclusion}
+
+This dissertation contributes both substantive findings on student
+achievement patterns and a methodological framework for conducting
+AI-native research. By open-sourcing the analysis code, documentation,
+and web application, this work aims to lower the barrier for future
+researchers to conduct rigorous, transparent, and accessible
+dissertation research.
+
+\section*{References}\label{references}
+\addcontentsline{toc}{section}{References}
+
+
+
+
+\end{document}

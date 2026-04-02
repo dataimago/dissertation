@@ -1,0 +1,13 @@
+^\.git$
+^\.gitignore$
+^\.Rproj\.user$
+^.*\.Rproj$
+^CLAUDE\.md$
+^README\.md$
+^docs$
+^quarto_website/_freeze$
+^quarto_website/\.quarto$
+^quarto_website/_site$
+^quarto_website/site_libs$
+^quarto_website/assets/img$
+^quarto_website/assets/js$

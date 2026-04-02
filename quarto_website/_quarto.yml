@@ -1,0 +1,109 @@
+project:
+  type: website
+  output-dir: ../docs
+  render:
+   - "*.qmd"
+   - "content/chapters/**"
+
+execute:
+  freeze: auto
+
+# Define your package documentation
+references:
+  - type: r
+    title: "Function Reference"
+    source: "../man"
+
+# ---- Website profile (default) ----
+website:
+  site-url: "https://dataimago.github.io/dissertation/"
+  repo-url: "https://github.com/dataimago/dissertation"
+  title: "An AI-Native Dissertation Framework"
+
+  page-navigation: true
+  navbar:
+    title: "dissertation"
+    search: false
+    pinned: true
+    foreground: "#7c7c7c"
+    right:
+      - text: About
+        href: about.qmd
+      - text: Getting Started
+        href: getting_started.qmd
+      - text: Dissertation
+        menu:
+          - text: Overview
+            href: overview.qmd
+          - text: "Ch 1: Introduction"
+            href: content/chapters/introduction.qmd
+          - text: "Ch 2: Literature Review"
+            href: content/chapters/literature_review.qmd
+          - text: "Ch 3: Methods"
+            href: content/chapters/methods.qmd
+          - text: "Ch 4: Results"
+            href: content/chapters/results.qmd
+          - text: "Ch 5: Discussion"
+            href: content/chapters/discussion.qmd
+      - text: R Package
+        menu:
+          - text: API Reference
+            href: api_reference.qmd
+          - text: Data Dictionary
+            href: data_dictionary.qmd
+      - text: Resources
+        menu:
+          - text: AI Ethics in Research
+            href: ai_ethics.qmd
+          - text: Customization Guide
+            href: customization_guide.qmd
+      - text: News
+        href: news.qmd
+      - text: "{{< iconify fa6-brands github size=28px title='GitHub Repo' >}}"
+        href: https://github.com/dataimago/dissertation/
+        target: _blank
+
+  search:
+    location: navbar
+    type: overlay
+    copy-button: true
+
+  page-footer:
+    center:
+      - text: "{{< iconify jam:github-square size=33.5px title='dissertation GitHub Repo' >}}"
+        href: https://github.com/dataimago/dissertation/
+        target: _blank
+
+  twitter-card:
+    title: "AI-Native Dissertation Framework"
+    description: "A forkable framework for writing dissertations with AI as a collaborator"
+    card-style: summary
+
+format:
+  html:
+    theme:
+      light: cosmo
+      dark: [cosmo]
+    toc: true
+
+# ============================================================
+# RENDER PROFILES
+# ============================================================
+# The dissertation renders three ways from the same .qmd source:
+#
+#   1. Website (default):  quarto render
+#      → Interactive website with navigation, search, chapter links
+#      → Output: ../docs/
+#
+#   2. Thesis PDF:         quarto render --profile thesis
+#      → Formal university submission using thesis.cls
+#      → Output: ../inst/thesis/output/
+#      → Config: _quarto-thesis.yml + inst/thesis/thesis-preamble.tex
+#
+#   3. Working Paper:      quarto render --profile working-paper
+#      → Clean HTML + PDF for sharing and versioning (v1.0, v1.1, ...)
+#      → Output: ../inst/working-paper/output/
+#      → Config: _quarto-working-paper.yml + assets/css/working-paper.css
+#
+# Profiles are auto-discovered from _quarto-thesis.yml and
+# _quarto-working-paper.yml — no explicit profile: block needed.

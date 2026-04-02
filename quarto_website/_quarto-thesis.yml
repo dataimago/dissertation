@@ -1,0 +1,20 @@
+# ============================================================
+# Thesis Profile — DOCUMENTATION ONLY
+# ============================================================
+# The thesis render is self-contained in content/thesis-main.qmd.
+# All LaTeX/thesis.cls config lives in that file's YAML frontmatter,
+# avoiding Quarto profile merge issues with the website config.
+#
+# Render with:
+#   cd quarto_website
+#   quarto render content/thesis-main.qmd --to pdf
+#
+# Key files:
+#   content/thesis-main.qmd         — Master document (includes all chapters)
+#   inst/thesis/thesis-preamble.tex — Preamble metadata (author, committee, etc.)
+#   inst/thesis/thesis.cls          — University formatting class file
+#   content/thesis.cls              — Symlink so pdflatex can find the class
+#
+# Output: content/dissertation-thesis.pdf
+#   (move to inst/thesis/output/ if desired)
+# ============================================================

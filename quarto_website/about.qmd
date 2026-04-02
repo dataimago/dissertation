@@ -1,0 +1,30 @@
+---
+title: "About This Framework"
+---
+
+## AI-Native Dissertation Framework
+
+This framework demonstrates how to write a dissertation that treats AI as a collaborator in analysis, writing, and dissemination. It is built on three core components:
+
+1. **An R package** housing data, analysis functions, a REST API, and documentation
+2. **Quarto source files** that produce both a thesis PDF and an interactive website
+3. **A NextJS web application** providing interactive visualizations and an AI chatbot
+
+## Why AI-Native?
+
+Traditional dissertations are static documents. An AI-native dissertation is a living system where readers can explore the research interactively, ask questions via a chatbot, and verify results through transparent, reproducible code.
+
+The "AI-native" designation means AI is integrated throughout the workflow — not as an afterthought, but as a design principle. The R package exposes analysis functions via REST APIs and MCP (Model Context Protocol) endpoints so that AI agents can responsibly access and reason about the research.
+
+## Authors
+
+- **Damian W. Betebenner** — Center for Assessment (NCIEA)
+- **Adam R. Van Iwaarden** — Center for Assessment (NCIEA)
+
+## License
+
+This project is licensed under the MIT License.
+
+## Acknowledgments
+
+This framework is part of the [dataimago](https://dataimago.github.io/) ecosystem for emancipatory data science.

@@ -1,0 +1,109 @@
+%% before-body.tex — Quarto template partial for thesis.cls integration
+%%
+%% PURPOSE:
+%% The CU Boulder thesis.cls expects specific preamble commands (\author, \degree,
+%% \dept, \advisor, etc.) that are normally placed in a .tex file BEFORE
+%% \begin{document}. Quarto generates the \begin{document} automatically, so we
+%% inject these commands via Quarto's "include-before-body" mechanism — but they
+%% actually need to appear in the PREAMBLE. We use "include-in-header" for the
+%% preamble commands and "include-before-body" for any post-\begin{document} content.
+%%
+%% HOW TO USE:
+%% This file is referenced in _quarto-thesis.yml via:
+%%   include-in-header: ../inst/thesis/thesis-preamble.tex
+%%
+%% CUSTOMIZATION:
+%% Edit the values below to match YOUR dissertation. These map to the commands
+%% that thesis.cls uses to generate the title page, approval page, and abstract.
+%%
+%% For other universities: replace these commands with whatever your thesis.cls
+%% expects in the preamble. The file name and Quarto config reference stay the same.
+
+%% ============================================================
+%% DISSERTATION METADATA — Edit these for your dissertation
+%% ============================================================
+
+%% Your dissertation title (appears on title page and abstract)
+\title{Longitudinal Achievement Patterns in Reading and Mathematics: An AI-Native Dissertation Framework}
+
+%% Your name: \author{First M.}{Last}
+\author{Your}{Name}
+
+%% Other degrees you hold (each on its own line, separated by \\)
+\otherdegrees{B.A., Your University, 20XX \\
+              M.S., Another University, 20XX}
+
+%% The degree you are receiving:
+%%   First arg: full name of the degree
+%%   Second arg: abbreviation and field
+\degree{Doctor of Philosophy}
+       {Ph.D., Education Research and Methodology}
+
+%% Your department:
+%%   First arg: organizational designation (e.g., "Department of", "School of", "College of")
+%%   Second arg: name of the department
+\dept{School of}
+     {Education}
+
+%% Your dissertation advisor:
+%%   First arg: title (e.g., "Prof.", "Dr.", "Associate Professor")
+%%   Second arg: full name
+\advisor{Prof.}
+        {Your Advisor}
+
+%% Committee member who signs the thesis (required)
+\reader{Committee Member Two}
+
+%% Additional committee members (optional — comment out if not needed)
+\readerThree{Committee Member Three}
+\readerFour{Committee Member Four}
+%\readerFive{Committee Member Five}
+
+%% Optional: IRB protocol number (uncomment if applicable)
+% \IRBprotocol{E927F29.001X}
+
+%% ============================================================
+%% ABSTRACT — Edit with your actual abstract
+%% ============================================================
+
+\abstract{
+This dissertation examines longitudinal achievement patterns in Reading and
+Mathematics using a multi-year, multi-district assessment dataset. Three
+research questions guide the investigation: (1) What are the longitudinal
+achievement trends and how do proficiency rates change over time?
+(2) How does student achievement vary across districts? (3) How do cohorts
+of students progress through grade levels?
+
+Beyond the substantive findings, this work demonstrates an AI-native
+dissertation framework --- a reproducible, forkable system that unifies
+dissertation text, statistical analyses, and interactive dissemination
+into a single repository. The framework treats AI as a collaborator in
+analysis, writing, and dissemination, while maintaining full transparency
+and human authorship of all scholarly conclusions.
+}
+
+%% ============================================================
+%% DEDICATION and ACKNOWLEDGMENTS (optional)
+%% ============================================================
+
+\dedication[Dedication]{
+  To all who believe in open, reproducible scholarship.
+}
+
+\acknowledgements{ \OnePageChapter
+  The author gratefully acknowledges the support of advisors, colleagues,
+  and the open-source community. This framework builds on the work of
+  many contributors to R, Quarto, and the broader data science ecosystem.
+}
+
+%% ============================================================
+%% TABLE OF CONTENTS / LIST OF FIGURES / LIST OF TABLES
+%% ============================================================
+%% Use the "Short" versions if the list fits on one page.
+%% Use the "empty" versions if there are no figures/tables.
+
+\ToCisShort        % Use for 1-page Table of Contents
+% \LoFisShort      % Use for 1-page List of Figures
+% \emptyLoF        % Use if there is no List of Figures
+% \LoTisShort      % Use for 1-page List of Tables
+% \emptyLoT        % Use if there is no List of Tables

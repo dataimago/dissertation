@@ -1,0 +1,127 @@
+---
+title: "Results"
+number-sections: true
+---
+
+```{r}
+#| label: results-setup
+#| include: false
+library(dissertation)
+library(data.table)
+data(assessmentData)
+```
+
+## Overview {#sec-results-overview}
+
+This chapter presents the findings organized by research question. All results are generated programmatically from the `dissertation` R package analysis functions, ensuring that the narrative is always synchronized with the underlying data.
+
+## RQ1: Achievement Trends {#sec-rq1}
+
+```{r}
+#| label: achievement-trends
+#| echo: false
+trends <- analyzeAssessment("achievement_trends")
+```
+
+Achievement trends across `r length(unique(trends$results$YEAR))` academic years reveal the following patterns:
+
+```{r}
+#| label: tbl-achievement-trends
+#| tbl-cap: "Mean Score and Proficiency Rate by Year and Content Area"
+#| echo: false
+knitr::kable(trends$results, digits = 1)
+```
+
+`r trends$interpretation`
+
+### Reading Achievement Patterns
+
+```{r}
+#| label: reading-trends
+#| echo: false
+reading_trends <- analyzeAssessment("achievement_trends", content_area = "READING")
+```
+
+`r reading_trends$interpretation`
+
+### Mathematics Achievement Patterns
+
+```{r}
+#| label: math-trends
+#| echo: false
+math_trends <- analyzeAssessment("achievement_trends", content_area = "MATHEMATICS")
+```
+
+`r math_trends$interpretation`
+
+## RQ2: District Variation {#sec-rq2}
+
+### Between-District Achievement Comparisons
+
+```{r}
+#| label: district-comparison
+#| echo: false
+district <- analyzeAssessment("district_comparison")
+```
+
+```{r}
+#| label: tbl-district
+#| tbl-cap: "Achievement by District"
+#| echo: false
+knitr::kable(district$results, digits = 1)
+```
+
+`r district$interpretation`
+
+### Achievement Summaries by Grade
+
+```{r}
+#| label: grade-summary
+#| echo: false
+grade_summary <- summarizeAssessment(group_by = "GRADE")
+```
+
+```{r}
+#| label: tbl-grade-summary
+#| tbl-cap: "Achievement Summary by Grade"
+#| echo: false
+knitr::kable(grade_summary$summary, digits = 1)
+```
+
+## RQ3: Cohort Progress {#sec-rq3}
+
+```{r}
+#| label: cohort-progress
+#| echo: false
+cohort <- analyzeAssessment("cohort_progress")
+```
+
+```{r}
+#| label: tbl-cohort
+#| tbl-cap: "Cohort Progress: Students with Longitudinal Records"
+#| echo: false
+knitr::kable(cohort$results, digits = 1)
+```
+
+`r cohort$interpretation`
+
+## Score Distribution Properties {#sec-distribution}
+
+```{r}
+#| label: distribution
+#| echo: false
+dist <- analyzeAssessment("score_distribution")
+```
+
+```{r}
+#| label: tbl-distribution
+#| tbl-cap: "Score Distribution by Content Area and Grade"
+#| echo: false
+knitr::kable(dist$results, digits = 1)
+```
+
+`r dist$interpretation`
+
+## Summary of Findings {#sec-results-summary}
+
+The results reveal several key patterns across the three research questions. Achievement trends show the trajectory of proficiency rates and mean scores over the years examined. District comparisons reveal variation in outcomes that warrants further investigation. The cohort analysis demonstrates how student achievement trajectories develop over the longitudinal span of the dataset, while score distribution analyses reveal the full shape of the achievement continuum beyond mean-level summaries.

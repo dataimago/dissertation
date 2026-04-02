@@ -1,0 +1,89 @@
+---
+title: "Getting Started"
+---
+
+## Prerequisites
+
+Before using this framework, ensure you have the following installed:
+
+- **R** (>= 4.5): [https://cran.r-project.org/](https://cran.r-project.org/)
+- **Quarto** (>= 1.6): [https://quarto.org/docs/get-started/](https://quarto.org/docs/get-started/)
+- **Git**: [https://git-scm.com/](https://git-scm.com/)
+- **RStudio** or **VS Code**: Your preferred IDE
+- **Node.js** (LTS, optional): For the web application extras
+
+## Quick Start
+
+### 1. Fork and Clone
+
+Fork both repositories on GitHub, then clone them:
+
+```bash
+git clone https://github.com/YOUR-USERNAME/dissertation.git dissertation-rpkg
+git clone https://github.com/YOUR-USERNAME/dissertation-ai.git dissertation-ai
+```
+
+### 2. Install the R Package
+
+```r
+# From the dissertation-rpkg directory
+devtools::install("dissertation")
+
+# Load and verify
+library(dissertation)
+data(assessmentData)
+head(assessmentData)
+```
+
+### 3. Explore the Analysis Functions
+
+```r
+# Summary statistics
+summarizeAssessment()
+summarizeAssessment(content_area = "READING", group_by = "GRADE")
+
+# Detailed analyses
+analyzeAssessment("achievement_trends")
+analyzeAssessment("district_comparison")
+analyzeAssessment("score_distribution", grade = "5")
+
+# Chapter information
+getChapterSummary("results", include_data = TRUE)
+
+# Discovery
+getAvailableAnalyses()
+```
+
+### 4. Start the REST API
+
+```r
+run_dissertation_api(port = 8000)
+
+# Then visit:
+# http://localhost:8000/summary?content_area=READING
+# http://localhost:8000/analysis?type=achievement_trends
+# http://localhost:8000/openapi.json
+```
+
+### 5. Render the Outputs
+
+The same `.qmd` source files produce three different outputs:
+
+```bash
+cd dissertation-rpkg/dissertation/quarto_website
+
+# Interactive website (default)
+quarto render
+
+# Formal thesis PDF using institutional thesis.cls
+quarto render --profile thesis
+
+# Working paper (HTML + PDF) for sharing and versioning
+quarto render --profile working-paper
+```
+
+## Next Steps
+
+- Read the [Customization Guide](customization_guide.qmd) to adapt the framework for your dissertation
+- Explore the [API Reference](api_reference.qmd) for endpoint documentation
+- Review [AI Ethics in Research](ai_ethics.qmd) for responsible AI integration

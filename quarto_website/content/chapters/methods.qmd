@@ -1,0 +1,77 @@
+---
+title: "Methods"
+number-sections: true
+---
+
+```{r}
+#| label: methods-setup
+#| include: false
+library(dissertation)
+library(data.table)
+data(assessmentData)
+```
+
+## Overview {#sec-methods-overview}
+
+This chapter describes the data, measures, and analytic methods used to address the research questions. All analyses are implemented as reproducible R functions within the `dissertation` R package, ensuring complete transparency and replicability.
+
+## Data Source {#sec-data-source}
+
+The dataset comprises `r format(nrow(assessmentData), big.mark = ",")` longitudinal assessment records for `r format(length(unique(assessmentData$ID)), big.mark = ",")` students across grades `r paste(sort(unique(assessmentData$GRADE)), collapse = ", ")` in `r paste(unique(assessmentData$CONTENT_AREA), collapse = " and ")` spanning `r length(unique(assessmentData$YEAR))` academic years (`r paste(sort(unique(assessmentData$YEAR)), collapse = ", ")`).
+
+## Sample Description {#sec-sample}
+
+```{r}
+#| label: tbl-sample
+#| tbl-cap: "Sample Size by Content Area and Year"
+#| echo: false
+
+sample_summary <- assessmentData[, .(
+    N_Students = uniqueN(ID),
+    N_Observations = .N
+), keyby = .(CONTENT_AREA, YEAR)]
+
+knitr::kable(sample_summary, format.args = list(big.mark = ","))
+```
+
+The sample includes students from `r length(unique(assessmentData$DISTRICT_NUMBER))` districts and `r length(unique(assessmentData$SCHOOL_NUMBER))` schools. @tbl-sample presents the sample composition by content area and year.
+
+## Measures {#sec-measures}
+
+### Scale Scores
+
+Student achievement is measured using scale scores in Reading and Mathematics. Scale scores range from `r min(assessmentData$SCALE_SCORE)` to `r max(assessmentData$SCALE_SCORE)` across the dataset.
+
+### Achievement Levels
+
+Scale scores are classified into performance levels using grade-specific cut points. The levels in the dataset are: `r paste(sort(unique(assessmentData$ACHIEVEMENT_LEVEL)), collapse = ", ")`. Students at the Proficient or Advanced level are considered to have met grade-level expectations.
+
+### Organizational Variables
+
+Records include district identifiers (`DISTRICT_NUMBER`) and school identifiers (`SCHOOL_NUMBER`), enabling analyses of between-district and between-school variation.
+
+## Analytic Approach {#sec-analytic-approach}
+
+The analyses are organized to address each research question:
+
+**RQ1 — Achievement Trends**: Longitudinal achievement patterns are examined by computing mean scores and proficiency rates by year and content area using the `analyzeAssessment("achievement_trends")` function.
+
+**RQ2 — District Variation**: Between-district comparisons use `analyzeAssessment("district_comparison")` to examine variation in mean scores, proficiency rates, and sample sizes across the `r length(unique(assessmentData$DISTRICT_NUMBER))` districts in the dataset.
+
+**RQ3 — Cohort Progress**: Cohort tracking via `analyzeAssessment("cohort_progress")` examines how students with longitudinal records progress through grade levels over time.
+
+Additionally, score distribution analyses using `analyzeAssessment("score_distribution")` provide percentile breakpoints (10th, 25th, 50th, 75th, 90th) to characterize the full shape of the achievement distribution.
+
+## Reproducibility {#sec-reproducibility}
+
+All analyses are implemented in the `dissertation` R package and can be replicated by installing the package and calling the analysis functions directly:
+
+```{r}
+#| label: reproducibility-demo
+#| eval: false
+library(dissertation)
+summarizeAssessment(content_area = "READING", group_by = "GRADE")
+analyzeAssessment("achievement_trends", content_area = "MATHEMATICS")
+```
+
+The complete analysis code, data, and documentation are available via the package's GitHub repository and REST API.

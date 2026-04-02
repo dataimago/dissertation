@@ -1,0 +1,160 @@
+---
+title: "Customization Guide"
+---
+
+## Adapting the Framework for Your Dissertation
+
+This guide walks through the steps to transform this template into your own dissertation.
+
+## Step 1: Replace the Dataset
+
+The seed dataset (`assessmentData`) demonstrates the structure. Replace it with your own:
+
+```r
+library(data.table)
+
+# Load your data
+my_data <- fread("path/to/your/data.csv")
+
+# Save in the package format
+save(my_data, file = "data/my_data.rda", compress = "xz")
+```
+
+Then update `R/data.R` with documentation matching your variables.
+
+## Step 2: Modify the Analysis Functions
+
+Edit `R/analysis.R` to match your research questions. The key pattern to maintain is:
+
+```r
+myAnalysis <- function(param1 = "default", include_meta = FALSE) {
+    # 1. Validate inputs
+    # 2. Filter/process data
+    # 3. Compute results as a data.table
+    # 4. Return structured list with status, results, interpretation
+    list(
+        status = "success",
+        results = my_results_dt,
+        interpretation = "Plain-language summary...",
+        filters = list(param1 = param1)
+    )
+}
+```
+
+This pattern ensures your functions work seamlessly with the REST API and MCP tools.
+
+## Step 3: Update the API Endpoints
+
+Edit `R/api.R` to expose your new functions. Follow the existing endpoint pattern:
+
+1. Parse query parameters from the request
+2. Call your analysis function
+3. Return JSON response with CORS headers
+
+## Step 4: Write Your Dissertation Chapters
+
+Replace the template content in `quarto_website/content/chapters/` with your own writing. The Quarto files support:
+
+- Inline R code: `` `r nrow(assessmentData)` `` for dynamic values
+- Code chunks for tables and figures
+- Cross-references between sections
+- Bibliography via `references.bib`
+
+## Step 5: Configure Your Three Output Formats
+
+The dissertation renders three ways from the same `.qmd` source files:
+
+### 5a. Website (default)
+
+The interactive website with navigation, search, and chapter links. No configuration needed — this is the default render:
+
+```bash
+cd quarto_website
+quarto render
+```
+
+### 5b. Thesis PDF — Formal University Submission
+
+This uses your institution's `thesis.cls` to produce a PDF that meets Graduate School formatting requirements. The CU Boulder `thesis.cls` is included as an exemplar.
+
+**To use the included CU Boulder template:**
+
+1. Edit `inst/thesis/thesis-preamble.tex` with your dissertation metadata (title, name, committee, abstract, degree, department)
+2. Render with:
+
+```bash
+cd quarto_website
+quarto render --profile thesis
+```
+
+**To adapt for your own university:**
+
+1. Obtain your institution's thesis/dissertation `.cls` or `.sty` file. Many graduate schools provide this as a LaTeX template, or you may need to create one from a Word template (AI can help with this).
+2. Place it in `inst/thesis/`, replacing (or alongside) `thesis.cls`
+3. Read the annotated comments in the existing `thesis.cls` — they explain what each section does and what to change. The `inst/thesis/ANNOTATION_GUIDE.txt` provides a detailed adaptation workflow.
+4. Edit `inst/thesis/thesis-preamble.tex` to use the preamble commands your class file expects
+5. Update `_quarto-thesis.yml` to reference your class file:
+
+```yaml
+format:
+  pdf:
+    documentclass: your-thesis-class
+    classoption: [your, options]
+    include-in-header: ../inst/thesis/thesis-preamble.tex
+```
+
+### 5c. Working Paper — Versioned HTML + PDF
+
+A clean, modern document format for sharing and iterating on the research beyond the formal dissertation. Think of it as the dissertation becoming v1.0 of an evolving research product:
+
+```bash
+cd quarto_website
+quarto render --profile working-paper
+```
+
+This produces both HTML and PDF with:
+
+- A versioned header (e.g., "Working Paper v1.0")
+- Academic working paper styling (serif body text, clean tables, code folding)
+- Table of contents and section numbering
+- Suitable for posting to SSRN, sharing with collaborators, or hosting independently
+
+To update the version number, edit the header in `_quarto-working-paper.yml`:
+
+```yaml
+include-in-header: |
+  \fancyhead[L]{\small\itshape Working Paper v1.1}
+```
+
+## Step 6: Update the MCP Schema
+
+If you modify the API endpoints, update the `mcp-schema.json` in the `dissertation-ai` repository to reflect your new tools.
+
+## Step 7: Update Package Metadata
+
+Edit `DESCRIPTION` with your name, title, and description. Update `R/dissertation-package.R` and `R/zzz.R` with your package name if you rename it.
+
+## Testing Your Changes
+
+After modifications, verify everything works:
+
+```r
+# Run tests
+devtools::test()
+
+# Check package
+devtools::check()
+
+# Test API
+run_dissertation_api()
+# Visit http://localhost:8000/openapi.json
+```
+
+Render all three outputs to verify:
+
+```bash
+cd quarto_website
+quarto render                          # Website
+quarto render --profile thesis         # Formal thesis PDF
+quarto render --profile working-paper  # Working paper HTML + PDF
+```

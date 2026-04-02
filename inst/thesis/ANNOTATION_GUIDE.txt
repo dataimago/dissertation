@@ -1,0 +1,450 @@
+================================================================================
+THESIS.CLS ANNOTATION GUIDE
+================================================================================
+
+This document explains the annotations added to thesis.cls and how to use them
+for adapting the class to your university's dissertation requirements.
+
+================================================================================
+1. WHAT WAS ANNOTATED
+================================================================================
+
+The CU Boulder thesis.cls (v1.14, Ken Anderson, August 2020) has been annotated
+with extensive comments to guide university adaptation. The original LaTeX code
+has NOT been modified - only comments have been added.
+
+File location: dissertation/inst/thesis/thesis.cls
+Original size: 1,282 lines
+Annotated size: 1,593 lines (311 lines of guidance comments added)
+
+Total annotations:
+  - 41 section headers marking major blocks
+  - 341 comment lines explaining concepts and changes
+  - Comments use standard %% prefix (standard LaTeX comment)
+
+================================================================================
+2. ANNOTATION CATEGORIES
+================================================================================
+
+Three types of guidance comments appear throughout the file:
+
+A. SECTION HEADERS
+   Format: %%%% SECTION: Section Name %%%%
+   Purpose: Delineate major functional areas
+   How to use: Search for these to navigate the file
+   Example: %%%% SECTION: TITLE PAGE GENERATION %%%%
+
+B. GUIDANCE PREFIXES
+   Standard prefixes on comment lines:
+   
+   %% UNIVERSAL:
+      - Marks core LaTeX mechanism that should NOT be changed
+      - Safe to skip reading these in detail
+      - Modify only if you deeply understand LaTeX internals
+      - Example: Spacing mechanism, command syntax
+   
+   %% CU-SPECIFIC:
+      - Marks requirements unique to CU Boulder
+      - These likely NEED to be changed for your university
+      - Compare these with your school's requirements
+      - Example: 1-inch margins, centered chapter headings
+   
+   %% ADAPT:
+      - Detailed guidance on how to make changes
+      - Includes explanations of what to look for
+      - Contains examples of modifications
+      - Example: "To change margins, edit the setlength commands..."
+   
+   %% GUIDE:
+      - Educational comments explaining LaTeX concepts
+      - Helps understand what the code does
+      - Useful for learning but not essential to modify
+      - Example: "LaTeX has a 1-inch default offset..."
+
+C. SUBSECTION MARKERS
+   Format: %%%% SUBSECTION: Descriptive Name %%%%
+   Purpose: Identify smaller functional units within sections
+   How to use: For fine-grained navigation within large sections
+
+================================================================================
+3. HOW TO USE THIS ANNOTATED FILE
+================================================================================
+
+Start with the master header comment at the top of thesis.cls:
+  - Explains overall purpose of the file
+  - Maps YAML frontmatter to LaTeX commands
+  - Lists key customization points with line numbers
+  - Provides workflow for adaptation
+
+Then follow this process:
+
+Step 1: Read Section Headers
+   - Open thesis.cls in a text editor
+   - Use Find to search for "%%%% SECTION:"
+   - This shows you the major functional blocks
+   - Creates a mental map of the file structure
+
+Step 2: Find CU-SPECIFIC Comments
+   - Search for "%% CU-SPECIFIC:"
+   - These mark aspects unique to CU Boulder
+   - Compare each with your university's requirements
+   - Note which ones need to be changed
+
+Step 3: Read ADAPT Comments
+   - Search for "%% ADAPT:"
+   - These provide specific guidance for changes
+   - Follow the suggestions for your modifications
+   - They often include examples
+
+Step 4: Understand with GUIDE Comments
+   - Read "%% GUIDE:" comments when confused
+   - They explain LaTeX concepts and mechanisms
+   - Help you understand what code does before modifying
+
+Step 5: Leave UNIVERSAL Comments Alone
+   - These mark code that should not be changed
+   - Understanding them helps, but skip if short on time
+   - Safe to assume these work correctly
+
+================================================================================
+4. FINDING WHAT YOU NEED TO CHANGE
+================================================================================
+
+Most universities need to modify these sections:
+
+A. Margins (MOST IMPORTANT)
+   Search for: "SET THE OVERALL DOCUMENT PROPERTIES"
+   What to look for:
+     - \setlength{\topmargin}
+     - \setlength{\oddsidemargin}
+     - \setlength{\textwidth}
+     - \setlength{\textheight}
+   Why: Margin requirements vary significantly by university
+   Impact: These control the size and position of printed area
+
+B. Title Page
+   Search for: "TITLE PAGE GENERATION"
+   What to look for:
+     - \begin{titlepage}
+     - \centering, \raggedright
+     - \vfill, \vspace
+     - \textbf, \textit, \Large, \normalsize
+   Why: Title page layout is most visually distinctive per school
+   Impact: Changes how the first page looks
+
+C. Heading Styles
+   Search for: "CHAPTER AND SECTION HEADING DEFINITIONS"
+   What to look for:
+     - \let\old@makechapterhead
+     - \newcommand{\makechapterhead}
+     - \bfseries (bold), \centering
+     - Font size commands (\Large, \large, etc.)
+   Why: Some universities require different chapter formatting
+   Impact: Changes appearance of chapter headings
+
+D. Page Style
+   Search for: "PAGE STYLE DEFINITION"
+   What to look for:
+     - \lhead{}, \chead{}, \rhead{}
+     - \lfoot{}, \cfoot{}, \rfoot{}
+     - \thepage (page number)
+   Why: Page numbering placement varies
+   Impact: Where page numbers appear (top/bottom, left/right)
+
+E. Approval Page
+   Search for: "APPROVAL PAGE"
+   What to look for:
+     - Currently commented out (lines start with %%)
+     - \begin{titlepage} for second page
+   Why: Some universities require signature page; CU v1.14 doesn't
+   Impact: Adds or removes the approval/signature page
+
+================================================================================
+5. UNDERSTANDING KEY LaTeX CONCEPTS
+================================================================================
+
+To successfully adapt the file, understand these concepts:
+
+A. Margins in LaTeX
+   LaTeX uses a 1-inch default offset from page edges.
+   
+   Example calculation:
+     - Want 1.25" left margin? Set oddsidemargin = 0.25in
+     - Want 1.5" left margin? Set oddsidemargin = 0.5in
+     - Want 1" left margin? Set oddsidemargin = 0.0in (no addition)
+   
+   The total left margin = 1" default + oddsidemargin value
+   
+   For textwidth:
+     Page width (8.5") - left margin - right margin = textwidth
+     Example: 8.5" - 1.25" - 1.25" = 6.0" textwidth
+
+B. Spacing Commands
+   - \vfill: Stretches to fill remaining vertical space
+   - \vspace{0.3in}: Adds fixed amount of space (0.3 inches)
+   - \\: Line break (moves to next line)
+   - \centering: Center following text horizontally
+   - \raggedright: Left-align following text
+
+C. Font Control
+   - \textbf{...}: Bold text
+   - \textit{...}: Italic text
+   - \Large, \large: Larger fonts (relative sizes)
+   - \normalsize: Standard font size
+   - \bfseries: Make subsequent text bold
+   - \mdseries: Medium weight (normal, not bold)
+
+D. Baselinestretch (Spacing)
+   Controls line spacing in document:
+   - 1.0: Single spacing
+   - 1.5: 1.5 spacing
+   - 2.0: Double spacing
+   - 1.660: CU's double-spacing equivalent for 12pt font
+   
+   Different values for different point sizes because optical
+   adjustment makes spacing look more consistent across sizes
+
+================================================================================
+6. MODIFICATION WORKFLOW
+================================================================================
+
+Recommended approach for adapting the file:
+
+1. Create a copy of this file
+   - Keep the original as backup
+   - Work on the copy for your university
+
+2. Document your changes
+   - Add a CHANGELOG comment block at the top:
+     %% MODIFIED FOR: University of XYZ
+     %% MODIFIED DATE: 2024-04-01
+     %% MODIFICATIONS:
+     %% - Changed left margin from 1" to 1.25"
+     %% - Modified title page layout
+     %% - Etc.
+
+3. Modify one section at a time
+   - Start with most critical (margins)
+   - Test after each change
+   - Don't change everything at once
+
+4. Test after each change
+   - Create a minimal test document
+   - Compile to PDF
+   - Verify changes work as expected
+
+5. Use a LaTeX-aware editor
+   - VS Code with LaTeX Workshop extension
+   - TeXShop (Mac)
+   - WinEdt (Windows)
+   - Allows syntax highlighting and preview
+
+6. Keep comments describing your changes
+   - Add comments explaining WHY you made changes
+   - Reference your university's requirement
+   - Helps future maintainers understand changes
+
+================================================================================
+7. EXAMPLE: CHANGING MARGINS
+================================================================================
+
+Scenario: Your university requires 1.5" left margin, 1" all other sides.
+
+Step 1: Locate the margin section
+   Search for: "SET THE OVERALL DOCUMENT PROPERTIES"
+   Found around line 301-334
+
+Step 2: Understand current settings
+   Current:
+     \setlength{\oddsidemargin}{0.00in}    % 1" total (default)
+     \setlength{\textwidth}{6.50in}        % 8.5 - 1 - 1 = 6.5
+
+Step 3: Calculate new values
+   Need: 1.5" left, 1" right, 1" top, 1" bottom
+   
+   Left: 1.5" = 1" default + 0.5in addition
+     \setlength{\oddsidemargin}{0.5in}
+   
+   Right: 1" (adjust textwidth)
+     textwidth = 8.5" - 1.5" - 1.0" = 6.0"
+     \setlength{\textwidth}{6.0in}
+   
+   Top: 1" (CU already has 1" equivalent)
+     topmargin, headheight, headsep adjust to give ~1" total
+     May need to adjust these values too
+   
+   Bottom: 1" (adjust textheight)
+     textheight = 11" - 1" top - 1" bottom = 9"
+     Current is 9.10", so change to 9.0in
+
+Step 4: Make the changes
+   Edit the setlength lines:
+     \setlength{\oddsidemargin}{0.5in}     % 1.5" total
+     \setlength{\textwidth}{6.0in}         % 6"
+     \setlength{\textheight}{9.0in}        % 9"
+
+Step 5: Test
+   Create a test document with actual content
+   Print and measure margins with ruler
+   Adjust if needed (may need fine-tuning)
+
+================================================================================
+8. EXAMPLE: MODIFYING TITLE PAGE
+================================================================================
+
+Scenario: Your university requires committee members on separate page.
+
+Step 1: Locate title page code
+   Search for: "TITLE PAGE GENERATION"
+   Found around line 850+
+
+Step 2: Identify committee section
+   Look for lines referencing \theadvisor or \thereader
+   These are in the latter part of the titlepage environment
+
+Step 3: Add page break before committee
+   Find: (line before committee section)
+   Insert: \newpage
+   
+   This moves committee to a new page
+
+Step 4: Adjust spacing
+   The \vfill commands distribute space on page
+   Remove or adjust these if new page breaks spacing
+
+Step 5: Test
+   Render sample document
+   Verify page break occurs at right location
+   Check committee names display correctly
+
+================================================================================
+9. COMMON PITFALLS AND HOW TO AVOID THEM
+================================================================================
+
+Pitfall 1: Changing UNIVERSAL sections
+   - Impact: May break LaTeX functionality
+   - Avoid: Only change sections marked ADAPT or CU-SPECIFIC
+   - Check: If unsure, ask "Is this core mechanism or setting?"
+
+Pitfall 2: Incorrect margin calculations
+   - Impact: Wrong printable area, possibly margin violation
+   - Avoid: Double-check LaTeX margin arithmetic
+   - Check: Measure printed output with ruler
+
+Pitfall 3: Breaking title page layout
+   - Impact: Title page unreadable or unsightly
+   - Avoid: Only move/remove whole blocks, test extensively
+   - Check: Render PDF and examine carefully
+
+Pitfall 4: Leaving commented-out code
+   - Impact: Confusing for future users of the file
+   - Avoid: If you remove functionality, delete the code
+   - Check: If you're keeping commented code, add explanation
+
+Pitfall 5: Not testing changes
+   - Impact: May not realize problems until final submission
+   - Avoid: Test each change immediately
+   - Check: Create test document with sample content
+
+Pitfall 6: Mixing spacing mechanisms
+   - Impact: Spacing looks inconsistent or wrong
+   - Avoid: Use either baselinestretch OR \vspace, not both
+   - Check: Understand which mechanism controls what
+
+================================================================================
+10. INTEGRATION WITH QUARTO
+================================================================================
+
+When using this class with Quarto, these annotations help understand:
+
+- How YAML frontmatter maps to LaTeX commands
+- Where to find each \newcommand for customization
+- How to pass values from Quarto to LaTeX
+
+Example Quarto setup:
+  ---
+  title: "Dissertation Title"
+  author: "Student Name"
+  degree: "Doctor of Philosophy"
+  department: "Computer Science"
+  advisor: "Dr. Advisor"
+  format:
+    pdf:
+      documentclass: thesis
+      classoption: [letterpaper, 12pt, defaultstyle]
+  ---
+
+Each YAML field corresponds to a LaTeX command:
+  - title -> \title{}
+  - author -> \author{}
+  - degree -> \degree{}
+  - etc.
+
+The annotations in thesis.cls show where these commands are defined
+and how they're used in the title page generation.
+
+================================================================================
+11. GETTING ADDITIONAL HELP
+================================================================================
+
+When annotations aren't enough:
+
+A. Understanding specific LaTeX
+   - TeXBook (by Donald Knuth) - comprehensive reference
+   - Stack Exchange (tex.stackexchange.com) - Q&A community
+   - CTAN (ctan.org) - packages and documentation
+
+B. Quarto-specific help
+   - Quarto documentation (quarto.org)
+   - Quarto GitHub issues (github.com/quarto-dev/quarto-cli)
+   - R-Ladies and R communities
+
+C. University-specific help
+   - Your Graduate School office
+   - Your department's technical support
+   - Other students who've formatted dissertations
+   - Your advisor or dissertation committee
+
+D. Testing help
+   - Use online LaTeX compilers (Overleaf.com)
+   - Share your .cls file on Stack Exchange
+   - Ask in Quarto discussions forum
+
+================================================================================
+12. MAINTAINING YOUR MODIFIED VERSION
+================================================================================
+
+Once you've adapted the file for your university:
+
+1. Version control
+   - Use Git to track changes
+   - Keep original and modified versions
+   - Document modifications in commit messages
+
+2. Documentation
+   - Create README explaining modifications
+   - List specific changes made and why
+   - Include before/after code snippets if substantial
+
+3. Testing
+   - Keep sample dissertation documents for regression testing
+   - Test new features before deployment
+   - Verify against university requirements regularly
+
+4. Sharing
+   - Share your modified version with other students
+   - Include CHANGELOG showing all modifications
+   - Make it clear which university it's for
+   - Include contact info for maintenance
+
+5. Maintenance
+   - Check if CU releases updates to thesis.cls
+   - Evaluate whether updates apply to your version
+   - Keep modifications documented and organized
+
+================================================================================
+
+For more information, refer to the comments in thesis.cls itself, starting
+with the comprehensive header comment at the very beginning of the file.
+
+================================================================================

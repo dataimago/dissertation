@@ -1,0 +1,106 @@
+---
+title: "API Reference"
+---
+
+## REST API Endpoints
+
+The dissertation R package exposes a REST API via RestRserve. Start the server with:
+
+```r
+library(dissertation)
+run_dissertation_api(port = 8000)
+```
+
+## Endpoints
+
+### GET /summary
+
+Returns assessment summary statistics with optional filtering and grouping.
+
+**Parameters:**
+
+| Parameter | Type | Default | Description |
+|-----------|------|---------|-------------|
+| content_area | string | "All" | "READING", "MATHEMATICS", or "All" |
+| year | string | "All" | Academic year in YYYY_YYYY format, or "All" |
+| group_by | string | "NONE" | Grouping variable (see below) |
+| include_meta | boolean | false | Include dataset metadata |
+
+**Valid group_by values:** NONE, CONTENT_AREA, GRADE, DISTRICT_NUMBER, SCHOOL_NUMBER, YEAR
+
+**Example:** `GET /summary?content_area=READING&group_by=GRADE`
+
+### GET /analysis
+
+Runs detailed assessment analyses.
+
+**Parameters:**
+
+| Parameter | Type | Default | Description |
+|-----------|------|---------|-------------|
+| type | string | "achievement_trends" | Analysis type (see below) |
+| content_area | string | "All" | Content area filter |
+| grade | string | "All" | Grade level filter |
+| include_meta | boolean | false | Include analysis metadata |
+
+**Valid type values:** achievement_trends, score_distribution, district_comparison, cohort_progress
+
+**Example:** `GET /analysis?type=district_comparison&content_area=MATHEMATICS`
+
+### GET /chapters
+
+Returns dissertation chapter information with optional linked data.
+
+**Parameters:**
+
+| Parameter | Type | Default | Description |
+|-----------|------|---------|-------------|
+| chapter | string/int | "all" | Chapter name or number (1-5) |
+| include_data | boolean | false | Include associated analysis results |
+
+**Example:** `GET /chapters?chapter=results&include_data=true`
+
+### GET /analyses
+
+Discover available analysis types and valid parameter values.
+
+**Example:** `GET /analyses`
+
+### GET /data/variables
+
+Returns metadata about the dataset's variables.
+
+**Example:** `GET /data/variables`
+
+### GET /openapi.json
+
+Returns the OpenAPI 3.0 specification for the API.
+
+## Response Format
+
+All endpoints return JSON with a consistent structure:
+
+```json
+{
+  "status": "success",
+  "summary": [...],
+  "filters": {
+    "content_area": "READING",
+    "year": "All",
+    "group_by": "GRADE"
+  },
+  "metadata": { ... }
+}
+```
+
+Error responses include a descriptive message:
+
+```json
+{
+  "status": "error",
+  "message": "Invalid content_area 'Physics'. Valid options: ALL, READING, MATHEMATICS",
+  "endpoint": "/summary",
+  "timestamp": "2026-04-01 12:00:00",
+  "code": "INTERNAL_ERROR"
+}
+```

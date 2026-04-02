@@ -1,0 +1,16 @@
+---
+title: "News"
+---
+
+## dissertation 0.0-0.1 (April 2026)
+
+Initial release of the AI-native dissertation framework.
+
+- Assessment dataset with 368,301 longitudinal records across 3 academic years
+- Core analysis functions: `summarizeAssessment()`, `analyzeAssessment()`, `getChapterSummary()`, `getAvailableAnalyses()`
+- Four analysis types: achievement trends, score distributions, district comparisons, cohort progress
+- REST API with 6 endpoints via RestRserve
+- Quarto website with 5 dissertation chapters
+- Thesis PDF output profile for institutional formatting
+- Comprehensive test suite
+- Customization guide for dissertation authors

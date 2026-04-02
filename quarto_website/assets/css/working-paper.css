@@ -1,0 +1,271 @@
+/* ============================================================
+ * Working Paper Styles
+ * ============================================================
+ * Clean, modern styling for the "working paper" version of the
+ * dissertation — designed for readability on screen and in print.
+ * This complements the website (navigation-focused) and the
+ * thesis PDF (formal submission) with a standalone document feel.
+ *
+ * Inspired by academic working paper series (NBER, SSRN, arXiv)
+ * and the dataimago document styles from HelloWorld.
+ * ============================================================ */
+
+/* ---- Page & Body ---- */
+body {
+  background-color: #f5f5f0;
+  margin: 0;
+  padding: 0;
+  font-family: "Source Serif Pro", "Georgia", "Times New Roman", serif;
+  line-height: 1.7;
+  color: #2c2c2c;
+}
+
+/* ---- Main Content Container ---- */
+main,
+.page-columns {
+  background-color: #ffffff;
+  border-radius: 4px;
+  box-shadow: 0 1px 8px rgba(0, 0, 0, 0.08);
+  margin: 2rem auto;
+  max-width: 48rem;
+  padding: 3rem 3.5rem;
+}
+
+/* ---- Title Block ---- */
+h1.title {
+  font-family: "Source Sans Pro", "Helvetica Neue", Arial, sans-serif;
+  font-weight: 700;
+  font-size: 2.2rem;
+  color: #1a1a2e;
+  line-height: 1.2;
+  margin-bottom: 0.3rem;
+  border-bottom: 3px solid #2d6a4f;
+  padding-bottom: 0.8rem;
+}
+
+.subtitle {
+  font-family: "Source Sans Pro", "Helvetica Neue", Arial, sans-serif;
+  font-size: 1.15rem;
+  color: #555;
+  font-style: italic;
+  margin-bottom: 0.5rem;
+}
+
+/* Author block */
+.quarto-title-meta,
+.author,
+.date {
+  font-family: "Source Sans Pro", "Helvetica Neue", Arial, sans-serif;
+}
+
+.author {
+  font-size: 1.1rem;
+  color: #333;
+  font-weight: 500;
+  margin-bottom: 0.2rem;
+}
+
+.date {
+  font-size: 0.9rem;
+  color: #888;
+  margin-bottom: 1.5rem;
+}
+
+/* Version badge */
+.working-paper-version {
+  display: inline-block;
+  background: #2d6a4f;
+  color: #fff;
+  font-family: "Source Sans Pro", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 0.2em 0.7em;
+  border-radius: 3px;
+  letter-spacing: 0.04em;
+  margin-bottom: 1.5rem;
+}
+
+/* ---- Abstract Box ---- */
+.abstract {
+  background: #f8f9f7;
+  border-left: 4px solid #2d6a4f;
+  padding: 1.2rem 1.5rem;
+  margin: 1.5rem 0 2rem;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: #444;
+}
+
+.abstract .abstract-title {
+  font-family: "Source Sans Pro", sans-serif;
+  font-weight: 700;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #2d6a4f;
+  margin-bottom: 0.5rem;
+}
+
+/* ---- Headings ---- */
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Source Sans Pro", "Helvetica Neue", Arial, sans-serif;
+  font-weight: 600;
+  margin-top: 2em;
+  margin-bottom: 0.5em;
+  color: #1a1a2e;
+}
+
+h2 {
+  font-size: 1.6rem;
+  border-bottom: 1px solid #e0e0e0;
+  padding-bottom: 0.3rem;
+}
+
+h3 {
+  font-size: 1.3rem;
+  color: #333;
+}
+
+h4 {
+  font-size: 1.1rem;
+  color: #555;
+}
+
+/* ---- Typography ---- */
+p {
+  margin-bottom: 1.15rem;
+  text-align: justify;
+  hyphens: auto;
+}
+
+/* ---- Tables ---- */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.5rem 0;
+  font-size: 0.9rem;
+}
+
+thead th {
+  background: #f8f9f7;
+  border-bottom: 2px solid #2d6a4f;
+  padding: 0.6rem 0.8rem;
+  text-align: left;
+  font-family: "Source Sans Pro", sans-serif;
+  font-weight: 600;
+  font-size: 0.85rem;
+  color: #1a1a2e;
+}
+
+tbody td {
+  padding: 0.5rem 0.8rem;
+  border-bottom: 1px solid #eee;
+}
+
+tbody tr:hover {
+  background: #fafaf8;
+}
+
+caption,
+.table-caption {
+  font-family: "Source Sans Pro", sans-serif;
+  font-size: 0.85rem;
+  color: #666;
+  text-align: left;
+  margin-bottom: 0.5rem;
+}
+
+/* ---- Code Blocks ---- */
+pre {
+  background-color: #f8f8f4;
+  border: 1px solid #e0e0d8;
+  border-radius: 3px;
+  margin: 1.5rem 0;
+  padding: 1rem 1.2rem;
+  overflow-x: auto;
+  font-size: 0.85rem;
+  line-height: 1.5;
+}
+
+code {
+  font-family: "Fira Code", "Source Code Pro", "Consolas", monospace;
+  font-size: 0.85em;
+}
+
+p code, li code {
+  background-color: #f0f0ec;
+  padding: 0.15em 0.35em;
+  border-radius: 2px;
+}
+
+/* ---- Figures ---- */
+figure {
+  margin: 2rem 0;
+}
+
+figcaption,
+.figure-caption {
+  font-family: "Source Sans Pro", sans-serif;
+  font-size: 0.85rem;
+  color: #666;
+  margin-top: 0.5rem;
+}
+
+/* ---- Links ---- */
+a {
+  color: #2d6a4f;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #1b4332;
+  text-decoration: underline;
+}
+
+/* ---- Blockquotes ---- */
+blockquote {
+  border-left: 3px solid #2d6a4f;
+  padding-left: 1.2rem;
+  margin-left: 0;
+  color: #555;
+  font-style: italic;
+}
+
+/* ---- Footnotes ---- */
+.footnotes {
+  font-size: 0.85rem;
+  color: #666;
+  border-top: 1px solid #e0e0e0;
+  margin-top: 3rem;
+  padding-top: 1rem;
+}
+
+/* ---- ToC Sidebar ---- */
+#TOC, .sidebar {
+  font-family: "Source Sans Pro", sans-serif;
+  font-size: 0.85rem;
+}
+
+/* ---- Print adjustments ---- */
+@media print {
+  body {
+    background: white;
+  }
+  main, .page-columns {
+    box-shadow: none;
+    margin: 0;
+    max-width: none;
+    padding: 0;
+  }
+}
+
+/* ---- Responsive ---- */
+@media (max-width: 768px) {
+  main, .page-columns {
+    margin: 0.5rem;
+    padding: 1.5rem;
+  }
+  h1.title {
+    font-size: 1.7rem;
+  }
+}

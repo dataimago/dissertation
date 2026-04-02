@@ -1,0 +1,93 @@
+# ============================================================
+# Working Paper Profile — Versioned HTML + PDF
+# ============================================================
+# Render with: quarto render --profile working-paper
+#
+# This profile produces a clean, modern "working paper" version
+# of the dissertation in both HTML and PDF formats. Unlike the
+# thesis profile (formal university submission), this is designed
+# for sharing, iterating, and extending the research:
+#
+#   v1.0 = the original dissertation analysis
+#   v1.1 = updated with new data or extended methods
+#   v2.0 = major revision with new research questions
+#
+# The HTML output is a standalone document (not a navigable website).
+# The PDF output uses clean LaTeX styling (not thesis.cls).
+# ============================================================
+
+project:
+  type: book
+  output-dir: ../inst/working-paper/output
+
+book:
+  title: "Longitudinal Achievement Patterns in Reading and Mathematics"
+  subtitle: "An AI-Native Dissertation Framework"
+  author:
+    - name: "Your Name"
+      affiliation: "University of Colorado Boulder"
+  date: today
+  date-format: "MMMM D, YYYY"
+  chapters:
+    - content/working-paper-index.qmd
+    - content/chapters/introduction.qmd
+    - content/chapters/literature_review.qmd
+    - content/chapters/methods.qmd
+    - content/chapters/results.qmd
+    - content/chapters/discussion.qmd
+    - references.qmd
+  abstract: |
+    This working paper examines longitudinal achievement patterns in Reading
+    and Mathematics using a multi-year, multi-district assessment dataset.
+    Three research questions guide the investigation: longitudinal achievement
+    trends and proficiency rates, between-district variation in student
+    outcomes, and cohort progress through grade levels. Beyond the substantive
+    findings, this work demonstrates an AI-native dissertation framework —
+    a reproducible, forkable system for scholarly research.
+
+bibliography: references.bib
+csl: apa.csl
+
+format:
+  html:
+    theme: cosmo
+    css: assets/css/working-paper.css
+    toc: true
+    toc-depth: 3
+    toc-location: left
+    number-sections: true
+    anchor-sections: true
+    smooth-scroll: true
+    code-fold: true
+    code-tools: true
+    self-contained: false
+
+  pdf:
+    documentclass: article
+    papersize: letter
+    geometry:
+      - top=1in
+      - bottom=1in
+      - left=1.25in
+      - right=1.25in
+    fontsize: 11pt
+    linestretch: 1.5
+    mainfont: "TeX Gyre Termes"
+    sansfont: "TeX Gyre Heros"
+    monofont: "Fira Code"
+    toc: true
+    toc-depth: 3
+    number-sections: true
+    colorlinks: true
+    linkcolor: "darkgreen"
+    urlcolor: "darkgreen"
+    citecolor: "darkgreen"
+    fig-pos: "H"
+    keep-tex: true
+    include-in-header: |
+      \usepackage{fancyhdr}
+      \pagestyle{fancy}
+      \fancyhead[L]{\small\itshape Working Paper v1.0}
+      \fancyhead[R]{\small\thepage}
+      \fancyfoot[C]{}
+      \renewcommand{\headrulewidth}{0.4pt}

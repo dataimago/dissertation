@@ -1,0 +1,26 @@
+# R package build artifacts
+*.Rcheck/
+*.tar.gz
+*.Rproj.user
+.Rproj.user
+.Rhistory
+.RData
+.Ruserdata
+
+# Quarto rendering output
+docs/
+quarto_website/_freeze/
+quarto_website/.quarto/
+quarto_website/_site/
+
+# Thesis output
+inst/thesis/output/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+*.swp
+*.swo

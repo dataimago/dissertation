@@ -1,0 +1,47 @@
+---
+title: "Data Dictionary"
+---
+
+## assessmentData
+
+The primary dataset contains longitudinal student assessment records across multiple years, grades, districts, and schools.
+
+```{r}
+#| label: setup
+#| include: false
+library(dissertation)
+library(data.table)
+data(assessmentData)
+```
+
+### Variables
+
+| Variable | Type | Description | Example Values |
+|----------|------|-------------|----------------|
+| CONTENT_AREA | Character | Subject area | READING, MATHEMATICS |
+| YEAR | Character | Academic year (YYYY_YYYY format) | 2022_2023, 2023_2024, 2024_2025 |
+| GRADE | Character | Grade level | 3, 4, 5, 6, 7, 8 |
+| ID | Character | Unique student identifier | Anonymized student IDs |
+| SCALE_SCORE | Numeric | Assessment scale score | Continuous numeric scores |
+| ACHIEVEMENT_LEVEL | Character | Performance level classification | Beginning, Developing, Proficient, Advanced |
+| DISTRICT_NUMBER | Integer | District identifier | Numeric district codes |
+| SCHOOL_NUMBER | Integer | School identifier | Numeric school codes |
+
+### Summary Statistics
+
+```{r}
+#| label: tbl-data-summary
+#| tbl-cap: "Dataset Dimensions"
+#| echo: false
+cat("Rows:", format(nrow(assessmentData), big.mark = ","), "\n")
+cat("Columns:", ncol(assessmentData), "\n")
+cat("Students:", format(length(unique(assessmentData$ID)), big.mark = ","), "\n")
+cat("Years:", paste(sort(unique(assessmentData$YEAR)), collapse = ", "), "\n")
+cat("Grades:", paste(sort(unique(assessmentData$GRADE)), collapse = ", "), "\n")
+cat("Districts:", length(unique(assessmentData$DISTRICT_NUMBER)), "\n")
+cat("Schools:", length(unique(assessmentData$SCHOOL_NUMBER)), "\n")
+```
+
+### Key: ID x CONTENT_AREA x YEAR
+
+The dataset is keyed on (ID, CONTENT_AREA, YEAR), meaning each row represents one student's assessment in one subject for one year.

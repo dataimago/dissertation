@@ -1,0 +1,36 @@
+---
+title: "Literature Review"
+number-sections: true
+---
+
+## Overview {#sec-lit-overview}
+
+<!--
+  TEMPLATE NOTE: Replace this content with your own literature review.
+  The section structure below follows a common dissertation pattern:
+  broad context → specific methodology → gap identification.
+-->
+
+This chapter reviews the literature relevant to understanding student achievement measurement and patterns in K-12 education. The review is organized into four sections: the role of standardized assessment in educational accountability, approaches to longitudinal achievement analysis, equity and between-district variation, and the emerging intersection of reproducible research practices with educational data science.
+
+## Standardized Assessment and Accountability {#sec-assessment-accountability}
+
+Standardized assessments in reading and mathematics serve as the backbone of educational accountability systems across the United States. These assessments generate scale scores that enable comparisons of student performance across schools, districts, and states. Performance levels — typically ranging from below basic to advanced — provide an accessible framework for communicating achievement relative to grade-level standards.
+
+The use of proficiency rates as an accountability metric has been both widespread and contested. While proficiency-based measures offer clear thresholds for adequate performance, critics argue that they can obscure meaningful variation among students above or below the cut point and can incentivize instructional triage toward students near the proficiency boundary.
+
+## Longitudinal Achievement Analysis {#sec-longitudinal-analysis}
+
+Longitudinal analysis of assessment data — tracking achievement patterns across multiple years and grade levels — provides richer information than cross-sectional snapshots. By examining trends over time, researchers can distinguish transient fluctuations from sustained patterns and can identify whether improvements in achievement are broad-based or concentrated in particular subgroups or regions.
+
+Score distribution analysis using percentile breakpoints (e.g., the 10th, 25th, 50th, 75th, and 90th percentiles) provides a more complete picture of achievement than mean scores alone. Changes in the distribution shape over time can reveal whether gains are driven by improvements at the top, middle, or bottom of the performance continuum.
+
+## Equity and Between-District Variation {#sec-equity}
+
+A growing body of literature examines disparities in educational outcomes across schools and districts. Between-district variation in achievement reflects differences in resources, instructional quality, student demographics, and community characteristics. Examining how achievement distributions differ across districts — rather than focusing solely on mean differences — provides a more nuanced understanding of educational inequality.
+
+District-level comparisons of proficiency rates, mean scores, and score distributions contribute to identifying both high-performing districts whose practices merit study and struggling districts that may benefit from targeted support.
+
+## Summary and Gaps {#sec-lit-summary}
+
+The literature reveals several gaps that this dissertation addresses. First, while individual assessment results are widely reported, systematic longitudinal analyses examining achievement trends across multiple years, content areas, and organizational levels remain relatively sparse. Second, between-district achievement variation is often examined only through mean comparisons rather than full distributional analysis. Third, the integration of reproducible research practices with modern AI tools represents an emerging frontier in educational research methodology, offering the potential to make complex analyses more transparent and accessible.

@@ -1,0 +1,29 @@
+%% thesis-quarto-fix.tex
+%% =====================
+%% Fixes conflicts between Quarto's auto-generated LaTeX and thesis.cls.
+%%
+%% PROBLEM: Quarto always emits \title{}, \author{}, \date{}, and
+%% \maketitle just before \begin{document}. But thesis.cls expects
+%% these to be set via its own preamble commands (in thesis-preamble.tex)
+%% and generates title page, abstract, dedication, etc. internally
+%% at \begin{document} time.
+%%
+%% SOLUTION: After thesis-preamble.tex sets all the correct metadata,
+%% we save thesis.cls's internal state and restore it after Quarto
+%% overwrites \title/\author. We also make \maketitle a no-op since
+%% thesis.cls handles title page generation itself.
+
+%% Save the thesis title set by thesis-preamble.tex before Quarto
+%% overwrites it with the last chapter's title.
+\makeatletter
+\let\saved@thesis@title\@title
+\let\saved@thesis@author\@author
+
+%% At \begin{document}, restore the thesis.cls title/author and
+%% suppress Quarto's \maketitle (thesis.cls handles this internally).
+\AddToHook{begindocument/before}{%
+  \global\let\@title\saved@thesis@title
+  \global\let\@author\saved@thesis@author
+  \renewcommand{\maketitle}{}%
+}
+\makeatother

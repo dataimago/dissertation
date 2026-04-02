@@ -1,0 +1,1 @@
+../../inst/thesis/thesis.cls

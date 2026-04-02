@@ -1,0 +1,36 @@
+---
+title: "Introduction"
+number-sections: true
+---
+
+## Background {#sec-background}
+
+<!--
+  TEMPLATE NOTE: Replace this content with your own introduction.
+  The structure below demonstrates how to connect narrative text with
+  the R package's analysis functions.
+-->
+
+Educational assessment data provides the foundation for understanding student achievement across schools, districts, and states. Standardized assessments in reading and mathematics generate scale scores that enable comparisons of student performance relative to grade-level expectations. When examined longitudinally — across multiple years and grade levels — these data reveal patterns of achievement that inform educational policy, resource allocation, and instructional practice.
+
+Achievement levels derived from scale scores (such as Beginning, Developing, Proficient, and Advanced) provide an accessible framework for categorizing student performance. Tracking the proportion of students reaching proficiency over time, across content areas, and between districts offers a practical lens on educational equity and effectiveness.
+
+## Problem Statement {#sec-problem}
+
+Despite the widespread availability of assessment data, systematic analyses that examine achievement patterns across multiple dimensions — time, geography, grade level, and content area — remain underutilized in educational research. This dissertation addresses this gap using `r format(nrow(dissertation::assessmentData), big.mark = ",")` longitudinal assessment records spanning `r length(unique(dissertation::assessmentData$YEAR))` academic years across `r length(unique(dissertation::assessmentData$DISTRICT_NUMBER))` districts.
+
+## Research Questions {#sec-research-questions}
+
+This dissertation is guided by three research questions:
+
+1. **RQ1**: What are the longitudinal achievement trends in Reading and Mathematics, and how do proficiency rates change over time?
+2. **RQ2**: How does student achievement vary across districts, and what patterns of between-district inequality are evident?
+3. **RQ3**: How do cohorts of students progress through grade levels, and what do achievement trajectories reveal about the stability of student performance?
+
+## Significance {#sec-significance}
+
+This work contributes to the field in three ways. First, it provides empirical evidence on longitudinal achievement patterns using a multi-year, multi-district assessment dataset. Second, it demonstrates analytic approaches for examining between-district variation in student outcomes. Third, the entire analysis is implemented as a reproducible, AI-native framework that other researchers can fork, customize, and extend for their own dissertation research.
+
+## Organization of the Dissertation {#sec-organization}
+
+The remainder of this dissertation is organized as follows. Chapter 2 reviews the literature on assessment-based accountability, achievement measurement, and educational equity. Chapter 3 describes the data sources, measures, and analytic methods. Chapter 4 presents the results organized by research question. Chapter 5 discusses the findings, implications, limitations, and directions for future research.
