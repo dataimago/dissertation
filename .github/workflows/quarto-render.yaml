@@ -1,0 +1,105 @@
+on:
+  push:
+    branches: [main, master]
+  pull_request:
+    branches: [main, master]
+
+name: Quarto Render
+
+permissions:
+  contents: write
+  pages: write
+
+jobs:
+  quarto-render:
+    runs-on: ubuntu-latest
+
+    env:
+      GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
+
+    steps:
+      - uses: actions/checkout@v3
+
+      # ---- R setup (needed for code chunks in .qmd files) ----
+      - uses: r-lib/actions/setup-r@v2
+        with:
+          r-version: 'release'
+          use-public-rspm: true
+
+      - uses: r-lib/actions/setup-r-dependencies@v2
+        with:
+          extra-packages: |
+            any::data.table
+            any::jsonlite
+            any::crayon
+            any::toOrdinal
+            any::RestRserve
+            any::knitr
+            any::rmarkdown
+
+      # Install the dissertation package itself so library(dissertation) works
+      - name: Install dissertation package
+        run: |
+          install.packages(".", repos = NULL, type = "source")
+        shell: Rscript {0}
+
+      # ---- Quarto setup ----
+      - uses: quarto-dev/quarto-actions/setup@v2
+
+      # ---- TeX Live for PDF rendering ----
+      - name: Install TinyTeX
+        run: |
+          quarto install tinytex
+
+      # ---- Render website (default profile) ----
+      - name: Render website
+        run: |
+          cd quarto_website
+          quarto render
+
+      # ---- Render thesis PDF ----
+      - name: Render thesis PDF
+        run: |
+          cd quarto_website
+          quarto render content/thesis-main.qmd --to pdf
+        continue-on-error: true
+
+      # ---- Render working paper (HTML + PDF) ----
+      - name: Render working paper
+        run: |
+          cd quarto_website
+          quarto render --profile working-paper
+        continue-on-error: true
+
+      # ---- Upload website as artifact ----
+      - name: Upload website artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: website
+          path: docs/
+
+      # ---- Upload thesis PDF as artifact ----
+      - name: Upload thesis PDF artifact
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: thesis-pdf
+          path: quarto_website/content/dissertation-thesis.pdf
+          if-no-files-found: warn
+
+      # ---- Upload working paper as artifact ----
+      - name: Upload working paper artifact
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: working-paper
+          path: inst/working-paper/output/
+          if-no-files-found: warn
+
+      # ---- Deploy website to GitHub Pages ----
+      - name: Deploy to GitHub Pages
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: docs/
