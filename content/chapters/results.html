@@ -1,0 +1,1548 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.9.36">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Results – An AI-Native Dissertation Framework</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-845c23b38eaddc0f92fda52bfe77a8c8.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-f418161beb48e0141c760e455f12af2c.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-845c23b38eaddc0f92fda52bfe77a8c8.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-18a223b312eeab15a2e305098a71636b.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark-44afc787cd3bd1bb9e206a27e73c6df8.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-18a223b312eeab15a2e305098a71636b.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<script src="../../site_libs/quarto-contrib/iconify-3.0.0/iconify-icon.min.js"></script>
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": true,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+<meta name="twitter:title" content="AI-Native Dissertation Framework">
+<meta name="twitter:description" content="A forkable framework for writing dissertations with AI as a collaborator">
+<meta name="twitter:card" content="summary">
+</head>
+
+<body class="nav-fixed quarto-light"><script id="quarto-html-before-body" type="application/javascript">
+    const toggleBodyColorMode = (bsSheetEl) => {
+      const mode = bsSheetEl.getAttribute("data-mode");
+      const bodyEl = window.document.querySelector("body");
+      if (mode === "dark") {
+        bodyEl.classList.add("quarto-dark");
+        bodyEl.classList.remove("quarto-light");
+      } else {
+        bodyEl.classList.add("quarto-light");
+        bodyEl.classList.remove("quarto-dark");
+      }
+    }
+    const toggleBodyColorPrimary = () => {
+      const bsSheetEl = window.document.querySelector("link#quarto-bootstrap:not([rel=disabled-stylesheet])");
+      if (bsSheetEl) {
+        toggleBodyColorMode(bsSheetEl);
+      }
+    }
+    const setColorSchemeToggle = (alternate) => {
+      const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+      for (let i=0; i < toggles.length; i++) {
+        const toggle = toggles[i];
+        if (toggle) {
+          if (alternate) {
+            toggle.classList.add("alternate");
+          } else {
+            toggle.classList.remove("alternate");
+          }
+        }
+      }
+    };
+    const toggleColorMode = (alternate) => {
+      // Switch the stylesheets
+      const primaryStylesheets = window.document.querySelectorAll('link.quarto-color-scheme:not(.quarto-color-alternate)');
+      const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+      manageTransitions('#quarto-margin-sidebar .nav-link', false);
+      if (alternate) {
+        // note: dark is layered on light, we don't disable primary!
+        enableStylesheet(alternateStylesheets);
+        for (const sheetNode of alternateStylesheets) {
+          if (sheetNode.id === "quarto-bootstrap") {
+            toggleBodyColorMode(sheetNode);
+          }
+        }
+      } else {
+        disableStylesheet(alternateStylesheets);
+        enableStylesheet(primaryStylesheets)
+        toggleBodyColorPrimary();
+      }
+      manageTransitions('#quarto-margin-sidebar .nav-link', true);
+      // Switch the toggles
+      setColorSchemeToggle(alternate)
+      // Hack to workaround the fact that safari doesn't
+      // properly recolor the scrollbar when toggling (#1455)
+      if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+        manageTransitions("body", false);
+        window.scrollTo(0, 1);
+        setTimeout(() => {
+          window.scrollTo(0, 0);
+          manageTransitions("body", true);
+        }, 40);
+      }
+    }
+    const disableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        stylesheet.rel = 'disabled-stylesheet';
+      }
+    }
+    const enableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        if(stylesheet.rel !== 'stylesheet') { // for Chrome, which will still FOUC without this check
+          stylesheet.rel = 'stylesheet';
+        }
+      }
+    }
+    const manageTransitions = (selector, allowTransitions) => {
+      const els = window.document.querySelectorAll(selector);
+      for (let i=0; i < els.length; i++) {
+        const el = els[i];
+        if (allowTransitions) {
+          el.classList.remove('notransition');
+        } else {
+          el.classList.add('notransition');
+        }
+      }
+    }
+    const isFileUrl = () => {
+      return window.location.protocol === 'file:';
+    }
+    const hasAlternateSentinel = () => {
+      let styleSentinel = getColorSchemeSentinel();
+      if (styleSentinel !== null) {
+        return styleSentinel === "alternate";
+      } else {
+        return false;
+      }
+    }
+    const setStyleSentinel = (alternate) => {
+      const value = alternate ? "alternate" : "default";
+      if (!isFileUrl()) {
+        window.localStorage.setItem("quarto-color-scheme", value);
+      } else {
+        localAlternateSentinel = value;
+      }
+    }
+    const getColorSchemeSentinel = () => {
+      if (!isFileUrl()) {
+        const storageValue = window.localStorage.getItem("quarto-color-scheme");
+        return storageValue != null ? storageValue : localAlternateSentinel;
+      } else {
+        return localAlternateSentinel;
+      }
+    }
+    const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+      const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+      const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+      let newTheme = '';
+      if(authorPrefersDark) {
+        newTheme = isAlternate ? baseTheme : alternateTheme;
+      } else {
+        newTheme = isAlternate ? alternateTheme : baseTheme;
+      }
+      const changeGiscusTheme = () => {
+        // From: https://github.com/giscus/giscus/issues/336
+        const sendMessage = (message) => {
+          const iframe = document.querySelector('iframe.giscus-frame');
+          if (!iframe) return;
+          iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+        }
+        sendMessage({
+          setConfig: {
+            theme: newTheme
+          }
+        });
+      }
+      const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+      if (isGiscussLoaded) {
+        changeGiscusTheme();
+      }
+    };
+    const authorPrefersDark = false;
+    const darkModeDefault = authorPrefersDark;
+      document.querySelector('link#quarto-text-highlighting-styles.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+      document.querySelector('link#quarto-bootstrap.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+    let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+    // Dark / light mode switch
+    window.quartoToggleColorScheme = () => {
+      // Read the current dark / light value
+      let toAlternate = !hasAlternateSentinel();
+      toggleColorMode(toAlternate);
+      setStyleSentinel(toAlternate);
+      toggleGiscusIfUsed(toAlternate, darkModeDefault);
+      window.dispatchEvent(new Event('resize'));
+    };
+    // Switch to dark mode if need be
+    if (hasAlternateSentinel()) {
+      toggleColorMode(true);
+    } else {
+      toggleColorMode(false);
+    }
+  </script>
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">dissertation</span>
+    </a>
+  </div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../about.html"> 
+<span class="menu-text">About</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../getting_started.html"> 
+<span class="menu-text">Getting Started</span></a>
+  </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-dissertation" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Dissertation</span>
+    </a>
+    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-dissertation">    
+        <li>
+    <a class="dropdown-item" href="../../overview.html">
+ <span class="dropdown-text">Overview</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/chapters/introduction.html">
+ <span class="dropdown-text">Ch 1: Introduction</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/chapters/literature_review.html">
+ <span class="dropdown-text">Ch 2: Literature Review</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/chapters/methods.html">
+ <span class="dropdown-text">Ch 3: Methods</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/chapters/results.html">
+ <span class="dropdown-text">Ch 4: Results</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/chapters/discussion.html">
+ <span class="dropdown-text">Ch 5: Discussion</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-r-package" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">R Package</span>
+    </a>
+    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-r-package">    
+        <li>
+    <a class="dropdown-item" href="../../api_reference.html">
+ <span class="dropdown-text">API Reference</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../data_dictionary.html">
+ <span class="dropdown-text">Data Dictionary</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-resources" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Resources</span>
+    </a>
+    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-resources">    
+        <li>
+    <a class="dropdown-item" href="../../ai_ethics.html">
+ <span class="dropdown-text">AI Ethics in Research</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../customization_guide.html">
+ <span class="dropdown-text">Customization Guide</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="../../news.html"> 
+<span class="menu-text">News</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="https://github.com/dataimago/dissertation/" target="_blank"> 
+<span class="menu-text"><iconify-icon role="img" inline="" icon="fa6-brands:github" style="font-size: 28px;" aria-label="Icon github from fa6-brands Iconify.design set." title="GitHub Repo"></iconify-icon></span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#sec-results-overview" id="toc-sec-results-overview" class="nav-link active" data-scroll-target="#sec-results-overview"><span class="header-section-number">1</span> Overview</a></li>
+  <li><a href="#sec-rq1" id="toc-sec-rq1" class="nav-link" data-scroll-target="#sec-rq1"><span class="header-section-number">2</span> RQ1: Achievement Trends</a>
+  <ul class="collapse">
+  <li><a href="#reading-achievement-patterns" id="toc-reading-achievement-patterns" class="nav-link" data-scroll-target="#reading-achievement-patterns"><span class="header-section-number">2.1</span> Reading Achievement Patterns</a></li>
+  <li><a href="#mathematics-achievement-patterns" id="toc-mathematics-achievement-patterns" class="nav-link" data-scroll-target="#mathematics-achievement-patterns"><span class="header-section-number">2.2</span> Mathematics Achievement Patterns</a></li>
+  </ul></li>
+  <li><a href="#sec-rq2" id="toc-sec-rq2" class="nav-link" data-scroll-target="#sec-rq2"><span class="header-section-number">3</span> RQ2: District Variation</a>
+  <ul class="collapse">
+  <li><a href="#between-district-achievement-comparisons" id="toc-between-district-achievement-comparisons" class="nav-link" data-scroll-target="#between-district-achievement-comparisons"><span class="header-section-number">3.1</span> Between-District Achievement Comparisons</a></li>
+  <li><a href="#achievement-summaries-by-grade" id="toc-achievement-summaries-by-grade" class="nav-link" data-scroll-target="#achievement-summaries-by-grade"><span class="header-section-number">3.2</span> Achievement Summaries by Grade</a></li>
+  </ul></li>
+  <li><a href="#sec-rq3" id="toc-sec-rq3" class="nav-link" data-scroll-target="#sec-rq3"><span class="header-section-number">4</span> RQ3: Cohort Progress</a></li>
+  <li><a href="#sec-distribution" id="toc-sec-distribution" class="nav-link" data-scroll-target="#sec-distribution"><span class="header-section-number">5</span> Score Distribution Properties</a></li>
+  <li><a href="#sec-results-summary" id="toc-sec-results-summary" class="nav-link" data-scroll-target="#sec-results-summary"><span class="header-section-number">6</span> Summary of Findings</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Results</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="sec-results-overview" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="sec-results-overview"><span class="header-section-number">1</span> Overview</h2>
+<p>This chapter presents the findings organized by research question. All results are generated programmatically from the <code>dissertation</code> R package analysis functions, ensuring that the narrative is always synchronized with the underlying data.</p>
+</section>
+<section id="sec-rq1" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="sec-rq1"><span class="header-section-number">2</span> RQ1: Achievement Trends</h2>
+<p>Achievement trends across 5 academic years reveal the following patterns:</p>
+<div class="cell">
+<div id="tbl-achievement-trends" class="cell quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-achievement-trends-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;1: Mean Score and Proficiency Rate by Year and Content Area
+</figcaption>
+<div aria-describedby="tbl-achievement-trends-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="cell-output-display">
+<table class="cell caption-top table table-sm table-striped small">
+<colgroup>
+<col style="width: 12%">
+<col style="width: 16%">
+<col style="width: 13%">
+<col style="width: 16%">
+<col style="width: 18%">
+<col style="width: 13%">
+<col style="width: 7%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">YEAR</th>
+<th style="text-align: left;">CONTENT_AREA</th>
+<th style="text-align: right;">mean_score</th>
+<th style="text-align: right;">median_score</th>
+<th style="text-align: right;">pct_proficient</th>
+<th style="text-align: right;">n_students</th>
+<th style="text-align: right;">n</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">2020_2021</td>
+<td style="text-align: left;">MATHEMATICS</td>
+<td style="text-align: right;">543.4</td>
+<td style="text-align: right;">548</td>
+<td style="text-align: right;">56.6</td>
+<td style="text-align: right;">35620</td>
+<td style="text-align: right;">35620</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">2020_2021</td>
+<td style="text-align: left;">READING</td>
+<td style="text-align: right;">636.1</td>
+<td style="text-align: right;">642</td>
+<td style="text-align: right;">72.7</td>
+<td style="text-align: right;">35404</td>
+<td style="text-align: right;">35404</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">2021_2022</td>
+<td style="text-align: left;">MATHEMATICS</td>
+<td style="text-align: right;">545.9</td>
+<td style="text-align: right;">550</td>
+<td style="text-align: right;">58.3</td>
+<td style="text-align: right;">36458</td>
+<td style="text-align: right;">36458</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">2021_2022</td>
+<td style="text-align: left;">READING</td>
+<td style="text-align: right;">636.8</td>
+<td style="text-align: right;">642</td>
+<td style="text-align: right;">74.2</td>
+<td style="text-align: right;">36229</td>
+<td style="text-align: right;">36229</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">2022_2023</td>
+<td style="text-align: left;">MATHEMATICS</td>
+<td style="text-align: right;">548.0</td>
+<td style="text-align: right;">552</td>
+<td style="text-align: right;">59.0</td>
+<td style="text-align: right;">37041</td>
+<td style="text-align: right;">37041</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">2022_2023</td>
+<td style="text-align: left;">READING</td>
+<td style="text-align: right;">636.9</td>
+<td style="text-align: right;">643</td>
+<td style="text-align: right;">73.5</td>
+<td style="text-align: right;">36807</td>
+<td style="text-align: right;">36807</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">2023_2024</td>
+<td style="text-align: left;">MATHEMATICS</td>
+<td style="text-align: right;">546.2</td>
+<td style="text-align: right;">549</td>
+<td style="text-align: right;">57.8</td>
+<td style="text-align: right;">37640</td>
+<td style="text-align: right;">37640</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">2023_2024</td>
+<td style="text-align: left;">READING</td>
+<td style="text-align: right;">636.6</td>
+<td style="text-align: right;">641</td>
+<td style="text-align: right;">72.8</td>
+<td style="text-align: right;">37411</td>
+<td style="text-align: right;">37411</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">2024_2025</td>
+<td style="text-align: left;">MATHEMATICS</td>
+<td style="text-align: right;">546.0</td>
+<td style="text-align: right;">551</td>
+<td style="text-align: right;">59.0</td>
+<td style="text-align: right;">37965</td>
+<td style="text-align: right;">37965</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">2024_2025</td>
+<td style="text-align: left;">READING</td>
+<td style="text-align: right;">636.5</td>
+<td style="text-align: right;">643</td>
+<td style="text-align: right;">74.5</td>
+<td style="text-align: right;">37726</td>
+<td style="text-align: right;">37726</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</figure>
+</div>
+</div>
+<p>Achievement trends across 5 year(s) show relative stability in mean scale scores. The overall mean score is 591.2 with a proficiency rate of 65.8%.</p>
+<section id="reading-achievement-patterns" class="level3" data-number="2.1">
+<h3 data-number="2.1" class="anchored" data-anchor-id="reading-achievement-patterns"><span class="header-section-number">2.1</span> Reading Achievement Patterns</h3>
+<p>Achievement trends across 5 year(s) show relative stability in mean scale scores. The overall mean score is 636.6 with a proficiency rate of 73.5%.</p>
+</section>
+<section id="mathematics-achievement-patterns" class="level3" data-number="2.2">
+<h3 data-number="2.2" class="anchored" data-anchor-id="mathematics-achievement-patterns"><span class="header-section-number">2.2</span> Mathematics Achievement Patterns</h3>
+<p>Achievement trends across 5 year(s) show an upward trend in mean scale scores. The overall mean score is 545.9 with a proficiency rate of 58.1%.</p>
+</section>
+</section>
+<section id="sec-rq2" class="level2" data-number="3">
+<h2 data-number="3" class="anchored" data-anchor-id="sec-rq2"><span class="header-section-number">3</span> RQ2: District Variation</h2>
+<section id="between-district-achievement-comparisons" class="level3" data-number="3.1">
+<h3 data-number="3.1" class="anchored" data-anchor-id="between-district-achievement-comparisons"><span class="header-section-number">3.1</span> Between-District Achievement Comparisons</h3>
+<div class="cell">
+<div id="tbl-district" class="cell quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-district-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;2: Achievement by District
+</figcaption>
+<div aria-describedby="tbl-district-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="cell-output-display">
+<table class="cell caption-top table table-sm table-striped small">
+<colgroup>
+<col style="width: 16%">
+<col style="width: 13%">
+<col style="width: 11%">
+<col style="width: 13%">
+<col style="width: 15%">
+<col style="width: 11%">
+<col style="width: 10%">
+<col style="width: 6%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: right;">DISTRICT_NUMBER</th>
+<th style="text-align: left;">CONTENT_AREA</th>
+<th style="text-align: right;">mean_score</th>
+<th style="text-align: right;">median_score</th>
+<th style="text-align: right;">pct_proficient</th>
+<th style="text-align: right;">n_students</th>
+<th style="text-align: right;">n_schools</th>
+<th style="text-align: right;">n</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">470</td>
+<td style="text-align: left;">MATHEMATICS</td>
+<td style="text-align: right;">542.8</td>
+<td style="text-align: right;">548</td>
+<td style="text-align: right;">57.5</td>
+<td style="text-align: right;">25022</td>
+<td style="text-align: right;">49</td>
+<td style="text-align: right;">69465</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">470</td>
+<td style="text-align: left;">READING</td>
+<td style="text-align: right;">632.8</td>
+<td style="text-align: right;">640</td>
+<td style="text-align: right;">71.0</td>
+<td style="text-align: right;">24780</td>
+<td style="text-align: right;">49</td>
+<td style="text-align: right;">68428</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">1040</td>
+<td style="text-align: left;">MATHEMATICS</td>
+<td style="text-align: right;">568.0</td>
+<td style="text-align: right;">573</td>
+<td style="text-align: right;">69.7</td>
+<td style="text-align: right;">23968</td>
+<td style="text-align: right;">32</td>
+<td style="text-align: right;">63606</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">1040</td>
+<td style="text-align: left;">READING</td>
+<td style="text-align: right;">655.3</td>
+<td style="text-align: right;">661</td>
+<td style="text-align: right;">85.2</td>
+<td style="text-align: right;">23962</td>
+<td style="text-align: right;">32</td>
+<td style="text-align: right;">63554</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">2690</td>
+<td style="text-align: left;">MATHEMATICS</td>
+<td style="text-align: right;">522.7</td>
+<td style="text-align: right;">526</td>
+<td style="text-align: right;">44.9</td>
+<td style="text-align: right;">18480</td>
+<td style="text-align: right;">42</td>
+<td style="text-align: right;">51653</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">2690</td>
+<td style="text-align: left;">READING</td>
+<td style="text-align: right;">618.4</td>
+<td style="text-align: right;">622</td>
+<td style="text-align: right;">62.5</td>
+<td style="text-align: right;">18475</td>
+<td style="text-align: right;">42</td>
+<td style="text-align: right;">51595</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</figure>
+</div>
+</div>
+<p>District comparison reveals mean scale scores ranging from 522.7 to 655.3 across 3 districts (gap of 132.6 points). Proficiency rates range from 44.9% to 85.2%.</p>
+</section>
+<section id="achievement-summaries-by-grade" class="level3" data-number="3.2">
+<h3 data-number="3.2" class="anchored" data-anchor-id="achievement-summaries-by-grade"><span class="header-section-number">3.2</span> Achievement Summaries by Grade</h3>
+<div class="cell">
+<div id="tbl-grade-summary" class="cell quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-grade-summary-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;3: Achievement Summary by Grade
+</figcaption>
+<div aria-describedby="tbl-grade-summary-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="cell-output-display">
+<table class="cell caption-top table table-sm table-striped small">
+<colgroup>
+<col style="width: 8%">
+<col style="width: 15%">
+<col style="width: 18%">
+<col style="width: 12%">
+<col style="width: 21%">
+<col style="width: 15%">
+<col style="width: 8%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">GRADE</th>
+<th style="text-align: right;">mean_score</th>
+<th style="text-align: right;">median_score</th>
+<th style="text-align: right;">sd_score</th>
+<th style="text-align: right;">pct_proficient</th>
+<th style="text-align: right;">n_students</th>
+<th style="text-align: right;">n</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">10</td>
+<td style="text-align: right;">642.4</td>
+<td style="text-align: right;">652</td>
+<td style="text-align: right;">80.4</td>
+<td style="text-align: right;">53.7</td>
+<td style="text-align: right;">22526</td>
+<td style="text-align: right;">45553</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">3</td>
+<td style="text-align: right;">524.0</td>
+<td style="text-align: right;">531</td>
+<td style="text-align: right;">89.3</td>
+<td style="text-align: right;">78.9</td>
+<td style="text-align: right;">22923</td>
+<td style="text-align: right;">44688</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">4</td>
+<td style="text-align: right;">549.7</td>
+<td style="text-align: right;">557</td>
+<td style="text-align: right;">80.2</td>
+<td style="text-align: right;">74.6</td>
+<td style="text-align: right;">22775</td>
+<td style="text-align: right;">45491</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">5</td>
+<td style="text-align: right;">576.9</td>
+<td style="text-align: right;">583</td>
+<td style="text-align: right;">80.9</td>
+<td style="text-align: right;">73.5</td>
+<td style="text-align: right;">22572</td>
+<td style="text-align: right;">45153</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">6</td>
+<td style="text-align: right;">588.3</td>
+<td style="text-align: right;">596</td>
+<td style="text-align: right;">81.5</td>
+<td style="text-align: right;">69.1</td>
+<td style="text-align: right;">22659</td>
+<td style="text-align: right;">45403</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">7</td>
+<td style="text-align: right;">604.3</td>
+<td style="text-align: right;">610</td>
+<td style="text-align: right;">78.0</td>
+<td style="text-align: right;">62.0</td>
+<td style="text-align: right;">22917</td>
+<td style="text-align: right;">45950</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">8</td>
+<td style="text-align: right;">616.1</td>
+<td style="text-align: right;">621</td>
+<td style="text-align: right;">74.8</td>
+<td style="text-align: right;">60.5</td>
+<td style="text-align: right;">22957</td>
+<td style="text-align: right;">46010</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">9</td>
+<td style="text-align: right;">623.0</td>
+<td style="text-align: right;">633</td>
+<td style="text-align: right;">76.9</td>
+<td style="text-align: right;">55.6</td>
+<td style="text-align: right;">24498</td>
+<td style="text-align: right;">50053</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</figure>
+</div>
+</div>
+</section>
+</section>
+<section id="sec-rq3" class="level2" data-number="4">
+<h2 data-number="4" class="anchored" data-anchor-id="sec-rq3"><span class="header-section-number">4</span> RQ3: Cohort Progress</h2>
+<div class="cell">
+<div id="tbl-cohort" class="cell quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-cohort-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;4: Cohort Progress: Students with Longitudinal Records
+</figcaption>
+<div aria-describedby="tbl-cohort-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="cell-output-display">
+<table class="cell caption-top table table-sm table-striped small">
+<colgroup>
+<col style="width: 13%">
+<col style="width: 17%">
+<col style="width: 14%">
+<col style="width: 20%">
+<col style="width: 14%">
+<col style="width: 20%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">YEAR</th>
+<th style="text-align: left;">CONTENT_AREA</th>
+<th style="text-align: right;">mean_score</th>
+<th style="text-align: right;">pct_proficient</th>
+<th style="text-align: right;">n_students</th>
+<th style="text-align: right;">n_observations</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">2020_2021</td>
+<td style="text-align: left;">MATHEMATICS</td>
+<td style="text-align: right;">538.6</td>
+<td style="text-align: right;">61.3</td>
+<td style="text-align: right;">28713</td>
+<td style="text-align: right;">28713</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">2020_2021</td>
+<td style="text-align: left;">READING</td>
+<td style="text-align: right;">630.3</td>
+<td style="text-align: right;">74.0</td>
+<td style="text-align: right;">28491</td>
+<td style="text-align: right;">28491</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">2021_2022</td>
+<td style="text-align: left;">MATHEMATICS</td>
+<td style="text-align: right;">546.8</td>
+<td style="text-align: right;">58.9</td>
+<td style="text-align: right;">35104</td>
+<td style="text-align: right;">35104</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">2021_2022</td>
+<td style="text-align: left;">READING</td>
+<td style="text-align: right;">637.5</td>
+<td style="text-align: right;">74.6</td>
+<td style="text-align: right;">34880</td>
+<td style="text-align: right;">34880</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">2022_2023</td>
+<td style="text-align: left;">MATHEMATICS</td>
+<td style="text-align: right;">549.0</td>
+<td style="text-align: right;">59.4</td>
+<td style="text-align: right;">35733</td>
+<td style="text-align: right;">35733</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">2022_2023</td>
+<td style="text-align: left;">READING</td>
+<td style="text-align: right;">637.5</td>
+<td style="text-align: right;">73.7</td>
+<td style="text-align: right;">35504</td>
+<td style="text-align: right;">35504</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">2023_2024</td>
+<td style="text-align: left;">MATHEMATICS</td>
+<td style="text-align: right;">547.3</td>
+<td style="text-align: right;">58.2</td>
+<td style="text-align: right;">36248</td>
+<td style="text-align: right;">36248</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">2023_2024</td>
+<td style="text-align: left;">READING</td>
+<td style="text-align: right;">637.5</td>
+<td style="text-align: right;">73.2</td>
+<td style="text-align: right;">36046</td>
+<td style="text-align: right;">36046</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">2024_2025</td>
+<td style="text-align: left;">MATHEMATICS</td>
+<td style="text-align: right;">557.6</td>
+<td style="text-align: right;">56.6</td>
+<td style="text-align: right;">30095</td>
+<td style="text-align: right;">30095</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">2024_2025</td>
+<td style="text-align: left;">READING</td>
+<td style="text-align: right;">646.0</td>
+<td style="text-align: right;">73.6</td>
+<td style="text-align: right;">30071</td>
+<td style="text-align: right;">30071</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</figure>
+</div>
+</div>
+<p>Cohort analysis tracks 48,578 students with 2+ years of data. Across the cohort, the mean scale score is 592.7 with an overall proficiency rate of 66.3%.</p>
+</section>
+<section id="sec-distribution" class="level2" data-number="5">
+<h2 data-number="5" class="anchored" data-anchor-id="sec-distribution"><span class="header-section-number">5</span> Score Distribution Properties</h2>
+<div class="cell">
+<div id="tbl-distribution" class="cell quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-distribution-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;5: Score Distribution by Content Area and Grade
+</figcaption>
+<div aria-describedby="tbl-distribution-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="cell-output-display">
+<table class="cell caption-top table table-sm table-striped small">
+<thead>
+<tr class="header">
+<th style="text-align: left;">CONTENT_AREA</th>
+<th style="text-align: left;">GRADE</th>
+<th style="text-align: right;">p10</th>
+<th style="text-align: right;">p25</th>
+<th style="text-align: right;">p50</th>
+<th style="text-align: right;">p75</th>
+<th style="text-align: right;">p90</th>
+<th style="text-align: right;">mean</th>
+<th style="text-align: right;">sd</th>
+<th style="text-align: right;">n</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">MATHEMATICS</td>
+<td style="text-align: left;">10</td>
+<td style="text-align: right;">502</td>
+<td style="text-align: right;">552</td>
+<td style="text-align: right;">600</td>
+<td style="text-align: right;">642</td>
+<td style="text-align: right;">676</td>
+<td style="text-align: right;">593.1</td>
+<td style="text-align: right;">70.3</td>
+<td style="text-align: right;">22785</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">MATHEMATICS</td>
+<td style="text-align: left;">3</td>
+<td style="text-align: right;">376</td>
+<td style="text-align: right;">425</td>
+<td style="text-align: right;">476</td>
+<td style="text-align: right;">527</td>
+<td style="text-align: right;">581</td>
+<td style="text-align: right;">478.1</td>
+<td style="text-align: right;">83.4</td>
+<td style="text-align: right;">22860</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">MATHEMATICS</td>
+<td style="text-align: left;">4</td>
+<td style="text-align: right;">415</td>
+<td style="text-align: right;">458</td>
+<td style="text-align: right;">503</td>
+<td style="text-align: right;">547</td>
+<td style="text-align: right;">588</td>
+<td style="text-align: right;">501.9</td>
+<td style="text-align: right;">71.0</td>
+<td style="text-align: right;">22790</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">MATHEMATICS</td>
+<td style="text-align: left;">5</td>
+<td style="text-align: right;">443</td>
+<td style="text-align: right;">487</td>
+<td style="text-align: right;">532</td>
+<td style="text-align: right;">576</td>
+<td style="text-align: right;">617</td>
+<td style="text-align: right;">531.1</td>
+<td style="text-align: right;">71.2</td>
+<td style="text-align: right;">22576</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">MATHEMATICS</td>
+<td style="text-align: left;">6</td>
+<td style="text-align: right;">454</td>
+<td style="text-align: right;">497</td>
+<td style="text-align: right;">545</td>
+<td style="text-align: right;">592</td>
+<td style="text-align: right;">635</td>
+<td style="text-align: right;">544.4</td>
+<td style="text-align: right;">73.3</td>
+<td style="text-align: right;">22704</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">MATHEMATICS</td>
+<td style="text-align: left;">7</td>
+<td style="text-align: right;">476</td>
+<td style="text-align: right;">519</td>
+<td style="text-align: right;">565</td>
+<td style="text-align: right;">609</td>
+<td style="text-align: right;">648</td>
+<td style="text-align: right;">562.3</td>
+<td style="text-align: right;">69.0</td>
+<td style="text-align: right;">22965</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">MATHEMATICS</td>
+<td style="text-align: left;">8</td>
+<td style="text-align: right;">494</td>
+<td style="text-align: right;">536</td>
+<td style="text-align: right;">578</td>
+<td style="text-align: right;">618</td>
+<td style="text-align: right;">654</td>
+<td style="text-align: right;">574.7</td>
+<td style="text-align: right;">65.4</td>
+<td style="text-align: right;">23006</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">MATHEMATICS</td>
+<td style="text-align: left;">9</td>
+<td style="text-align: right;">489</td>
+<td style="text-align: right;">537</td>
+<td style="text-align: right;">586</td>
+<td style="text-align: right;">629</td>
+<td style="text-align: right;">664</td>
+<td style="text-align: right;">579.3</td>
+<td style="text-align: right;">71.4</td>
+<td style="text-align: right;">25038</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">READING</td>
+<td style="text-align: left;">10</td>
+<td style="text-align: right;">624</td>
+<td style="text-align: right;">663</td>
+<td style="text-align: right;">698</td>
+<td style="text-align: right;">728</td>
+<td style="text-align: right;">754</td>
+<td style="text-align: right;">691.9</td>
+<td style="text-align: right;">55.6</td>
+<td style="text-align: right;">22768</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">READING</td>
+<td style="text-align: left;">3</td>
+<td style="text-align: right;">497</td>
+<td style="text-align: right;">537</td>
+<td style="text-align: right;">575</td>
+<td style="text-align: right;">612</td>
+<td style="text-align: right;">648</td>
+<td style="text-align: right;">572.2</td>
+<td style="text-align: right;">67.3</td>
+<td style="text-align: right;">21828</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">READING</td>
+<td style="text-align: left;">4</td>
+<td style="text-align: right;">530</td>
+<td style="text-align: right;">568</td>
+<td style="text-align: right;">603</td>
+<td style="text-align: right;">634</td>
+<td style="text-align: right;">661</td>
+<td style="text-align: right;">597.6</td>
+<td style="text-align: right;">56.8</td>
+<td style="text-align: right;">22701</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">READING</td>
+<td style="text-align: left;">5</td>
+<td style="text-align: right;">549</td>
+<td style="text-align: right;">589</td>
+<td style="text-align: right;">627</td>
+<td style="text-align: right;">663</td>
+<td style="text-align: right;">694</td>
+<td style="text-align: right;">622.8</td>
+<td style="text-align: right;">61.9</td>
+<td style="text-align: right;">22577</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">READING</td>
+<td style="text-align: left;">6</td>
+<td style="text-align: right;">555</td>
+<td style="text-align: right;">598</td>
+<td style="text-align: right;">639</td>
+<td style="text-align: right;">674</td>
+<td style="text-align: right;">703</td>
+<td style="text-align: right;">632.3</td>
+<td style="text-align: right;">63.6</td>
+<td style="text-align: right;">22699</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">READING</td>
+<td style="text-align: left;">7</td>
+<td style="text-align: right;">570</td>
+<td style="text-align: right;">612</td>
+<td style="text-align: right;">652</td>
+<td style="text-align: right;">688</td>
+<td style="text-align: right;">717</td>
+<td style="text-align: right;">646.3</td>
+<td style="text-align: right;">62.4</td>
+<td style="text-align: right;">22985</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">READING</td>
+<td style="text-align: left;">8</td>
+<td style="text-align: right;">583</td>
+<td style="text-align: right;">624</td>
+<td style="text-align: right;">663</td>
+<td style="text-align: right;">698</td>
+<td style="text-align: right;">726</td>
+<td style="text-align: right;">657.6</td>
+<td style="text-align: right;">59.0</td>
+<td style="text-align: right;">23004</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">READING</td>
+<td style="text-align: left;">9</td>
+<td style="text-align: right;">600</td>
+<td style="text-align: right;">637</td>
+<td style="text-align: right;">672</td>
+<td style="text-align: right;">703</td>
+<td style="text-align: right;">728</td>
+<td style="text-align: right;">666.8</td>
+<td style="text-align: right;">53.8</td>
+<td style="text-align: right;">25015</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</figure>
+</div>
+</div>
+<p>Scale score distributions show a median of 598 with an interquartile range of 120 points, indicating substantial variation in student achievement.</p>
+</section>
+<section id="sec-results-summary" class="level2" data-number="6">
+<h2 data-number="6" class="anchored" data-anchor-id="sec-results-summary"><span class="header-section-number">6</span> Summary of Findings</h2>
+<p>The results reveal several key patterns across the three research questions. Achievement trends show the trajectory of proficiency rates and mean scores over the years examined. District comparisons reveal variation in outcomes that warrants further investigation. The cohort analysis demonstrates how student achievement trajectories develop over the longitudinal span of the dataset, while score distribution analyses reveal the full shape of the achievement continuum beyond mean-level summaries.</p>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    // Ensure there is a toggle, if there isn't float one in the top right
+    if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+      const a = window.document.createElement('a');
+      a.classList.add('top-right');
+      a.classList.add('quarto-color-scheme-toggle');
+      a.href = "";
+      a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+      const i = window.document.createElement("i");
+      i.classList.add('bi');
+      a.appendChild(i);
+      window.document.body.appendChild(a);
+    }
+    setColorSchemeToggle(hasAlternateSentinel())
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/dataimago\.github\.io\/dissertation\/");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+      &nbsp;
+    </div>   
+    <div class="nav-footer-center">
+      <ul class="footer-items list-unstyled">
+    <li class="nav-item">
+    <a class="nav-link" href="https://github.com/dataimago/dissertation/" target="_blank">
+<p><iconify-icon role="img" inline="" icon="jam:github-square" style="font-size: 33.5px;" aria-label="Icon github-square from jam Iconify.design set." title="dissertation GitHub Repo"></iconify-icon></p>
+</a>
+  </li>  
+</ul>
+    </div>
+    <div class="nav-footer-right">
+      &nbsp;
+    </div>
+  </div>
+</footer>
+
+
+
+
+</body></html>
