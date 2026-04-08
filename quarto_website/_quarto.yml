@@ -57,6 +57,8 @@ website:
             href: ai_ethics.qmd
           - text: Customization Guide
             href: customization_guide.qmd
+      - text: Training
+        href: training-presentation.qmd
       - text: News
         href: news.qmd
       - text: "{{< iconify fa6-brands github size=28px title='GitHub Repo' >}}"

@@ -1,0 +1,1085 @@
+---
+title: "The AI-Native Dissertation"
+subtitle: "Reimagining Knowledge Transmission for the 21st Century"
+author: "Damian Betebenner"
+date: today
+date-format: "MMMM D, YYYY"
+format:
+  revealjs:
+    theme: [default, custom]
+    logo: assets/img/dataimago-logo.png
+    footer: "dataimago | AI-Native Dissertation Framework"
+    slide-number: true
+    hash-type: number
+    center-title-slide: true
+    transition: fade
+    background-transition: fade
+    highlight-style: github
+    code-line-numbers: false
+    code-overflow: wrap
+    width: 1600
+    height: 900
+    margin: 0.1
+    navigation-mode: linear
+    controls: true
+    progress: true
+    history: true
+    touch: true
+    chalkboard: true
+    multiplex: false
+    preview-links: auto
+    scrollable: true
+    title-slide-attributes:
+      data-background-gradient: "linear-gradient(135deg, #0ea5e9 0%, #8b5cf6 100%)"
+      data-background-opacity: "0.95"
+execute:
+  echo: true
+  eval: false
+  warning: false
+---
+
+```{css}
+/*| echo: false */
+.reveal h1, .reveal h2, .reveal h3 {
+  font-family: 'Inter', system-ui, sans-serif;
+}
+.reveal {
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 28px;
+}
+.reveal .slide-background {
+  background-size: cover;
+}
+.title-card {
+  text-align: center;
+  padding: 2em 0;
+}
+.title-card h2 {
+  color: #0ea5e9;
+  border-bottom: none;
+  font-size: 1.6em;
+}
+.era-card {
+  background: linear-gradient(135deg, #f8fafc, #f1f5f9);
+  border-radius: 12px;
+  padding: 1.5em;
+  border-left: 4px solid #0ea5e9;
+}
+.framework-layer {
+  background: white;
+  border-radius: 8px;
+  padding: 1em 1.5em;
+  margin: 0.5em 0;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+  border-left: 3px solid #8b5cf6;
+}
+.hands-on {
+  background: #fffbeb;
+  border: 2px solid #f59e0b;
+  border-radius: 12px;
+  padding: 1.5em;
+}
+.key-insight {
+  background: linear-gradient(135deg, #eff6ff, #f5f3ff);
+  border-radius: 12px;
+  padding: 1.5em;
+  text-align: center;
+  font-size: 1.2em;
+  font-style: italic;
+  color: #1e293b;
+}
+.timeline-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 1em;
+  margin: 0.8em 0;
+}
+.timeline-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #0ea5e9;
+  margin-top: 6px;
+  flex-shrink: 0;
+}
+.code-compare {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1em;
+}
+```
+
+
+# {.title-card data-background-gradient="linear-gradient(135deg, #0ea5e9 0%, #8b5cf6 100%)" data-background-opacity="0.95"}
+
+::: {style="color: white; text-align: center;"}
+
+## The AI-Native Dissertation {style="color: white; border-bottom: none; font-size: 2em;"}
+
+### Reimagining Knowledge Transmission for the 21st Century {style="color: rgba(255,255,255,0.9); font-weight: 300;"}
+
+<br>
+
+Damian Betebenner | dataimago
+
+:::
+
+
+---
+
+## Today's Journey
+
+::: {.incremental}
+- **Part I** — The Dissertation as Transmission Mechanism *(20 min)*
+- **Part II** — New Modes of Knowledge Transmission *(25 min)*
+- **Part III** — The dataimago Framework *(30 min)*
+- **Part IV** — Hands-On: Fork and Configure *(60 min)*
+- *Break (15 min)*
+- **Part V** — Content Creation with AI *(60 min)*
+- **Part VI** — Build and Deploy *(20 min)*
+- **Part VII** — Wrap-Up and Next Steps *(10 min)*
+:::
+
+
+# Part I {.title-card data-background-color="#0ea5e9"}
+
+::: {style="color: white; text-align: center;"}
+
+## The Dissertation as Transmission Mechanism {style="color: white; border-bottom: none;"}
+
+*What is a dissertation, really?*
+
+:::
+
+
+---
+
+## A Question Worth Asking
+
+<br>
+
+::: {.key-insight}
+What **is** a dissertation?
+:::
+
+. . .
+
+<br>
+
+At its core, a dissertation is a **knowledge transmission mechanism** — a technology for moving understanding from one human mind to another.
+
+. . .
+
+Like all technologies, it has evolved. But perhaps not as much as we think.
+
+
+---
+
+## The Oral Tradition (Pre-1200s)
+
+::: {.era-card}
+
+Knowledge lived in **people**, not documents.
+
+- Master-apprentice relationships
+- The *disputatio* — public oral defense
+- Memory and rhetoric as core scholarly skills
+- Knowledge died with its holders
+
+:::
+
+. . .
+
+<br>
+
+The transmission was **synchronous, ephemeral, and one-to-few**.
+
+
+---
+
+## The Medieval University (1200s–1400s)
+
+::: {.era-card}
+
+The university formalized knowledge transmission:
+
+- *Lectio* (reading aloud from texts) → *Quaestio* (questioning) → *Disputatio* (debate)
+- The thesis: a **proposition to be defended**
+- Manuscripts copied by hand — expensive, scarce, fragile
+- Knowledge was **institutional**, trapped in monastery libraries and university halls
+
+:::
+
+. . .
+
+<br>
+
+The dissertation emerged as a **ritual of certification** — proving mastery to a small audience of peers.
+
+
+---
+
+## The Printing Press (1450s→)
+
+::: {.era-card}
+
+Gutenberg didn't just print bibles. He transformed knowledge transmission.
+
+- Dissertations could be **reproduced** and **distributed**
+- The bound thesis became a **physical artifact** — stored on library shelves
+- Knowledge became **asynchronous** for the first time: write once, read by many
+- But the format stayed the same: linear text, single author, single reader at a time
+
+:::
+
+. . .
+
+<br>
+
+**The printing press changed the *reach* but not the *modality*.**
+
+
+---
+
+## The PDF Era (1990s→)
+
+::: {.era-card}
+
+The digital dissertation:
+
+- ProQuest, institutional repositories, Google Scholar
+- Global reach — anyone with internet can access it
+- But a PDF is a **digital photocopy** of a printed page
+- Still linear, still text, still one-human-to-one-human
+- Data and code hidden behind "available upon request"
+
+:::
+
+. . .
+
+<br>
+
+::: {.key-insight}
+We digitized the **container** but not the **knowledge**.
+:::
+
+
+---
+
+## 600 Years of Transmission
+
+```{mermaid}
+%%| echo: false
+%%| eval: true
+%%| fig-width: 14
+flowchart LR
+    A["🗣️ Oral\n(1 → few)"] --> B["📜 Manuscript\n(1 → few)"]
+    B --> C["📖 Printed\n(1 → many)"]
+    C --> D["📄 PDF\n(1 → many, faster)"]
+
+    style A fill:#fef3c7,stroke:#f59e0b,color:#000
+    style B fill:#fef3c7,stroke:#f59e0b,color:#000
+    style C fill:#dbeafe,stroke:#3b82f6,color:#000
+    style D fill:#dbeafe,stroke:#3b82f6,color:#000
+```
+
+<br>
+
+In every era, the fundamental model has been the same:
+
+**One human writes → One human reads**
+
+. . .
+
+What if that's no longer the only option?
+
+
+# Part II {.title-card data-background-color="#8b5cf6"}
+
+::: {style="color: white; text-align: center;"}
+
+## New Modes of Knowledge Transmission {style="color: white; border-bottom: none;"}
+
+*APIs and AI change the equation*
+
+:::
+
+
+---
+
+## The Shift
+
+::: {.key-insight}
+For the first time in history, the **consumers** of research are not exclusively human.
+:::
+
+<br>
+
+::: {.incremental}
+- **AI agents** can read, summarize, and reason about research
+- **APIs** make data and analyses **queryable** — not just readable
+- **Interactive applications** let non-specialists explore findings themselves
+- **MCP tools** let AI systems discover and invoke your research programmatically
+:::
+
+
+---
+
+## One Source, Many Channels
+
+```{mermaid}
+%%| echo: false
+%%| eval: true
+%%| fig-width: 14
+flowchart TB
+    S["📝 Dissertation Content\n(authored once)"]
+    S --> H["👤 Human Reader\nWebsite / PDF / Thesis"]
+    S --> A["🤖 AI Agent\nMCP Tools / Structured Data"]
+    S --> D["📊 Data Analyst\nREST API / R Package"]
+    S --> V["👥 Non-Specialist\nInteractive Dashboard"]
+
+    style S fill:#f0f9ff,stroke:#0ea5e9,color:#000,stroke-width:2px
+    style H fill:#dbeafe,stroke:#3b82f6,color:#000
+    style A fill:#ede9fe,stroke:#8b5cf6,color:#000
+    style D fill:#dcfce7,stroke:#22c55e,color:#000
+    style V fill:#fef3c7,stroke:#f59e0b,color:#000
+```
+
+
+---
+
+## What APIs Enable
+
+An API doesn't just serve data — it makes knowledge **addressable**.
+
+<br>
+
+::: {.code-compare}
+
+::: {.fragment}
+**Traditional approach:**
+
+*"The mean reading score for 2023 was 493. See Table 4.2 on page 87."*
+
+A human must find page 87, locate Table 4.2, and read the value.
+:::
+
+::: {.fragment}
+**API approach:**
+
+```bash
+GET /api/summary?content_area=READING&year=2023
+```
+
+```json
+{
+  "mean_score": 493.2,
+  "median_score": 491.0,
+  "n": 4850
+}
+```
+
+Any system — human, AI, or application — can query this directly.
+:::
+
+:::
+
+
+---
+
+## What AI Agents Enable
+
+With **Model Context Protocol (MCP)**, AI agents can *discover* your research:
+
+<br>
+
+```json
+{
+  "name": "dissertation_summary",
+  "description": "Get summary statistics from the dissertation's
+                  educational assessment dataset",
+  "parameters": {
+    "content_area": "READING | MATHEMATICS | All",
+    "group_by": "GRADE | YEAR | DISTRICT_NUMBER | NONE"
+  }
+}
+```
+
+. . .
+
+<br>
+
+An AI reading your dissertation doesn't just see text — it can **invoke your analyses**, **query your data**, and **explore your findings** interactively.
+
+
+---
+
+## The Multi-Modal Dissertation
+
+::: {.key-insight}
+The dissertation is no longer just a document. It's a **platform**.
+:::
+
+<br>
+
+| Format | Audience | Access |
+|--------|----------|--------|
+| Website | General readers | Browser |
+| Thesis PDF | Committee, library | Print / PDF reader |
+| Working paper | Peer reviewers | PDF / HTML |
+| REST API | Data analysts | HTTP requests |
+| MCP Tools | AI agents | Programmatic discovery |
+| NextJS App | Non-specialists | Interactive dashboard |
+
+All rendered from the **same source content**.
+
+
+# Part III {.title-card data-background-color="#0ea5e9"}
+
+::: {style="color: white; text-align: center;"}
+
+## The dataimago Framework {style="color: white; border-bottom: none;"}
+
+*R Package → API → MCP → NextJS*
+
+:::
+
+
+---
+
+## Architecture Overview
+
+```{mermaid}
+%%| echo: false
+%%| eval: true
+%%| fig-width: 14
+flowchart TB
+    subgraph "dissertation-rpkg"
+        R["R Package\nCore analysis engine"]
+        Q["Quarto\nWebsite / Thesis / Working Paper"]
+        API["REST API\n6 endpoints via RestRserve"]
+    end
+
+    subgraph "dissertation-ai"
+        SU["shared-utils\nTypes, API clients"]
+        MCP["mcp-tools\nSchema loader, proxy"]
+        WA["NextJS Web App\nInteractive frontend"]
+    end
+
+    R --> API
+    R --> Q
+    API --> SU
+    SU --> MCP
+    SU --> WA
+
+    style R fill:#dbeafe,stroke:#3b82f6,color:#000
+    style Q fill:#dbeafe,stroke:#3b82f6,color:#000
+    style API fill:#dcfce7,stroke:#22c55e,color:#000
+    style SU fill:#ede9fe,stroke:#8b5cf6,color:#000
+    style MCP fill:#ede9fe,stroke:#8b5cf6,color:#000
+    style WA fill:#fef3c7,stroke:#f59e0b,color:#000
+```
+
+
+---
+
+## Layer 1: The R Package
+
+The **statistical engine** — where the actual research lives.
+
+```r
+# Core analysis functions
+summarizeAssessment(content_area = "READING", group_by = "GRADE")
+analyzeAssessment(analysis_type = "achievement_trends")
+getChapterSummary(chapter = "methods")
+getAvailableAnalyses()
+```
+
+. . .
+
+<br>
+
+This is a standard R package. `devtools::install()`, `R CMD check`, testthat tests, roxygen2 documentation — nothing exotic.
+
+The key difference: it's **designed to be consumed by other systems**, not just humans in an R console.
+
+
+---
+
+## Layer 2: The REST API
+
+R functions exposed as HTTP endpoints via **RestRserve**:
+
+```r
+# In R/api.R
+app$add_get("/summary", function(req, res) {
+  result <- summarizeAssessment(
+    content_area = req$parameters_query[["content_area"]],
+    group_by = req$parameters_query[["group_by"]]
+  )
+  res$set_content_type("application/json")
+  res$set_body(jsonlite::toJSON(result, auto_unbox = TRUE))
+})
+```
+
+. . .
+
+<br>
+
+Six endpoints: `/summary`, `/analysis`, `/chapters`, `/analyses`, `/data/variables`, `/openapi.json`
+
+Every R function that produces insight is now **addressable via HTTP**.
+
+
+---
+
+## Layer 3: MCP Tools
+
+**Model Context Protocol** — the bridge to AI agents:
+
+```json
+{
+  "tools": [
+    {
+      "name": "dissertation_analysis",
+      "description": "Run a typed analysis on the assessment data",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "analysis_type": {
+            "type": "string",
+            "enum": ["achievement_trends", "score_distribution",
+                     "district_comparison", "cohort_progress"]
+          }
+        }
+      }
+    }
+  ]
+}
+```
+
+
+---
+
+## Layer 4: NextJS Frontend
+
+Interactive web application consuming the same data:
+
+- **Data Explorer** — filter, group, and visualize assessment data
+- **Chapter Navigation** — dissertation content with linked analyses
+- **Recharts Visualizations** — achievement trends, score distributions
+- **Dual-mode API client** — live R server in development, static JSON in production
+
+. . .
+
+<br>
+
+```typescript
+// The same analysis, now in a React component
+const { data } = useAnalysis('achievement_trends', 'READING');
+```
+
+
+---
+
+## The Key Insight
+
+::: {.key-insight}
+You write your analysis **once**, in R.<br>
+It surfaces as an R function, an API endpoint, an MCP tool, a chart, and a table — automatically.
+:::
+
+<br>
+
+This is what we mean by **"leave the tech to the AI."**
+
+Your job is the **content** — the research questions, the analysis logic, the interpretation. The framework handles distribution.
+
+
+# Part IV {.title-card data-background-color="#f59e0b"}
+
+::: {style="color: white; text-align: center;"}
+
+## Hands-On: Fork and Configure {style="color: white; border-bottom: none;"}
+
+*Your dissertation framework in 60 minutes*
+
+:::
+
+
+---
+
+## Prerequisites Check
+
+::: {.hands-on}
+
+Before we begin, confirm you have:
+
+- [ ] **R** (>= 4.1) and **RStudio** or VS Code
+- [ ] **Node.js** (>= 18) and **pnpm** (>= 8)
+- [ ] **Quarto** (>= 1.4)
+- [ ] **Git** and a **GitHub account**
+- [ ] A terminal you're comfortable with
+
+Don't worry if some of these are unfamiliar — the AI handles the details.
+
+:::
+
+
+---
+
+## Step 1: Fork the Repositories
+
+::: {.hands-on}
+
+```bash
+# Fork via GitHub UI, then clone:
+git clone https://github.com/YOUR-USERNAME/dissertation-rpkg.git
+git clone --recurse-submodules \
+  https://github.com/YOUR-USERNAME/dissertation-ai.git
+
+# Install R package dependencies
+cd dissertation-rpkg/dissertation
+Rscript -e "devtools::install_deps()"
+
+# Install Node dependencies
+cd ../../dissertation-ai
+pnpm install
+```
+
+:::
+
+
+---
+
+## Step 2: Make It Yours
+
+::: {.hands-on}
+
+**In the R package** — edit `DESCRIPTION`:
+
+```
+Package: your-dissertation
+Title: Your Dissertation Title Here
+Description: Brief description of your research
+Author: Your Name
+```
+
+**In the Quarto website** — edit `_quarto.yml`:
+
+```yaml
+website:
+  title: "Your Dissertation Title"
+  site-url: "https://your-username.github.io/dissertation/"
+```
+
+**In the NextJS app** — edit `apps/web-app/src/app/layout.tsx`:
+
+```typescript
+title: 'Your Name | Dissertation Platform'
+```
+
+:::
+
+
+---
+
+## Step 3: Write Your First Content
+
+::: {.hands-on}
+
+Open `quarto_website/content/chapters/introduction.qmd` and start writing:
+
+```markdown
+---
+title: "Introduction"
+---
+
+## Research Context
+
+[Your opening paragraph — what problem are you investigating?]
+
+## Research Questions
+
+1. [Your first research question]
+2. [Your second research question]
+3. [Your third research question]
+
+## Significance
+
+[Why does this matter?]
+```
+
+Don't aim for perfection. Write a rough draft — we'll iterate with AI in Part V.
+
+:::
+
+
+---
+
+## Step 4: Render and Preview
+
+::: {.hands-on}
+
+```bash
+# Render the website
+cd dissertation-rpkg/dissertation/quarto_website
+quarto render
+
+# Preview locally
+quarto preview
+
+# Render the thesis PDF
+quarto render content/thesis-main.qmd --to pdf
+
+# Start the NextJS app
+cd ../../../dissertation-ai
+pnpm dev
+```
+
+Three views of the same content. Change a chapter, re-render, see updates everywhere.
+
+:::
+
+
+---
+
+## Exercise: 20 Minutes
+
+::: {.hands-on}
+
+**Goal:** Customize your fork and write 2-3 paragraphs of your introduction.
+
+1. Update the metadata in DESCRIPTION and _quarto.yml
+2. Write a rough introduction in `content/chapters/introduction.qmd`
+3. Run `quarto render` and `quarto preview` to see your site
+4. If time permits, try `quarto render content/thesis-main.qmd --to pdf`
+
+**Stuck?** Ask your AI assistant:
+
+> "I'm writing a dissertation on [topic]. Help me draft an introduction
+> that establishes the research context and states three research questions."
+
+:::
+
+
+# {data-background-color="#f8fafc"}
+
+::: {style="text-align: center; padding: 3em 0;"}
+
+## ☕ Break — 15 Minutes {style="color: #64748b;"}
+
+:::
+
+
+# Part V {.title-card data-background-color="#8b5cf6"}
+
+::: {style="color: white; text-align: center;"}
+
+## Content Creation with AI {style="color: white; border-bottom: none;"}
+
+*The write → render → review cycle*
+
+:::
+
+
+---
+
+## The Workflow
+
+```{mermaid}
+%%| echo: false
+%%| eval: true
+%%| fig-width: 14
+flowchart LR
+    W["✍️ Write\nDraft content\nwith AI assist"] --> R["🔄 Render\nquarto render\npnpm build"]
+    R --> V["👀 Review\nWebsite, PDF,\nDashboard"]
+    V --> W
+
+    style W fill:#ede9fe,stroke:#8b5cf6,color:#000
+    style R fill:#dbeafe,stroke:#3b82f6,color:#000
+    style V fill:#dcfce7,stroke:#22c55e,color:#000
+```
+
+<br>
+
+This is the core loop. You iterate on **content**, not infrastructure.
+
+AI helps with writing, editing, and analysis — but you retain full editorial control.
+
+
+---
+
+## AI-Assisted Writing Strategies
+
+::: {.incremental}
+
+**Drafting** — *"Help me write a literature review section on growth models in educational assessment."*
+
+**Editing** — *"This paragraph is too dense. Can you break it into clearer sub-points?"*
+
+**Analysis** — *"Given this data summary, what are the key findings I should highlight?"*
+
+**Structuring** — *"I have these five results. Help me organize them into a coherent narrative."*
+
+**Citation** — *"What seminal papers should I reference when discussing SGP methodology?"*
+
+:::
+
+. . .
+
+<br>
+
+The AI is a **collaborator**, not a ghostwriter. Your voice, your arguments, your interpretations.
+
+
+---
+
+## Connecting Content to Data
+
+The power of this framework: your writing is **linked to live analyses**.
+
+```markdown
+## Results {#sec-results}
+
+Our analysis of achievement trends reveals several patterns.
+@fig-trends shows mean scale scores across years.
+
+As shown in the data explorer (/explore), reading scores
+demonstrate recovery following the 2020 disruption, with a
+mean score of `{r} summarizeAssessment("READING", year="2023")$mean_score`
+by 2023.
+```
+
+. . .
+
+When you update your data or analysis code, the numbers in your text update too.
+
+
+---
+
+## Exercise: Writing a Methods Section
+
+::: {.hands-on}
+
+**Goal:** Draft your methods section using the write → render → review cycle.
+
+1. Open `content/chapters/methods.qmd`
+2. Use your AI assistant to help draft:
+   - Data description (what data, where from, how collected)
+   - Analytical approach (what methods, why these methods)
+   - Software and tools (R packages, specific functions)
+3. Render with `quarto render` and review
+4. Iterate: ask the AI to refine specific sections
+
+**Prompt to try:**
+
+> "I'm using [method] to analyze [data]. Help me write a methods section
+> that describes the data, the analytical approach, and the rationale
+> for choosing this methodology."
+
+:::
+
+
+---
+
+## Exercise: Linking Analysis to Narrative
+
+::: {.hands-on}
+
+**Goal:** Create an R code chunk in your results chapter that produces a figure referenced in your text.
+
+```{r}
+#| label: fig-trends
+#| fig-cap: "Achievement trends in reading and mathematics, 2018-2023"
+#| echo: false
+
+library(dissertation)
+result <- analyzeAssessment("achievement_trends", content_area = "All")
+# Plot the trends
+plot_achievement_trends(result)
+```
+
+Then reference it in your prose: *"As shown in @fig-trends, ..."*
+
+:::
+
+
+# Part VI {.title-card data-background-color="#0ea5e9"}
+
+::: {style="color: white; text-align: center;"}
+
+## Build and Deploy {style="color: white; border-bottom: none;"}
+
+*From local to live in minutes*
+
+:::
+
+
+---
+
+## The Build Pipeline
+
+```{mermaid}
+%%| echo: false
+%%| eval: true
+%%| fig-width: 14
+flowchart LR
+    A["quarto render"] --> B["Static HTML\nWebsite + PDF"]
+    C["pnpm build"] --> D["NextJS App\nStatic + Dynamic"]
+    E["git push"] --> F["GitHub Actions\nCI/CD"]
+    F --> G["Vercel\nLive Deployment"]
+    F --> H["GitHub Pages\nQuarto Site"]
+
+    style A fill:#dbeafe,stroke:#3b82f6,color:#000
+    style B fill:#dbeafe,stroke:#3b82f6,color:#000
+    style C fill:#ede9fe,stroke:#8b5cf6,color:#000
+    style D fill:#ede9fe,stroke:#8b5cf6,color:#000
+    style E fill:#dcfce7,stroke:#22c55e,color:#000
+    style F fill:#fef3c7,stroke:#f59e0b,color:#000
+    style G fill:#fef3c7,stroke:#f59e0b,color:#000
+    style H fill:#fef3c7,stroke:#f59e0b,color:#000
+```
+
+
+---
+
+## Deploying to Vercel
+
+::: {.hands-on}
+
+1. Push your `dissertation-ai` repo to GitHub
+2. Go to [vercel.com](https://vercel.com) → New Project → Import your repo
+3. Configure:
+   - **Root Directory:** `apps/web-app`
+   - **Build Command:** `cd ../.. && pnpm build`
+   - **Output Directory:** `apps/web-app/.next`
+4. Deploy
+
+Every `git push` to `main` triggers a new deployment automatically.
+
+:::
+
+
+---
+
+## GitHub Pages for Quarto
+
+Your Quarto website deploys via GitHub Actions (already configured):
+
+```yaml
+# .github/workflows/quarto-render.yaml
+# Triggers on push to main
+# Renders website, thesis PDF, working paper
+# Deploys to GitHub Pages
+```
+
+Two URLs, one content source:
+
+- **Quarto site:** `https://your-username.github.io/dissertation/`
+- **NextJS app:** `https://your-dissertation.vercel.app`
+
+
+# Part VII {.title-card data-background-color="#8b5cf6"}
+
+::: {style="color: white; text-align: center;"}
+
+## Where Do We Go From Here? {style="color: white; border-bottom: none;"}
+
+:::
+
+
+---
+
+## What You Built Today
+
+::: {.incremental}
+
+- A **forkable R package** with your research data and analysis functions
+- A **Quarto website** rendering your dissertation as an interactive site
+- A **thesis PDF** using your university's formatting requirements
+- A **NextJS web application** with data visualizations and chapter navigation
+- **MCP tool definitions** that let AI agents query your research
+- A **deployment pipeline** that updates everything when you push
+
+:::
+
+
+---
+
+## The Ongoing Workflow
+
+```{mermaid}
+%%| echo: false
+%%| eval: true
+%%| fig-width: 14
+flowchart TB
+    A["Write content\n(chapters, analysis)"] --> B["Render locally\n(quarto render, pnpm dev)"]
+    B --> C["Review all formats\n(web, PDF, dashboard)"]
+    C --> D{"Satisfied?"}
+    D -->|"No"| A
+    D -->|"Yes"| E["Push to GitHub"]
+    E --> F["Auto-deploy\n(GitHub Pages + Vercel)"]
+
+    style A fill:#ede9fe,stroke:#8b5cf6,color:#000
+    style B fill:#dbeafe,stroke:#3b82f6,color:#000
+    style C fill:#dcfce7,stroke:#22c55e,color:#000
+    style D fill:#fef3c7,stroke:#f59e0b,color:#000
+    style E fill:#dcfce7,stroke:#22c55e,color:#000
+    style F fill:#dbeafe,stroke:#3b82f6,color:#000
+```
+
+
+---
+
+## Next Steps
+
+::: {.incremental}
+
+1. **Continue writing chapters** — use the write → render → review cycle
+2. **Customize your data** — replace the sample SGP data with your own
+3. **Add analysis functions** — write R functions specific to your research
+4. **Refine visualizations** — D3.js for publication-quality interactive figures
+5. **AI agent integration** — connect your MCP tools to Claude or other agents
+6. **Share with your advisor** — send them the Vercel URL, not a PDF
+
+:::
+
+
+---
+
+## Resources
+
+| Resource | URL |
+|----------|-----|
+| Framework repo | [github.com/dataimago/dissertation](https://github.com/dataimago/dissertation) |
+| NextJS app repo | [github.com/dataimago/dissertation-ai](https://github.com/dataimago/dissertation-ai) |
+| Quarto docs | [quarto.org](https://quarto.org) |
+| MCP specification | [modelcontextprotocol.io](https://modelcontextprotocol.io) |
+| dataimago | [github.com/dataimago](https://github.com/dataimago) |
+
+<br>
+
+::: {.key-insight}
+The dissertation is no longer just a document you write.<br>
+It's a **living platform** you build — and the AI helps you build it.
+:::
+
+
+---
+
+## Thank You {.center}
+
+<br>
+
+::: {style="text-align: center;"}
+
+**Damian Betebenner**
+
+dataimago
+
+<br>
+
+[github.com/dataimago](https://github.com/dataimago)
+
+:::
