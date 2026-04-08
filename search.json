@@ -77,6 +77,13 @@
     "text": "Dissertation Chapters\n\nChapter 1: Introduction\nChapter 2: Literature Review\nChapter 3: Methods\nChapter 4: Results\nChapter 5: Discussion"
   },
   {
+    "objectID": "index.html#start-from-scratch-with-ai",
+    "href": "index.html#start-from-scratch-with-ai",
+    "title": "AI-Native Dissertation Framework",
+    "section": "Start From Scratch with AI",
+    "text": "Start From Scratch with AI\nIf you use an AI coding assistant (Claude Code, Codex, Cursor, Windsurf, or similar), you can skip forking entirely. Download the setup file, drop it into an empty directory, and let your AI agent build a fully customized dissertation framework around your research topic.\n\n\n\n\n\n\nTipDownload SETUP.md\n\n\n\n SETUP.md — Complete instructions for any AI agent to scaffold your dissertation framework from scratch.\nHow to use it:\n\nCreate a new directory for your dissertation\nPlace SETUP.md inside it (along with any research notes, proposals, or data you have)\nOpen your AI agent and say: “I’m ready to get started writing my dissertation. Read SETUP.md first.”\n\nThe agent will ask about your research topic, questions, data, and institution — then build everything customized to you."
+  },
+  {
     "objectID": "index.html#for-training-participants",
     "href": "index.html#for-training-participants",
     "title": "AI-Native Dissertation Framework",
@@ -340,7 +347,7 @@
     "href": "about.html#acknowledgments",
     "title": "About This Framework",
     "section": "Acknowledgments",
-    "text": "Acknowledgments\nThis framework is part of the dataimago ecosystem for emancipatory data science."
+    "text": "Acknowledgments\nThis framework supports an approach to emancipatory data science through AI-native application development."
   },
   {
     "objectID": "api_reference.html",
