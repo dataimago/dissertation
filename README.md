@@ -81,7 +81,7 @@ The package includes `assessmentData` — a longitudinal assessment dataset with
 ## Companion Repository
 
 This package is designed to be embedded in the **dissertation-ai** NextJS application:
-- Repository: [github.com/dataimago/dissertation-ai](https://github.com/dataimago/dissertation-ai)
+- Repository: [github.com/dbetebenner/dissertation-ai](https://github.com/dbetebenner/dissertation-ai)
 - The R package is included as a git submodule
 - The NextJS app consumes the REST API for interactive visualizations and chatbot
 
@@ -96,11 +96,7 @@ This framework was presented at a training session on writing AI-native disserta
 5. Configure the thesis PDF profile for your institution
 6. The web application automatically adapts to your API
 
-See the [Customization Guide](https://dataimago.github.io/dissertation/customization_guide.html) for details.
-
-## Part of the dataimago Ecosystem
-
-This framework is part of [dataimago](https://dataimago.github.io/) — an initiative for emancipatory data science through AI-native application development.
+See the [Customization Guide](https://dbetebenner.github.io/dissertation/customization_guide.html) for details.
 
 ## License
 

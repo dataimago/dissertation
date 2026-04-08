@@ -8,6 +8,7 @@ $link-color: #0ea5e9;
 $presentation-heading-color: #0f172a;
 $code-color: #7c3aed;
 $code-block-bg: #1e293b;
+$code-block-color: #e2e8f0;
 $code-block-font-size: 0.7em;
 
 /*-- scss:rules --*/
@@ -37,7 +38,25 @@ $code-block-font-size: 0.7em;
   padding: 1em;
   border-radius: 8px;
   line-height: 1.5;
+  color: #e2e8f0;
 }
+
+.reveal pre code .hljs-keyword,
+.reveal pre code .hljs-selector-tag { color: #c084fc; }
+
+.reveal pre code .hljs-string,
+.reveal pre code .hljs-attr { color: #86efac; }
+
+.reveal pre code .hljs-comment { color: #94a3b8; font-style: italic; }
+
+.reveal pre code .hljs-function,
+.reveal pre code .hljs-title { color: #7dd3fc; }
+
+.reveal pre code .hljs-number { color: #fbbf24; }
+
+.reveal pre code .hljs-built_in { color: #f0abfc; }
+
+.reveal pre code .hljs-literal { color: #fb923c; }
 
 .reveal .slide-background-content {
   background-size: cover;
@@ -63,4 +82,35 @@ $code-block-font-size: 0.7em;
 .reveal table td, .reveal table th {
   padding: 0.5em 1em;
   border: 1px solid #e2e8f0;
+}
+
+// Title card slides: ensure ALL text (h1, h2, h3, p) is white on colored backgrounds
+.title-card h1,
+.title-card h2,
+.title-card h3,
+.title-card p,
+.title-card em,
+.title-card span {
+  color: white !important;
+  border-bottom: none !important;
+}
+
+// Mermaid diagram centering and sizing for reveal.js
+.reveal .mermaid {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.reveal .mermaid svg {
+  max-width: 95%;
+  max-height: 65vh;
+  height: auto;
+}
+
+// Ensure mermaid node text is readable
+.reveal .mermaid .nodeLabel {
+  font-family: 'Inter', system-ui, sans-serif;
+  line-height: 1.4;
 }

@@ -27,4 +27,4 @@ This project is licensed under the MIT License.
 
 ## Acknowledgments
 
-This framework is part of the [dataimago](https://dataimago.github.io/) ecosystem for emancipatory data science.
+This framework supports an approach to emancipatory data science through AI-native application development.

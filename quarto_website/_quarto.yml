@@ -16,8 +16,8 @@ references:
 
 # ---- Website profile (default) ----
 website:
-  site-url: "https://dataimago.github.io/dissertation/"
-  repo-url: "https://github.com/dataimago/dissertation"
+  site-url: "https://dbetebenner.github.io/dissertation/"
+  repo-url: "https://github.com/dbetebenner/dissertation"
   title: "An AI-Native Dissertation Framework"
 
   page-navigation: true
@@ -62,7 +62,7 @@ website:
       - text: News
         href: news.qmd
       - text: "{{< iconify fa6-brands github size=28px title='GitHub Repo' >}}"
-        href: https://github.com/dataimago/dissertation/
+        href: https://github.com/dbetebenner/dissertation/
         target: _blank
 
   search:
@@ -73,7 +73,7 @@ website:
   page-footer:
     center:
       - text: "{{< iconify jam:github-square size=33.5px title='dissertation GitHub Repo' >}}"
-        href: https://github.com/dataimago/dissertation/
+        href: https://github.com/dbetebenner/dissertation/
         target: _blank
 
   twitter-card:

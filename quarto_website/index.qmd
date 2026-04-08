@@ -45,6 +45,24 @@ run_dissertation_api(port = 8000)
 - [Chapter 4: Results](content/chapters/results.qmd)
 - [Chapter 5: Discussion](content/chapters/discussion.qmd)
 
+## Start From Scratch with AI
+
+If you use an AI coding assistant (Claude Code, Codex, Cursor, Windsurf, or similar), you can skip forking entirely. Download the setup file, drop it into an empty directory, and let your AI agent build a fully customized dissertation framework around your research topic.
+
+::: {.callout-tip}
+## Download SETUP.md
+
+[{{< iconify bi:download >}} **SETUP.md**](assets/SETUP.md){.btn .btn-primary download="SETUP.md"} — Complete instructions for any AI agent to scaffold your dissertation framework from scratch.
+
+**How to use it:**
+
+1. Create a new directory for your dissertation
+2. Place `SETUP.md` inside it (along with any research notes, proposals, or data you have)
+3. Open your AI agent and say: *"I'm ready to get started writing my dissertation. Read SETUP.md first."*
+
+The agent will ask about your research topic, questions, data, and institution — then build everything customized to you.
+:::
+
 ## For Training Participants
 
 This framework was presented at a training session on writing AI-native dissertations. To use it for your own work:

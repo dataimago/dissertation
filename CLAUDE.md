@@ -1,13 +1,13 @@
 ---
 title: "CLAUDE.md: Dissertation R Package Development for AI-Native Applications"
-description: "A companion guide for AI assistants developing the dissertation R package within the dataimago AI-native data science application framework."
+description: "A companion guide for AI assistants developing the dissertation R package within the AI-native dissertation framework."
 version: "0.0-0.1"
-author: "dataimago AI + Human Co-Creation"
+author: "Damian Betebenner + AI Co-Creation"
 ---
 
 ## Overview
 
-This document guides AI assistants contributing to the `dissertation` R package — a forkable framework for writing AI-native dissertations. The package is embedded within the `dissertation-ai` NextJS application as a git submodule, following the dataimago architecture pattern established by the HelloWorld proof-of-concept.
+This document guides AI assistants contributing to the `dissertation` R package — a forkable framework for writing AI-native dissertations. The package is embedded within the `dissertation-ai` NextJS application as a git submodule.
 
 ## Architecture Context
 

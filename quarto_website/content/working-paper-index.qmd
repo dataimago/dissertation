@@ -15,4 +15,4 @@ This document is a versioned working paper derived from the same source files as
 - **v1.1** — Updated with new data or extended methods
 - **v2.0** — Major revision with new research questions
 
-The code, data, and analysis functions are bundled in the companion R package `dissertation`. See the [project website](https://dataimago.github.io/dissertation/) for interactive documentation and API reference.
+The code, data, and analysis functions are bundled in the companion R package `dissertation`. See the [project website](https://dbetebenner.github.io/dissertation/) for interactive documentation and API reference.

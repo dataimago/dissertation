@@ -17,7 +17,7 @@
             bold("\U1F4CA "), "An AI-Native Dissertation Framework\n",
             strrep("\u2501", 50), "\n",
             "\U1F4A1 Tip: ", magenta(bold("> help(package=\"dissertation\")")), "\n",
-            "\U1F310 Docs: ", magenta(bold("https://dataimago.github.io/dissertation")), "\n",
+            "\U1F310 Docs: ", magenta(bold("https://dbetebenner.github.io/dissertation")), "\n",
             "\U1F680 API:  ", magenta(bold("> run_dissertation_api()")), "\n",
             strrep("\u2501", 50), "\n",
             "\u2728 Happy dissertating!")

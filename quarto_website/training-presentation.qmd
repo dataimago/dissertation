@@ -7,14 +7,13 @@ date-format: "MMMM D, YYYY"
 format:
   revealjs:
     theme: [default, custom.scss]
-    logo: assets/img/dataimago-logo.png
-    footer: "dataimago | AI-Native Dissertation Framework"
+    footer: "AI-Native Dissertation Framework"
     slide-number: true
     hash-type: number
     center-title-slide: true
     transition: fade
     background-transition: fade
-    highlight-style: github
+    highlight-style: github-dark
     code-line-numbers: false
     code-overflow: wrap
     width: 1600
@@ -26,12 +25,15 @@ format:
     history: true
     touch: true
     chalkboard: true
+    mermaid:
+      theme: neutral
     multiplex: false
     preview-links: auto
     scrollable: true
     title-slide-attributes:
       data-background-gradient: "linear-gradient(135deg, #0ea5e9 0%, #8b5cf6 100%)"
       data-background-opacity: "0.95"
+      data-transition: "slide"
 execute:
   echo: true
   eval: false
@@ -107,32 +109,31 @@ execute:
   grid-template-columns: 1fr 1fr;
   gap: 1em;
 }
+.reveal .cell[data-engine="mermaid"] {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+.reveal .cell[data-engine="mermaid"] .cell-output-display {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+.reveal .cell[data-engine="mermaid"] .mermaid svg {
+  max-width: 100%;
+  height: auto;
+}
 ```
 
-
-# {.title-card data-background-gradient="linear-gradient(135deg, #0ea5e9 0%, #8b5cf6 100%)" data-background-opacity="0.95"}
-
-::: {style="color: white; text-align: center;"}
-
-## The AI-Native Dissertation {style="color: white; border-bottom: none; font-size: 2em;"}
-
-### Reimagining Knowledge Transmission for the 21st Century {style="color: rgba(255,255,255,0.9); font-weight: 300;"}
-
-<br>
-
-Damian Betebenner | dataimago
-
-:::
-
-
----
 
 ## Today's Journey
 
 ::: {.incremental}
+- **Part 0** — Introductions and an Exercise *(15 min)*
 - **Part I** — The Dissertation as Transmission Mechanism *(20 min)*
 - **Part II** — New Modes of Knowledge Transmission *(25 min)*
-- **Part III** — The dataimago Framework *(30 min)*
+- **Part III** — The AI-Native Dissertation Framework *(30 min)*
 - **Part IV** — Hands-On: Fork and Configure *(60 min)*
 - *Break (15 min)*
 - **Part V** — Content Creation with AI *(60 min)*
@@ -141,13 +142,122 @@ Damian Betebenner | dataimago
 :::
 
 
-# Part I {.title-card data-background-color="#0ea5e9"}
+# {.title-card data-background-color="#8b5cf6" data-transition="slide"}
 
-::: {style="color: white; text-align: center;"}
+::: {style="color: white; text-align: center; padding-top: 1em;"}
 
-## The Dissertation as Transmission Mechanism {style="color: white; border-bottom: none;"}
+[Part 0]{style="font-size: 0.7em; opacity: 0.8; text-transform: uppercase; letter-spacing: 0.15em;"}
 
-*What is a dissertation, really?*
+[Introductions & an Exercise]{style="font-size: 1.8em; font-weight: 700; display: block; margin-top: 0.3em;"}
+
+[*Before we begin, let's get to know each other*]{style="margin-top: 0.5em; display: block; opacity: 0.9;"}
+
+:::
+
+
+---
+
+## Introductions
+
+Let's go around the room. Please share:
+
+::: {.incremental}
+
+1. **Your name** and where you're from
+2. **Your research area** — what brings you here
+3. **How you use AI** in your work or personal life
+4. **Why you signed up** for this session — what are you hoping to take away?
+
+:::
+
+
+---
+
+## An Exercise: AI Is Like A...
+
+::: {.key-insight}
+One of the biggest barriers to people using AI to its fullest potential is the way they **perceive** it — which is often very limited.
+:::
+
+. . .
+
+<br>
+
+Your task: come up with **three metaphors or analogies** for what AI is to you.
+
+> "AI is like a \_\_\_\_\_\_\_\_\_\_\_\_"
+
+. . .
+
+Take 2 minutes to think, then we'll share around the room.
+
+
+---
+
+## Share Your Metaphors
+
+::: {style="font-size: 0.9em;"}
+
+| Person | Metaphor 1 | Metaphor 2 | Metaphor 3 |
+|--------|-----------|-----------|-----------|
+| Damian | A genie | A [universal translator](assets/img/universal_translator_startrek.png){target="_blank"} | A language being --- not fully autonomous (yet), but like humans in the sense that our brain is a language organ |
+| 2 | | | |
+| 3 | | | |
+| 4 | | | |
+| 5 | | | |
+| 6 | | | |
+
+:::
+
+. . .
+
+<br>
+
+::: {.key-insight}
+Notice the range. Our metaphors reveal our **mental models** — and mental models shape what we think is possible.
+:::
+
+
+---
+
+## Why This Matters
+
+Common metaphors are often **limiting**:
+
+::: {.incremental}
+- "AI is a search engine" → leads to simple Q&A usage
+- "AI is a calculator" → leads to expecting deterministic answers
+- "AI is a robot" → leads to mechanical, command-based interaction
+:::
+
+. . .
+
+<br>
+
+More expansive metaphors **unlock possibility**:
+
+::: {.incremental}
+- "AI is a **collaborator**" → leads to iterative co-creation
+- "AI is a **lens**" → leads to using it to see your own work differently
+- "AI is a **medium**" → leads to thinking about new forms of expression
+:::
+
+. . .
+
+<br>
+
+Today we'll explore AI as a **medium for knowledge transmission** — a fundamentally new way to share what you've learned.
+
+
+# {.title-card data-background-color="#0ea5e9" data-transition="slide"}
+
+::: {style="color: white; text-align: center; padding-top: 1em;"}
+
+[Part I]{style="font-size: 0.7em; opacity: 0.8; text-transform: uppercase; letter-spacing: 0.15em;"}
+
+[The Dissertation as Transmission Mechanism]{style="font-size: 1.8em; font-weight: 700; display: block; margin-top: 0.3em;"}
+
+[*What is a dissertation, really?*]{style="margin-top: 0.5em; display: block; opacity: 0.9;"}
 
 :::
 
@@ -270,17 +380,17 @@ We digitized the **container** but not the **knowledge**.
 
 ```{mermaid}
 %%| echo: false
-%%| eval: true
-%%| fig-width: 14
+%%| fig-responsive: false
+%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '22px', 'fontFamily': 'Inter, system-ui, sans-serif'}, 'flowchart': {'nodeSpacing': 80, 'rankSpacing': 80, 'padding': 20, 'htmlLabels': true}}}%%
 flowchart LR
-    A["🗣️ Oral\n(1 → few)"] --> B["📜 Manuscript\n(1 → few)"]
-    B --> C["📖 Printed\n(1 → many)"]
-    C --> D["📄 PDF\n(1 → many, faster)"]
+    A["🗣️ <b>Oral</b><br/><i>1 → few</i>"] --> B["📜 <b>Manuscript</b><br/><i>1 → few</i>"]
+    B --> C["📖 <b>Printed</b><br/><i>1 → many</i>"]
+    C --> D["📄 <b>PDF</b><br/><i>1 → many, faster</i>"]
 
-    style A fill:#fef3c7,stroke:#f59e0b,color:#000
-    style B fill:#fef3c7,stroke:#f59e0b,color:#000
-    style C fill:#dbeafe,stroke:#3b82f6,color:#000
-    style D fill:#dbeafe,stroke:#3b82f6,color:#000
+    style A fill:#fef3c7,stroke:#f59e0b,stroke-width:2px,color:#000
+    style B fill:#fef3c7,stroke:#f59e0b,stroke-width:2px,color:#000
+    style C fill:#dbeafe,stroke:#3b82f6,stroke-width:2px,color:#000
+    style D fill:#dbeafe,stroke:#3b82f6,stroke-width:2px,color:#000
 ```
 
 <br>
@@ -294,13 +404,15 @@ In every era, the fundamental model has been the same:
 What if that's no longer the only option?
 
 
-# Part II {.title-card data-background-color="#8b5cf6"}
+# {.title-card data-background-color="#8b5cf6" data-transition="slide"}
 
-::: {style="color: white; text-align: center;"}
+::: {style="color: white; text-align: center; padding-top: 1em;"}
 
-## New Modes of Knowledge Transmission {style="color: white; border-bottom: none;"}
+[Part II]{style="font-size: 0.7em; opacity: 0.8; text-transform: uppercase; letter-spacing: 0.15em;"}
 
-*APIs and AI change the equation*
+[New Modes of Knowledge Transmission]{style="font-size: 1.8em; font-weight: 700; display: block; margin-top: 0.3em;"}
+
+[*APIs and AI change the equation*]{style="margin-top: 0.5em; display: block; opacity: 0.9;"}
 
 :::
 
@@ -329,20 +441,20 @@ For the first time in history, the **consumers** of research are not exclusively
 
 ```{mermaid}
 %%| echo: false
-%%| eval: true
-%%| fig-width: 14
+%%| fig-responsive: false
+%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '20px', 'fontFamily': 'Inter, system-ui, sans-serif'}, 'flowchart': {'nodeSpacing': 60, 'rankSpacing': 70, 'padding': 20, 'htmlLabels': true}}}%%
 flowchart TB
-    S["📝 Dissertation Content\n(authored once)"]
-    S --> H["👤 Human Reader\nWebsite / PDF / Thesis"]
-    S --> A["🤖 AI Agent\nMCP Tools / Structured Data"]
-    S --> D["📊 Data Analyst\nREST API / R Package"]
-    S --> V["👥 Non-Specialist\nInteractive Dashboard"]
+    S["📝 <b>Dissertation Content</b><br/><i>authored once</i>"]
+    S --> H["👤 <b>Human Reader</b><br/>Website / PDF / Thesis"]
+    S --> A["🤖 <b>AI Agent</b><br/>MCP Tools / Structured Data"]
+    S --> D["📊 <b>Data Analyst</b><br/>REST API / R Package"]
+    S --> V["👥 <b>Non-Specialist</b><br/>Interactive Dashboard"]
 
-    style S fill:#f0f9ff,stroke:#0ea5e9,color:#000,stroke-width:2px
-    style H fill:#dbeafe,stroke:#3b82f6,color:#000
-    style A fill:#ede9fe,stroke:#8b5cf6,color:#000
-    style D fill:#dcfce7,stroke:#22c55e,color:#000
-    style V fill:#fef3c7,stroke:#f59e0b,color:#000
+    style S fill:#f0f9ff,stroke:#0ea5e9,color:#000,stroke-width:3px
+    style H fill:#dbeafe,stroke:#3b82f6,stroke-width:2px,color:#000
+    style A fill:#ede9fe,stroke:#8b5cf6,stroke-width:2px,color:#000
+    style D fill:#dcfce7,stroke:#22c55e,stroke-width:2px,color:#000
+    style V fill:#fef3c7,stroke:#f59e0b,stroke-width:2px,color:#000
 ```
 
 
@@ -434,13 +546,15 @@ The dissertation is no longer just a document. It's a **platform**.
 All rendered from the **same source content**.
 
 
-# Part III {.title-card data-background-color="#0ea5e9"}
+# {.title-card data-background-color="#0ea5e9" data-transition="slide"}
 
-::: {style="color: white; text-align: center;"}
+::: {style="color: white; text-align: center; padding-top: 1em;"}
 
-## The dataimago Framework {style="color: white; border-bottom: none;"}
+[Part III]{style="font-size: 0.7em; opacity: 0.8; text-transform: uppercase; letter-spacing: 0.15em;"}
 
-*R Package → API → MCP → NextJS*
+[The AI-Native Dissertation Framework]{style="font-size: 1.8em; font-weight: 700; display: block; margin-top: 0.3em;"}
+
+[*R Package → API → MCP → NextJS*]{style="margin-top: 0.5em; display: block; opacity: 0.9;"}
 
 :::
 
@@ -451,19 +565,19 @@ All rendered from the **same source content**.
 
 ```{mermaid}
 %%| echo: false
-%%| eval: true
-%%| fig-width: 14
+%%| fig-responsive: false
+%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '18px', 'fontFamily': 'Inter, system-ui, sans-serif'}, 'flowchart': {'nodeSpacing': 50, 'rankSpacing': 60, 'padding': 18, 'htmlLabels': true, 'subGraphTitleMargin': {'top': 10, 'bottom': 10}}}}%%
 flowchart TB
-    subgraph "dissertation-rpkg"
-        R["R Package\nCore analysis engine"]
-        Q["Quarto\nWebsite / Thesis / Working Paper"]
-        API["REST API\n6 endpoints via RestRserve"]
+    subgraph rpkg ["📦 dissertation-rpkg"]
+        R["<b>R Package</b><br/>Core analysis engine"]
+        Q["<b>Quarto</b><br/>Website / Thesis / Working Paper"]
+        API["<b>REST API</b><br/>6 endpoints via RestRserve"]
     end
 
-    subgraph "dissertation-ai"
-        SU["shared-utils\nTypes, API clients"]
-        MCP["mcp-tools\nSchema loader, proxy"]
-        WA["NextJS Web App\nInteractive frontend"]
+    subgraph ai ["🚀 dissertation-ai"]
+        SU["<b>shared-utils</b><br/>Types, API clients"]
+        MCP["<b>mcp-tools</b><br/>Schema loader, proxy"]
+        WA["<b>NextJS Web App</b><br/>Interactive frontend"]
     end
 
     R --> API
@@ -472,12 +586,14 @@ flowchart TB
     SU --> MCP
     SU --> WA
 
-    style R fill:#dbeafe,stroke:#3b82f6,color:#000
-    style Q fill:#dbeafe,stroke:#3b82f6,color:#000
-    style API fill:#dcfce7,stroke:#22c55e,color:#000
-    style SU fill:#ede9fe,stroke:#8b5cf6,color:#000
-    style MCP fill:#ede9fe,stroke:#8b5cf6,color:#000
-    style WA fill:#fef3c7,stroke:#f59e0b,color:#000
+    style R fill:#dbeafe,stroke:#3b82f6,stroke-width:2px,color:#000
+    style Q fill:#dbeafe,stroke:#3b82f6,stroke-width:2px,color:#000
+    style API fill:#dcfce7,stroke:#22c55e,stroke-width:2px,color:#000
+    style SU fill:#ede9fe,stroke:#8b5cf6,stroke-width:2px,color:#000
+    style MCP fill:#ede9fe,stroke:#8b5cf6,stroke-width:2px,color:#000
+    style WA fill:#fef3c7,stroke:#f59e0b,stroke-width:2px,color:#000
+    style rpkg fill:#f0f9ff,stroke:#3b82f6,stroke-width:2px
+    style ai fill:#faf5ff,stroke:#8b5cf6,stroke-width:2px
 ```
 
 
@@ -596,13 +712,15 @@ This is what we mean by **"leave the tech to the AI."**
 Your job is the **content** — the research questions, the analysis logic, the interpretation. The framework handles distribution.
 
 
-# Part IV {.title-card data-background-color="#f59e0b"}
+# {.title-card data-background-color="#f59e0b" data-transition="slide"}
 
-::: {style="color: white; text-align: center;"}
+::: {style="color: white; text-align: center; padding-top: 1em;"}
 
-## Hands-On: Fork and Configure {style="color: white; border-bottom: none;"}
+[Part IV]{style="font-size: 0.7em; opacity: 0.8; text-transform: uppercase; letter-spacing: 0.15em;"}
 
-*Your dissertation framework in 60 minutes*
+[Hands-On: Fork and Configure]{style="font-size: 1.8em; font-weight: 700; display: block; margin-top: 0.3em;"}
+
+[*Your dissertation framework in 60 minutes*]{style="margin-top: 0.5em; display: block; opacity: 0.9;"}
 
 :::
 
@@ -763,22 +881,24 @@ Three views of the same content. Change a chapter, re-render, see updates everyw
 :::
 
 
-# {data-background-color="#f8fafc"}
+# {data-background-color="#f8fafc" data-transition="slide"}
 
 ::: {style="text-align: center; padding: 3em 0;"}
 
-## ☕ Break — 15 Minutes {style="color: #64748b;"}
+[☕ Break — 15 Minutes]{style="font-size: 1.8em; font-weight: 700; color: #64748b;"}
 
 :::
 
 
-# Part V {.title-card data-background-color="#8b5cf6"}
+# {.title-card data-background-color="#8b5cf6" data-transition="slide"}
 
-::: {style="color: white; text-align: center;"}
+::: {style="color: white; text-align: center; padding-top: 1em;"}
 
-## Content Creation with AI {style="color: white; border-bottom: none;"}
+[Part V]{style="font-size: 0.7em; opacity: 0.8; text-transform: uppercase; letter-spacing: 0.15em;"}
 
-*The write → render → review cycle*
+[Content Creation with AI]{style="font-size: 1.8em; font-weight: 700; display: block; margin-top: 0.3em;"}
+
+[*The write → render → review cycle*]{style="margin-top: 0.5em; display: block; opacity: 0.9;"}
 
 :::
 
@@ -789,16 +909,16 @@ Three views of the same content. Change a chapter, re-render, see updates everyw
 
 ```{mermaid}
 %%| echo: false
-%%| eval: true
-%%| fig-width: 14
+%%| fig-responsive: false
+%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '22px', 'fontFamily': 'Inter, system-ui, sans-serif'}, 'flowchart': {'nodeSpacing': 80, 'rankSpacing': 100, 'padding': 20, 'htmlLabels': true}}}%%
 flowchart LR
-    W["✍️ Write\nDraft content\nwith AI assist"] --> R["🔄 Render\nquarto render\npnpm build"]
-    R --> V["👀 Review\nWebsite, PDF,\nDashboard"]
+    W["✍️ <b>Write</b><br/>Draft content<br/>with AI assist"] --> R["🔄 <b>Render</b><br/>quarto render<br/>pnpm build"]
+    R --> V["👀 <b>Review</b><br/>Website, PDF,<br/>Dashboard"]
     V --> W
 
-    style W fill:#ede9fe,stroke:#8b5cf6,color:#000
-    style R fill:#dbeafe,stroke:#3b82f6,color:#000
-    style V fill:#dcfce7,stroke:#22c55e,color:#000
+    style W fill:#ede9fe,stroke:#8b5cf6,stroke-width:2px,color:#000
+    style R fill:#dbeafe,stroke:#3b82f6,stroke-width:2px,color:#000
+    style V fill:#dcfce7,stroke:#22c55e,stroke-width:2px,color:#000
 ```
 
 <br>
@@ -907,13 +1027,15 @@ Then reference it in your prose: *"As shown in @fig-trends, ..."*
 :::
 
 
-# Part VI {.title-card data-background-color="#0ea5e9"}
+# {.title-card data-background-color="#0ea5e9" data-transition="slide"}
 
-::: {style="color: white; text-align: center;"}
+::: {style="color: white; text-align: center; padding-top: 1em;"}
 
-## Build and Deploy {style="color: white; border-bottom: none;"}
+[Part VI]{style="font-size: 0.7em; opacity: 0.8; text-transform: uppercase; letter-spacing: 0.15em;"}
 
-*From local to live in minutes*
+[Build and Deploy]{style="font-size: 1.8em; font-weight: 700; display: block; margin-top: 0.3em;"}
+
+[*From local to live in minutes*]{style="margin-top: 0.5em; display: block; opacity: 0.9;"}
 
 :::
 
@@ -924,23 +1046,23 @@ Then reference it in your prose: *"As shown in @fig-trends, ..."*
 
 ```{mermaid}
 %%| echo: false
-%%| eval: true
-%%| fig-width: 14
+%%| fig-responsive: false
+%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '20px', 'fontFamily': 'Inter, system-ui, sans-serif'}, 'flowchart': {'nodeSpacing': 60, 'rankSpacing': 80, 'padding': 18, 'htmlLabels': true}}}%%
 flowchart LR
-    A["quarto render"] --> B["Static HTML\nWebsite + PDF"]
-    C["pnpm build"] --> D["NextJS App\nStatic + Dynamic"]
-    E["git push"] --> F["GitHub Actions\nCI/CD"]
-    F --> G["Vercel\nLive Deployment"]
-    F --> H["GitHub Pages\nQuarto Site"]
+    A["<b>quarto render</b>"] --> B["Static HTML<br/>Website + PDF"]
+    C["<b>pnpm build</b>"] --> D["NextJS App<br/>Static + Dynamic"]
+    E["<b>git push</b>"] --> F["GitHub Actions<br/>CI/CD"]
+    F --> G["Vercel<br/>Live Deployment"]
+    F --> H["GitHub Pages<br/>Quarto Site"]
 
-    style A fill:#dbeafe,stroke:#3b82f6,color:#000
-    style B fill:#dbeafe,stroke:#3b82f6,color:#000
-    style C fill:#ede9fe,stroke:#8b5cf6,color:#000
-    style D fill:#ede9fe,stroke:#8b5cf6,color:#000
-    style E fill:#dcfce7,stroke:#22c55e,color:#000
-    style F fill:#fef3c7,stroke:#f59e0b,color:#000
-    style G fill:#fef3c7,stroke:#f59e0b,color:#000
-    style H fill:#fef3c7,stroke:#f59e0b,color:#000
+    style A fill:#dbeafe,stroke:#3b82f6,stroke-width:2px,color:#000
+    style B fill:#dbeafe,stroke:#3b82f6,stroke-width:2px,color:#000
+    style C fill:#ede9fe,stroke:#8b5cf6,stroke-width:2px,color:#000
+    style D fill:#ede9fe,stroke:#8b5cf6,stroke-width:2px,color:#000
+    style E fill:#dcfce7,stroke:#22c55e,stroke-width:2px,color:#000
+    style F fill:#fef3c7,stroke:#f59e0b,stroke-width:2px,color:#000
+    style G fill:#fef3c7,stroke:#f59e0b,stroke-width:2px,color:#000
+    style H fill:#fef3c7,stroke:#f59e0b,stroke-width:2px,color:#000
 ```
 
 
@@ -982,11 +1104,13 @@ Two URLs, one content source:
 - **NextJS app:** `https://your-dissertation.vercel.app`
 
 
-# Part VII {.title-card data-background-color="#8b5cf6"}
+# {.title-card data-background-color="#8b5cf6" data-transition="slide"}
 
-::: {style="color: white; text-align: center;"}
+::: {style="color: white; text-align: center; padding-top: 1em;"}
 
-## Where Do We Go From Here? {style="color: white; border-bottom: none;"}
+[Part VII]{style="font-size: 0.7em; opacity: 0.8; text-transform: uppercase; letter-spacing: 0.15em;"}
+
+[Where Do We Go From Here?]{style="font-size: 1.8em; font-weight: 700; display: block; margin-top: 0.3em;"}
 
 :::
 
@@ -1013,22 +1137,22 @@ Two URLs, one content source:
 
 ```{mermaid}
 %%| echo: false
-%%| eval: true
-%%| fig-width: 14
+%%| fig-responsive: false
+%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '20px', 'fontFamily': 'Inter, system-ui, sans-serif'}, 'flowchart': {'nodeSpacing': 50, 'rankSpacing': 60, 'padding': 18, 'htmlLabels': true}}}%%
 flowchart TB
-    A["Write content\n(chapters, analysis)"] --> B["Render locally\n(quarto render, pnpm dev)"]
-    B --> C["Review all formats\n(web, PDF, dashboard)"]
+    A["✍️ <b>Write content</b><br/>chapters, analysis"] --> B["🔄 <b>Render locally</b><br/>quarto render, pnpm dev"]
+    B --> C["👀 <b>Review all formats</b><br/>web, PDF, dashboard"]
     C --> D{"Satisfied?"}
     D -->|"No"| A
-    D -->|"Yes"| E["Push to GitHub"]
-    E --> F["Auto-deploy\n(GitHub Pages + Vercel)"]
+    D -->|"Yes"| E["📤 <b>Push to GitHub</b>"]
+    E --> F["🚀 <b>Auto-deploy</b><br/>GitHub Pages + Vercel"]
 
-    style A fill:#ede9fe,stroke:#8b5cf6,color:#000
-    style B fill:#dbeafe,stroke:#3b82f6,color:#000
-    style C fill:#dcfce7,stroke:#22c55e,color:#000
-    style D fill:#fef3c7,stroke:#f59e0b,color:#000
-    style E fill:#dcfce7,stroke:#22c55e,color:#000
-    style F fill:#dbeafe,stroke:#3b82f6,color:#000
+    style A fill:#ede9fe,stroke:#8b5cf6,stroke-width:2px,color:#000
+    style B fill:#dbeafe,stroke:#3b82f6,stroke-width:2px,color:#000
+    style C fill:#dcfce7,stroke:#22c55e,stroke-width:2px,color:#000
+    style D fill:#fef3c7,stroke:#f59e0b,stroke-width:2px,color:#000
+    style E fill:#dcfce7,stroke:#22c55e,stroke-width:2px,color:#000
+    style F fill:#dbeafe,stroke:#3b82f6,stroke-width:2px,color:#000
 ```
 
 
@@ -1054,11 +1178,10 @@ flowchart TB
 
 | Resource | URL |
 |----------|-----|
-| Framework repo | [github.com/dataimago/dissertation](https://github.com/dataimago/dissertation) |
-| NextJS app repo | [github.com/dataimago/dissertation-ai](https://github.com/dataimago/dissertation-ai) |
+| Framework repo | [github.com/dbetebenner/dissertation](https://github.com/dbetebenner/dissertation) |
+| NextJS app repo | [github.com/dbetebenner/dissertation-ai](https://github.com/dbetebenner/dissertation-ai) |
 | Quarto docs | [quarto.org](https://quarto.org) |
 | MCP specification | [modelcontextprotocol.io](https://modelcontextprotocol.io) |
-| dataimago | [github.com/dataimago](https://github.com/dataimago) |
 
 <br>
 
@@ -1078,10 +1201,8 @@ It's a **living platform** you build — and the AI helps you build it.
 
 **Damian Betebenner**
 
-dataimago
-
 <br>
 
-[github.com/dataimago](https://github.com/dataimago)
+[github.com/dbetebenner](https://github.com/dbetebenner)
 
 :::
