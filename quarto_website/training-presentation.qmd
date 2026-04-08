@@ -249,6 +249,67 @@ More expansive metaphors **unlock possibility**:
 Today we'll explore AI as a **medium for knowledge transmission** — a fundamentally new way to share what you've learned.
 
 
+---
+
+## A Working Vocabulary
+
+Before we go further, let's define some terms you'll hear today. These are *practical* terms — the language of working with AI, not the theory behind it.
+
+::: {.incremental}
+
+- **Prompt** — The text you give to an AI model. A question, an instruction, a conversation. Prompting well is a skill, not a formula.
+
+- **Context window** — How much text the AI can "see" at once. Think of it as working memory. Today's models can hold roughly the length of a novel.
+
+- **Token** — The unit AI models read in. Roughly ¾ of a word. Matters because context windows and pricing are measured in tokens.
+
+- **Model** — The AI engine itself (e.g., Claude, GPT, Gemini). Different models have different strengths — like choosing between tools in a workshop.
+
+:::
+
+
+---
+
+## A Working Vocabulary (cont.)
+
+::: {.incremental}
+
+- **Agent** — An AI that can take *actions*, not just generate text. It can read files, run code, search the web, call APIs — and decide what to do next.
+
+- **Harness** — The scaffolding around an AI model that gives it tools, rules, and context. The model is the engine; the harness is the car. (Claude Code, Cursor, and Codex are all harnesses.)
+
+- **API** *(Application Programming Interface)* — A structured way for software to talk to other software. When your dissertation exposes an API, any program (including an AI agent) can query your data.
+
+- **MCP** *(Model Context Protocol)* — A standard that lets AI agents discover and use APIs automatically. Think of it as a universal adapter between AI and your tools.
+
+:::
+
+
+---
+
+## A Working Vocabulary (cont.)
+
+::: {.incremental}
+
+- **Render** — Turning source files into finished output. Quarto *renders* your `.qmd` files into a website, PDF, or slides.
+
+- **Repository (repo)** — A folder tracked by git. It holds your code, text, data, and their full history. Your dissertation lives in a repo.
+
+- **Fork** — Your own copy of someone else's repo. You can modify it freely without affecting the original. Today you'll fork the dissertation framework.
+
+- **Monorepo** — Multiple related projects in a single repository. The web application uses a monorepo with shared libraries.
+
+:::
+
+. . .
+
+<br>
+
+::: {.key-insight}
+You don't need to memorize these. They'll become natural as we use them today.
+:::
+
+
 # {.title-card data-background-color="#0ea5e9" data-transition="slide"}
 
 ::: {style="color: white; text-align: center; padding-top: 1em;"}
