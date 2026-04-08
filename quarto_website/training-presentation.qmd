@@ -6,7 +6,7 @@ date: today
 date-format: "MMMM D, YYYY"
 format:
   revealjs:
-    theme: [default, custom]
+    theme: [default, custom.scss]
     logo: assets/img/dataimago-logo.png
     footer: "dataimago | AI-Native Dissertation Framework"
     slide-number: true
@@ -839,7 +839,7 @@ The AI is a **collaborator**, not a ghostwriter. Your voice, your arguments, you
 
 The power of this framework: your writing is **linked to live analyses**.
 
-```markdown
+````markdown
 ## Results {#sec-results}
 
 Our analysis of achievement trends reveals several patterns.
@@ -847,9 +847,11 @@ Our analysis of achievement trends reveals several patterns.
 
 As shown in the data explorer (/explore), reading scores
 demonstrate recovery following the 2020 disruption, with a
-mean score of `{r} summarizeAssessment("READING", year="2023")$mean_score`
+mean score of `​r summarizeAssessment("READING", year="2023")$mean_score`
 by 2023.
-```
+````
+
+The backtick-r syntax inserts **live R values** directly into your prose.
 
 . . .
 

@@ -1,0 +1,66 @@
+/*-- scss:defaults --*/
+
+$font-family-sans-serif: 'Inter', system-ui, -apple-system, sans-serif;
+$font-family-monospace: 'JetBrains Mono', 'Fira Code', Consolas, monospace;
+$presentation-heading-font: 'Inter', system-ui, -apple-system, sans-serif;
+$body-color: #1e293b;
+$link-color: #0ea5e9;
+$presentation-heading-color: #0f172a;
+$code-color: #7c3aed;
+$code-block-bg: #1e293b;
+$code-block-font-size: 0.7em;
+
+/*-- scss:rules --*/
+
+.reveal .slides {
+  text-align: left;
+}
+
+.reveal h1, .reveal h2, .reveal h3 {
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.reveal h2 {
+  border-bottom: 2px solid #e2e8f0;
+  padding-bottom: 0.3em;
+  margin-bottom: 0.8em;
+}
+
+.reveal code {
+  font-size: 0.85em;
+  padding: 0.15em 0.4em;
+  border-radius: 4px;
+}
+
+.reveal pre code {
+  padding: 1em;
+  border-radius: 8px;
+  line-height: 1.5;
+}
+
+.reveal .slide-background-content {
+  background-size: cover;
+}
+
+.reveal blockquote {
+  border-left: 4px solid #0ea5e9;
+  padding-left: 1em;
+  font-style: italic;
+  color: #475569;
+}
+
+.reveal table {
+  font-size: 0.8em;
+}
+
+.reveal table th {
+  background-color: #f1f5f9;
+  font-weight: 600;
+  text-align: left;
+}
+
+.reveal table td, .reveal table th {
+  padding: 0.5em 1em;
+  border: 1px solid #e2e8f0;
+}
