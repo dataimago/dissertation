@@ -1,0 +1,583 @@
+[
+  {
+    "objectID": "overview.html",
+    "href": "overview.html",
+    "title": "Framework Overview",
+    "section": "",
+    "text": "The AI-native dissertation framework follows a layered architecture that cleanly separates concerns:\n┌─────────────────────────────────────────────────────────┐\n│  Layer 4: Web Application (dissertation-ai / NextJS)    │\n│  Interactive visualizations, chatbot, user interface     │\n├─────────────────────────────────────────────────────────┤\n│  Layer 3: MCP Tools (Model Context Protocol)            │\n│  AI agent integration with human oversight               │\n├─────────────────────────────────────────────────────────┤\n│  Layer 2: REST API (RestRserve)                         │\n│  HTTP endpoints for cross-platform consumption           │\n├─────────────────────────────────────────────────────────┤\n│  Layer 1: R Package (dissertation)                      │\n│  Data, analysis functions, documentation, Quarto source  │\n└─────────────────────────────────────────────────────────┘"
+  },
+  {
+    "objectID": "overview.html#architecture",
+    "href": "overview.html#architecture",
+    "title": "Framework Overview",
+    "section": "",
+    "text": "The AI-native dissertation framework follows a layered architecture that cleanly separates concerns:\n┌─────────────────────────────────────────────────────────┐\n│  Layer 4: Web Application (dissertation-ai / NextJS)    │\n│  Interactive visualizations, chatbot, user interface     │\n├─────────────────────────────────────────────────────────┤\n│  Layer 3: MCP Tools (Model Context Protocol)            │\n│  AI agent integration with human oversight               │\n├─────────────────────────────────────────────────────────┤\n│  Layer 2: REST API (RestRserve)                         │\n│  HTTP endpoints for cross-platform consumption           │\n├─────────────────────────────────────────────────────────┤\n│  Layer 1: R Package (dissertation)                      │\n│  Data, analysis functions, documentation, Quarto source  │\n└─────────────────────────────────────────────────────────┘"
+  },
+  {
+    "objectID": "overview.html#repository-structure",
+    "href": "overview.html#repository-structure",
+    "title": "Framework Overview",
+    "section": "Repository Structure",
+    "text": "Repository Structure\nThe framework spans two repositories:\ndissertation-rpkg (R Package):\n\nR/ — Analysis functions and API definitions\ndata/ — Bundled datasets\ntests/ — Test suite\nman/ — Generated documentation\ninst/thesis/ — Thesis formatting templates\nquarto_website/ — Quarto source files (shared between website and PDF)\n\ndissertation-ai (NextJS Application):\n\napps/web-app/ — NextJS 14 web application\npackages/r-packages/dissertation/ — R package as git submodule\npackages/shared-utils/ — TypeScript API client\npackages/mcp-tools/ — MCP integration layer"
+  },
+  {
+    "objectID": "overview.html#three-render-paths",
+    "href": "overview.html#three-render-paths",
+    "title": "Framework Overview",
+    "section": "Three Render Paths",
+    "text": "Three Render Paths\nThe same .qmd source files produce three different outputs, each serving a distinct purpose:\n┌──────────────────────────────────────────────────────────────────┐\n│                    .qmd Source Files                              │\n│        (content/chapters/*.qmd — single source of truth)         │\n└──────┬─────────────────────┬──────────────────────┬──────────────┘\n       │                     │                      │\n       ▼                     ▼                      ▼\n ┌──────────┐       ┌──────────────┐      ┌───────────────┐\n │  Website  │       │  Thesis PDF  │      │ Working Paper │\n │ (default) │       │  (--profile  │      │  (--profile   │\n │           │       │   thesis)    │      │ working-paper)│\n ├──────────┤       ├──────────────┤      ├───────────────┤\n │ Quarto   │       │ thesis.cls   │      │ article.cls   │\n │ website  │       │ + preamble   │      │ + custom CSS  │\n │ type     │       │ (CU Boulder  │      │ (modern       │\n │          │       │  format)     │      │  academic)    │\n ├──────────┤       ├──────────────┤      ├───────────────┤\n │ HTML with│       │ PDF for      │      │ HTML + PDF    │\n │ nav, ToC,│       │ grad school  │      │ for sharing   │\n │ search   │       │ submission   │      │ v1.0→v1.1→... │\n └──────────┘       └──────────────┘      └───────────────┘"
+  },
+  {
+    "objectID": "overview.html#data-flow",
+    "href": "overview.html#data-flow",
+    "title": "Framework Overview",
+    "section": "Data Flow",
+    "text": "Data Flow\n\nData lives in the R package (data/assessmentData.rda)\nAnalysis functions process the data and return structured lists\nREST API exposes the functions as HTTP endpoints\nNextJS frontend fetches from the API and renders visualizations\nMCP tools expose the same functions for AI agent access\nQuarto renders the source files as website, thesis PDF, and working paper"
+  },
+  {
+    "objectID": "overview.html#design-principles",
+    "href": "overview.html#design-principles",
+    "title": "Framework Overview",
+    "section": "Design Principles",
+    "text": "Design Principles\n\nSeparation of Concerns: R handles analysis; TypeScript handles presentation; Quarto handles authoring\nSingle Source of Truth: Dissertation text lives in .qmd files, rendered to both web and PDF\nReproducibility: Every result is generated from code, not manually entered\nAI-Native: Analysis is accessible to AI agents via API and MCP for transparent, auditable assistance\nForkable: The entire framework is designed to be forked and customized for individual dissertations"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "AI-Native Dissertation Framework",
+    "section": "",
+    "text": "This is a demonstration of the AI-native dissertation framework — a system that unifies your dissertation text, statistical analyses, and interactive dissemination into a single reproducible repository.\nThe framework is built on three pillars:\n\nAn R package (dissertation) that houses your data, analysis functions, and REST API\nQuarto documents (.qmd) that serve as both your dissertation chapters and website content\nA NextJS web application (dissertation-ai) that provides interactive exploration, visualizations, and an AI chatbot"
+  },
+  {
+    "objectID": "index.html#welcome",
+    "href": "index.html#welcome",
+    "title": "AI-Native Dissertation Framework",
+    "section": "",
+    "text": "This is a demonstration of the AI-native dissertation framework — a system that unifies your dissertation text, statistical analyses, and interactive dissemination into a single reproducible repository.\nThe framework is built on three pillars:\n\nAn R package (dissertation) that houses your data, analysis functions, and REST API\nQuarto documents (.qmd) that serve as both your dissertation chapters and website content\nA NextJS web application (dissertation-ai) that provides interactive exploration, visualizations, and an AI chatbot"
+  },
+  {
+    "objectID": "index.html#how-it-works",
+    "href": "index.html#how-it-works",
+    "title": "AI-Native Dissertation Framework",
+    "section": "How It Works",
+    "text": "How It Works\nYour dissertation lives in two repositories:\n\ndissertation-rpkg (this repository): The R package containing data, analyses, documentation, and Quarto source files\ndissertation-ai: The NextJS application that wraps the R package in an interactive web experience\n\nThe same Quarto source files produce both a thesis-ready PDF (using your institution’s formatting requirements) and an interactive website where readers can explore your methods, results, and code."
+  },
+  {
+    "objectID": "index.html#quick-start",
+    "href": "index.html#quick-start",
+    "title": "AI-Native Dissertation Framework",
+    "section": "Quick Start",
+    "text": "Quick Start\n# Install the package\ndevtools::install(\".\")\n\n# Load and explore the data\nlibrary(dissertation)\ndata(assessmentData)\nsummarizeAssessment(content_area = \"READING\", group_by = \"GRADE\")\n\n# Start the REST API\nrun_dissertation_api(port = 8000)"
+  },
+  {
+    "objectID": "index.html#dissertation-chapters",
+    "href": "index.html#dissertation-chapters",
+    "title": "AI-Native Dissertation Framework",
+    "section": "Dissertation Chapters",
+    "text": "Dissertation Chapters\n\nChapter 1: Introduction\nChapter 2: Literature Review\nChapter 3: Methods\nChapter 4: Results\nChapter 5: Discussion"
+  },
+  {
+    "objectID": "index.html#start-from-scratch-with-ai",
+    "href": "index.html#start-from-scratch-with-ai",
+    "title": "AI-Native Dissertation Framework",
+    "section": "Start From Scratch with AI",
+    "text": "Start From Scratch with AI\nIf you use an AI coding assistant (Claude Code, Codex, Cursor, Windsurf, or similar), you can skip forking entirely. Download the setup file, drop it into an empty directory, and let your AI agent build a fully customized dissertation framework around your research topic.\n\n\n\n\n\n\nTipDownload SETUP.md\n\n\n\n SETUP.md — Complete instructions for any AI agent to scaffold your dissertation framework from scratch.\nHow to use it:\n\nCreate a new directory for your dissertation\nPlace SETUP.md inside it (along with any research notes, proposals, or data you have)\nOpen your AI agent and say: “I’m ready to get started writing my dissertation. Read SETUP.md first.”\n\nThe agent will ask about your research topic, questions, data, and institution — then build everything customized to you."
+  },
+  {
+    "objectID": "index.html#for-training-participants",
+    "href": "index.html#for-training-participants",
+    "title": "AI-Native Dissertation Framework",
+    "section": "For Training Participants",
+    "text": "For Training Participants\nThis framework was presented at a training session on writing AI-native dissertations. To use it for your own work:\n\nFork both repositories\nReplace the seed dataset with your own data\nModify the analysis functions for your research questions\nWrite your dissertation chapters in the Quarto files\nThe web application and API automatically adapt\n\nSee the Customization Guide for detailed instructions."
+  },
+  {
+    "objectID": "data_dictionary.html",
+    "href": "data_dictionary.html",
+    "title": "Data Dictionary",
+    "section": "",
+    "text": "The primary dataset contains longitudinal student assessment records across multiple years, grades, districts, and schools.\n\n\n\n\n\n\n\n\n\n\n\nVariable\nType\nDescription\nExample Values\n\n\n\n\nCONTENT_AREA\nCharacter\nSubject area\nREADING, MATHEMATICS\n\n\nYEAR\nCharacter\nAcademic year (YYYY_YYYY format)\n2022_2023, 2023_2024, 2024_2025\n\n\nGRADE\nCharacter\nGrade level\n3, 4, 5, 6, 7, 8\n\n\nID\nCharacter\nUnique student identifier\nAnonymized student IDs\n\n\nSCALE_SCORE\nNumeric\nAssessment scale score\nContinuous numeric scores\n\n\nACHIEVEMENT_LEVEL\nCharacter\nPerformance level classification\nBeginning, Developing, Proficient, Advanced\n\n\nDISTRICT_NUMBER\nInteger\nDistrict identifier\nNumeric district codes\n\n\nSCHOOL_NUMBER\nInteger\nSchool identifier\nNumeric school codes\n\n\n\n\n\n\n\n\n\nTable 1: Dataset Dimensions\n\n\n\nRows: 368,301 \n\n\nColumns: 8 \n\n\nStudents: 67,547 \n\n\nYears: 2020_2021, 2021_2022, 2022_2023, 2023_2024, 2024_2025 \n\n\nGrades: 10, 3, 4, 5, 6, 7, 8, 9 \n\n\nDistricts: 3 \n\n\nSchools: 121 \n\n\n\n\n\n\n\nThe dataset is keyed on (ID, CONTENT_AREA, YEAR), meaning each row represents one student’s assessment in one subject for one year."
+  },
+  {
+    "objectID": "data_dictionary.html#assessmentdata",
+    "href": "data_dictionary.html#assessmentdata",
+    "title": "Data Dictionary",
+    "section": "",
+    "text": "The primary dataset contains longitudinal student assessment records across multiple years, grades, districts, and schools.\n\n\n\n\n\n\n\n\n\n\n\nVariable\nType\nDescription\nExample Values\n\n\n\n\nCONTENT_AREA\nCharacter\nSubject area\nREADING, MATHEMATICS\n\n\nYEAR\nCharacter\nAcademic year (YYYY_YYYY format)\n2022_2023, 2023_2024, 2024_2025\n\n\nGRADE\nCharacter\nGrade level\n3, 4, 5, 6, 7, 8\n\n\nID\nCharacter\nUnique student identifier\nAnonymized student IDs\n\n\nSCALE_SCORE\nNumeric\nAssessment scale score\nContinuous numeric scores\n\n\nACHIEVEMENT_LEVEL\nCharacter\nPerformance level classification\nBeginning, Developing, Proficient, Advanced\n\n\nDISTRICT_NUMBER\nInteger\nDistrict identifier\nNumeric district codes\n\n\nSCHOOL_NUMBER\nInteger\nSchool identifier\nNumeric school codes\n\n\n\n\n\n\n\n\n\nTable 1: Dataset Dimensions\n\n\n\nRows: 368,301 \n\n\nColumns: 8 \n\n\nStudents: 67,547 \n\n\nYears: 2020_2021, 2021_2022, 2022_2023, 2023_2024, 2024_2025 \n\n\nGrades: 10, 3, 4, 5, 6, 7, 8, 9 \n\n\nDistricts: 3 \n\n\nSchools: 121 \n\n\n\n\n\n\n\nThe dataset is keyed on (ID, CONTENT_AREA, YEAR), meaning each row represents one student’s assessment in one subject for one year."
+  },
+  {
+    "objectID": "content/working-paper-index.html",
+    "href": "content/working-paper-index.html",
+    "title": "An AI-Native Dissertation Framework",
+    "section": "",
+    "text": "This working paper examines longitudinal achievement patterns in Reading and Mathematics using a multi-year, multi-district assessment dataset. Three research questions guide the investigation: longitudinal achievement trends and proficiency rates, between-district variation in student outcomes, and cohort progress through grade levels. Beyond the substantive findings, this work demonstrates an AI-native dissertation framework — a reproducible, forkable system for scholarly research."
+  },
+  {
+    "objectID": "content/working-paper-index.html#abstract",
+    "href": "content/working-paper-index.html#abstract",
+    "title": "An AI-Native Dissertation Framework",
+    "section": "",
+    "text": "This working paper examines longitudinal achievement patterns in Reading and Mathematics using a multi-year, multi-district assessment dataset. Three research questions guide the investigation: longitudinal achievement trends and proficiency rates, between-district variation in student outcomes, and cohort progress through grade levels. Beyond the substantive findings, this work demonstrates an AI-native dissertation framework — a reproducible, forkable system for scholarly research."
+  },
+  {
+    "objectID": "content/working-paper-index.html#overview",
+    "href": "content/working-paper-index.html#overview",
+    "title": "An AI-Native Dissertation Framework",
+    "section": "Overview",
+    "text": "Overview\nThis document is a versioned working paper derived from the same source files as the formal dissertation. It is designed for sharing, iterating, and extending the analysis beyond the original submission:\n\nv1.0 — Original dissertation analysis\nv1.1 — Updated with new data or extended methods\nv2.0 — Major revision with new research questions\n\nThe code, data, and analysis functions are bundled in the companion R package dissertation. See the project website for interactive documentation and API reference."
+  },
+  {
+    "objectID": "content/chapters/results.html",
+    "href": "content/chapters/results.html",
+    "title": "Results",
+    "section": "",
+    "text": "This chapter presents the findings organized by research question. All results are generated programmatically from the dissertation R package analysis functions, ensuring that the narrative is always synchronized with the underlying data."
+  },
+  {
+    "objectID": "content/chapters/results.html#sec-results-overview",
+    "href": "content/chapters/results.html#sec-results-overview",
+    "title": "Results",
+    "section": "",
+    "text": "This chapter presents the findings organized by research question. All results are generated programmatically from the dissertation R package analysis functions, ensuring that the narrative is always synchronized with the underlying data."
+  },
+  {
+    "objectID": "content/chapters/results.html#sec-rq1",
+    "href": "content/chapters/results.html#sec-rq1",
+    "title": "Results",
+    "section": "2 RQ1: Achievement Trends",
+    "text": "2 RQ1: Achievement Trends\nAchievement trends across 5 academic years reveal the following patterns:\n\n\n\n\nTable 1: Mean Score and Proficiency Rate by Year and Content Area\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nYEAR\nCONTENT_AREA\nmean_score\nmedian_score\npct_proficient\nn_students\nn\n\n\n\n\n2020_2021\nMATHEMATICS\n543.4\n548\n56.6\n35620\n35620\n\n\n2020_2021\nREADING\n636.1\n642\n72.7\n35404\n35404\n\n\n2021_2022\nMATHEMATICS\n545.9\n550\n58.3\n36458\n36458\n\n\n2021_2022\nREADING\n636.8\n642\n74.2\n36229\n36229\n\n\n2022_2023\nMATHEMATICS\n548.0\n552\n59.0\n37041\n37041\n\n\n2022_2023\nREADING\n636.9\n643\n73.5\n36807\n36807\n\n\n2023_2024\nMATHEMATICS\n546.2\n549\n57.8\n37640\n37640\n\n\n2023_2024\nREADING\n636.6\n641\n72.8\n37411\n37411\n\n\n2024_2025\nMATHEMATICS\n546.0\n551\n59.0\n37965\n37965\n\n\n2024_2025\nREADING\n636.5\n643\n74.5\n37726\n37726\n\n\n\n\n\n\n\n\nAchievement trends across 5 year(s) show relative stability in mean scale scores. The overall mean score is 591.2 with a proficiency rate of 65.8%.\n\n2.1 Reading Achievement Patterns\nAchievement trends across 5 year(s) show relative stability in mean scale scores. The overall mean score is 636.6 with a proficiency rate of 73.5%.\n\n\n2.2 Mathematics Achievement Patterns\nAchievement trends across 5 year(s) show an upward trend in mean scale scores. The overall mean score is 545.9 with a proficiency rate of 58.1%."
+  },
+  {
+    "objectID": "content/chapters/results.html#sec-rq2",
+    "href": "content/chapters/results.html#sec-rq2",
+    "title": "Results",
+    "section": "3 RQ2: District Variation",
+    "text": "3 RQ2: District Variation\n\n3.1 Between-District Achievement Comparisons\n\n\n\n\nTable 2: Achievement by District\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nDISTRICT_NUMBER\nCONTENT_AREA\nmean_score\nmedian_score\npct_proficient\nn_students\nn_schools\nn\n\n\n\n\n470\nMATHEMATICS\n542.8\n548\n57.5\n25022\n49\n69465\n\n\n470\nREADING\n632.8\n640\n71.0\n24780\n49\n68428\n\n\n1040\nMATHEMATICS\n568.0\n573\n69.7\n23968\n32\n63606\n\n\n1040\nREADING\n655.3\n661\n85.2\n23962\n32\n63554\n\n\n2690\nMATHEMATICS\n522.7\n526\n44.9\n18480\n42\n51653\n\n\n2690\nREADING\n618.4\n622\n62.5\n18475\n42\n51595\n\n\n\n\n\n\n\n\nDistrict comparison reveals mean scale scores ranging from 522.7 to 655.3 across 3 districts (gap of 132.6 points). Proficiency rates range from 44.9% to 85.2%.\n\n\n3.2 Achievement Summaries by Grade\n\n\n\n\nTable 3: Achievement Summary by Grade\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nGRADE\nmean_score\nmedian_score\nsd_score\npct_proficient\nn_students\nn\n\n\n\n\n10\n642.4\n652\n80.4\n53.7\n22526\n45553\n\n\n3\n524.0\n531\n89.3\n78.9\n22923\n44688\n\n\n4\n549.7\n557\n80.2\n74.6\n22775\n45491\n\n\n5\n576.9\n583\n80.9\n73.5\n22572\n45153\n\n\n6\n588.3\n596\n81.5\n69.1\n22659\n45403\n\n\n7\n604.3\n610\n78.0\n62.0\n22917\n45950\n\n\n8\n616.1\n621\n74.8\n60.5\n22957\n46010\n\n\n9\n623.0\n633\n76.9\n55.6\n24498\n50053"
+  },
+  {
+    "objectID": "content/chapters/results.html#sec-rq3",
+    "href": "content/chapters/results.html#sec-rq3",
+    "title": "Results",
+    "section": "4 RQ3: Cohort Progress",
+    "text": "4 RQ3: Cohort Progress\n\n\n\n\nTable 4: Cohort Progress: Students with Longitudinal Records\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nYEAR\nCONTENT_AREA\nmean_score\npct_proficient\nn_students\nn_observations\n\n\n\n\n2020_2021\nMATHEMATICS\n538.6\n61.3\n28713\n28713\n\n\n2020_2021\nREADING\n630.3\n74.0\n28491\n28491\n\n\n2021_2022\nMATHEMATICS\n546.8\n58.9\n35104\n35104\n\n\n2021_2022\nREADING\n637.5\n74.6\n34880\n34880\n\n\n2022_2023\nMATHEMATICS\n549.0\n59.4\n35733\n35733\n\n\n2022_2023\nREADING\n637.5\n73.7\n35504\n35504\n\n\n2023_2024\nMATHEMATICS\n547.3\n58.2\n36248\n36248\n\n\n2023_2024\nREADING\n637.5\n73.2\n36046\n36046\n\n\n2024_2025\nMATHEMATICS\n557.6\n56.6\n30095\n30095\n\n\n2024_2025\nREADING\n646.0\n73.6\n30071\n30071\n\n\n\n\n\n\n\n\nCohort analysis tracks 48,578 students with 2+ years of data. Across the cohort, the mean scale score is 592.7 with an overall proficiency rate of 66.3%."
+  },
+  {
+    "objectID": "content/chapters/results.html#sec-distribution",
+    "href": "content/chapters/results.html#sec-distribution",
+    "title": "Results",
+    "section": "5 Score Distribution Properties",
+    "text": "5 Score Distribution Properties\n\n\n\n\nTable 5: Score Distribution by Content Area and Grade\n\n\n\n\n\n\nCONTENT_AREA\nGRADE\np10\np25\np50\np75\np90\nmean\nsd\nn\n\n\n\n\nMATHEMATICS\n10\n502\n552\n600\n642\n676\n593.1\n70.3\n22785\n\n\nMATHEMATICS\n3\n376\n425\n476\n527\n581\n478.1\n83.4\n22860\n\n\nMATHEMATICS\n4\n415\n458\n503\n547\n588\n501.9\n71.0\n22790\n\n\nMATHEMATICS\n5\n443\n487\n532\n576\n617\n531.1\n71.2\n22576\n\n\nMATHEMATICS\n6\n454\n497\n545\n592\n635\n544.4\n73.3\n22704\n\n\nMATHEMATICS\n7\n476\n519\n565\n609\n648\n562.3\n69.0\n22965\n\n\nMATHEMATICS\n8\n494\n536\n578\n618\n654\n574.7\n65.4\n23006\n\n\nMATHEMATICS\n9\n489\n537\n586\n629\n664\n579.3\n71.4\n25038\n\n\nREADING\n10\n624\n663\n698\n728\n754\n691.9\n55.6\n22768\n\n\nREADING\n3\n497\n537\n575\n612\n648\n572.2\n67.3\n21828\n\n\nREADING\n4\n530\n568\n603\n634\n661\n597.6\n56.8\n22701\n\n\nREADING\n5\n549\n589\n627\n663\n694\n622.8\n61.9\n22577\n\n\nREADING\n6\n555\n598\n639\n674\n703\n632.3\n63.6\n22699\n\n\nREADING\n7\n570\n612\n652\n688\n717\n646.3\n62.4\n22985\n\n\nREADING\n8\n583\n624\n663\n698\n726\n657.6\n59.0\n23004\n\n\nREADING\n9\n600\n637\n672\n703\n728\n666.8\n53.8\n25015\n\n\n\n\n\n\n\n\nScale score distributions show a median of 598 with an interquartile range of 120 points, indicating substantial variation in student achievement."
+  },
+  {
+    "objectID": "content/chapters/results.html#sec-results-summary",
+    "href": "content/chapters/results.html#sec-results-summary",
+    "title": "Results",
+    "section": "6 Summary of Findings",
+    "text": "6 Summary of Findings\nThe results reveal several key patterns across the three research questions. Achievement trends show the trajectory of proficiency rates and mean scores over the years examined. District comparisons reveal variation in outcomes that warrants further investigation. The cohort analysis demonstrates how student achievement trajectories develop over the longitudinal span of the dataset, while score distribution analyses reveal the full shape of the achievement continuum beyond mean-level summaries."
+  },
+  {
+    "objectID": "content/chapters/literature_review.html",
+    "href": "content/chapters/literature_review.html",
+    "title": "Literature Review",
+    "section": "",
+    "text": "This chapter reviews the literature relevant to understanding student achievement measurement and patterns in K-12 education. The review is organized into four sections: the role of standardized assessment in educational accountability, approaches to longitudinal achievement analysis, equity and between-district variation, and the emerging intersection of reproducible research practices with educational data science."
+  },
+  {
+    "objectID": "content/chapters/literature_review.html#sec-lit-overview",
+    "href": "content/chapters/literature_review.html#sec-lit-overview",
+    "title": "Literature Review",
+    "section": "",
+    "text": "This chapter reviews the literature relevant to understanding student achievement measurement and patterns in K-12 education. The review is organized into four sections: the role of standardized assessment in educational accountability, approaches to longitudinal achievement analysis, equity and between-district variation, and the emerging intersection of reproducible research practices with educational data science."
+  },
+  {
+    "objectID": "content/chapters/literature_review.html#sec-assessment-accountability",
+    "href": "content/chapters/literature_review.html#sec-assessment-accountability",
+    "title": "Literature Review",
+    "section": "2 Standardized Assessment and Accountability",
+    "text": "2 Standardized Assessment and Accountability\nStandardized assessments in reading and mathematics serve as the backbone of educational accountability systems across the United States. These assessments generate scale scores that enable comparisons of student performance across schools, districts, and states. Performance levels — typically ranging from below basic to advanced — provide an accessible framework for communicating achievement relative to grade-level standards.\nThe use of proficiency rates as an accountability metric has been both widespread and contested. While proficiency-based measures offer clear thresholds for adequate performance, critics argue that they can obscure meaningful variation among students above or below the cut point and can incentivize instructional triage toward students near the proficiency boundary."
+  },
+  {
+    "objectID": "content/chapters/literature_review.html#sec-longitudinal-analysis",
+    "href": "content/chapters/literature_review.html#sec-longitudinal-analysis",
+    "title": "Literature Review",
+    "section": "3 Longitudinal Achievement Analysis",
+    "text": "3 Longitudinal Achievement Analysis\nLongitudinal analysis of assessment data — tracking achievement patterns across multiple years and grade levels — provides richer information than cross-sectional snapshots. By examining trends over time, researchers can distinguish transient fluctuations from sustained patterns and can identify whether improvements in achievement are broad-based or concentrated in particular subgroups or regions.\nScore distribution analysis using percentile breakpoints (e.g., the 10th, 25th, 50th, 75th, and 90th percentiles) provides a more complete picture of achievement than mean scores alone. Changes in the distribution shape over time can reveal whether gains are driven by improvements at the top, middle, or bottom of the performance continuum."
+  },
+  {
+    "objectID": "content/chapters/literature_review.html#sec-equity",
+    "href": "content/chapters/literature_review.html#sec-equity",
+    "title": "Literature Review",
+    "section": "4 Equity and Between-District Variation",
+    "text": "4 Equity and Between-District Variation\nA growing body of literature examines disparities in educational outcomes across schools and districts. Between-district variation in achievement reflects differences in resources, instructional quality, student demographics, and community characteristics. Examining how achievement distributions differ across districts — rather than focusing solely on mean differences — provides a more nuanced understanding of educational inequality.\nDistrict-level comparisons of proficiency rates, mean scores, and score distributions contribute to identifying both high-performing districts whose practices merit study and struggling districts that may benefit from targeted support."
+  },
+  {
+    "objectID": "content/chapters/literature_review.html#sec-lit-summary",
+    "href": "content/chapters/literature_review.html#sec-lit-summary",
+    "title": "Literature Review",
+    "section": "5 Summary and Gaps",
+    "text": "5 Summary and Gaps\nThe literature reveals several gaps that this dissertation addresses. First, while individual assessment results are widely reported, systematic longitudinal analyses examining achievement trends across multiple years, content areas, and organizational levels remain relatively sparse. Second, between-district achievement variation is often examined only through mean comparisons rather than full distributional analysis. Third, the integration of reproducible research practices with modern AI tools represents an emerging frontier in educational research methodology, offering the potential to make complex analyses more transparent and accessible."
+  },
+  {
+    "objectID": "content/chapters/discussion.html",
+    "href": "content/chapters/discussion.html",
+    "title": "Discussion",
+    "section": "",
+    "text": "This dissertation examined longitudinal student achievement patterns in Reading and Mathematics using a multi-year, multi-district assessment dataset. Three research questions guided the investigation, each yielding findings that contribute to our understanding of achievement patterns in educational measurement."
+  },
+  {
+    "objectID": "content/chapters/discussion.html#sec-summary",
+    "href": "content/chapters/discussion.html#sec-summary",
+    "title": "Discussion",
+    "section": "",
+    "text": "This dissertation examined longitudinal student achievement patterns in Reading and Mathematics using a multi-year, multi-district assessment dataset. Three research questions guided the investigation, each yielding findings that contribute to our understanding of achievement patterns in educational measurement."
+  },
+  {
+    "objectID": "content/chapters/discussion.html#sec-interpretation",
+    "href": "content/chapters/discussion.html#sec-interpretation",
+    "title": "Discussion",
+    "section": "2 Interpretation of Results",
+    "text": "2 Interpretation of Results\n\n2.1 Achievement Trends (RQ1)\nThe achievement trend analyses revealed patterns in mean scores and proficiency rates across academic years. Examining trends by content area provides insight into whether improvements (or declines) are broad-based or concentrated in particular subjects. The consistency or divergence of Reading and Mathematics trajectories over time informs discussions about the relative effectiveness of curricular and instructional investments.\n\n\n2.2 District Variation (RQ2)\nThe between-district comparisons uncovered variation in achievement that reflects underlying differences in resources, instructional quality, and community characteristics. These findings align with the literature on educational inequality and suggest that district-level analyses provide a practical unit for identifying both exemplary practice and areas needing support.\n\n\n2.3 Cohort Progress (RQ3)\nThe cohort tracking analysis demonstrated how students progress through grade levels over time. Examining the achievement trajectories of students with longitudinal records provides insight into the stability of student performance and the extent to which early achievement predicts later outcomes."
+  },
+  {
+    "objectID": "content/chapters/discussion.html#sec-implications",
+    "href": "content/chapters/discussion.html#sec-implications",
+    "title": "Discussion",
+    "section": "3 Implications",
+    "text": "3 Implications\n\n3.1 For Policy\nThe findings suggest that longitudinal achievement analyses provide richer information than cross-sectional snapshots for understanding educational effectiveness. Policymakers should consider incorporating multi-year trend data and distributional analyses alongside point-in-time proficiency rates to capture a more complete picture of system performance.\n\n\n3.2 For Practice\nEducators can use achievement trend and distribution data to identify grade levels or content areas where performance is changing and to target instructional resources accordingly. Between-district comparisons can help districts benchmark their performance and identify peers from whom to learn.\n\n\n3.3 For Research Methodology\nThe AI-native dissertation framework demonstrates a new paradigm for scholarly work in which the analysis code, documentation, and dissemination are unified in a single reproducible system. This approach enhances transparency, replicability, and accessibility of research."
+  },
+  {
+    "objectID": "content/chapters/discussion.html#sec-limitations",
+    "href": "content/chapters/discussion.html#sec-limitations",
+    "title": "Discussion",
+    "section": "4 Limitations",
+    "text": "4 Limitations\nSeveral limitations should be considered when interpreting these findings. First, the dataset used in this framework demonstration is intended to illustrate methodological patterns and the AI-native framework architecture rather than to support specific policy conclusions. Second, the analyses presented here are descriptive and do not account for school- or teacher-level effects that may confound district-level comparisons. Third, without demographic covariates in the dataset, equity analyses at the student level are limited to organizational comparisons (district, school) rather than individual student characteristics."
+  },
+  {
+    "objectID": "content/chapters/discussion.html#sec-future",
+    "href": "content/chapters/discussion.html#sec-future",
+    "title": "Discussion",
+    "section": "5 Future Directions",
+    "text": "5 Future Directions\nFuture research could extend this work in several directions: incorporating multilevel models to account for the nested structure of educational data, adding demographic variables to enable equity-focused disaggregation, integrating growth measures alongside achievement status, and leveraging the AI-native framework to enable more interactive and exploratory analyses."
+  },
+  {
+    "objectID": "content/chapters/discussion.html#sec-conclusion",
+    "href": "content/chapters/discussion.html#sec-conclusion",
+    "title": "Discussion",
+    "section": "6 Conclusion",
+    "text": "6 Conclusion\nThis dissertation contributes both substantive findings on student achievement patterns and a methodological framework for conducting AI-native research. By open-sourcing the analysis code, documentation, and web application, this work aims to lower the barrier for future researchers to conduct rigorous, transparent, and accessible dissertation research."
+  },
+  {
+    "objectID": "ai_ethics.html",
+    "href": "ai_ethics.html",
+    "title": "AI Ethics in Research",
+    "section": "",
+    "text": "This framework integrates AI throughout the dissertation workflow. This page documents the ethical considerations and institutional policy guidelines for using AI in scholarly research."
+  },
+  {
+    "objectID": "ai_ethics.html#responsible-ai-integration-in-scholarly-work",
+    "href": "ai_ethics.html#responsible-ai-integration-in-scholarly-work",
+    "title": "AI Ethics in Research",
+    "section": "",
+    "text": "This framework integrates AI throughout the dissertation workflow. This page documents the ethical considerations and institutional policy guidelines for using AI in scholarly research."
+  },
+  {
+    "objectID": "ai_ethics.html#principles",
+    "href": "ai_ethics.html#principles",
+    "title": "AI Ethics in Research",
+    "section": "Principles",
+    "text": "Principles\n\nTransparency\nEvery AI-assisted element of this dissertation is documented and auditable. The R package source code is open, the analysis functions are tested, and the MCP tools log all interactions. Readers can verify any result by running the code themselves.\n\n\nHuman Agency\nAI in this framework enhances human decision-making — it does not replace it. The chatbot helps readers explore the research, but all analytical decisions, interpretations, and conclusions are authored by the researcher. The AI serves as a tool for access and understanding, not as an author.\n\n\nReproducibility\nThe AI-native framework strengthens rather than undermines reproducibility. By encoding all analyses in R functions with fixed random seeds and version-controlled dependencies, every result is deterministically reproducible regardless of whether AI was used in the exploration process.\n\n\nAttribution\nWhen AI tools assist in any phase of the research (analysis exploration, writing drafts, code generation), this should be documented in the dissertation’s methods section and acknowledgments."
+  },
+  {
+    "objectID": "ai_ethics.html#institutional-policy-considerations",
+    "href": "ai_ethics.html#institutional-policy-considerations",
+    "title": "AI Ethics in Research",
+    "section": "Institutional Policy Considerations",
+    "text": "Institutional Policy Considerations\nGraduate students using this framework should consult their institution’s policies on:\n\nAI use in dissertations: Many institutions are developing or have published guidelines on acceptable AI use in scholarly work. Check with your graduate school and department.\nData governance: If your dissertation uses sensitive data, ensure that the REST API and MCP endpoints are appropriately secured and that data is not inadvertently exposed.\nIRB considerations: The interactive web application and chatbot may raise questions about how research data is presented and accessed. Discuss with your IRB if applicable.\nCommittee expectations: Discuss with your dissertation committee how AI tools were used and how this framework differs from traditional dissertation formats."
+  },
+  {
+    "objectID": "ai_ethics.html#ai-tool-documentation-template",
+    "href": "ai_ethics.html#ai-tool-documentation-template",
+    "title": "AI Ethics in Research",
+    "section": "AI Tool Documentation Template",
+    "text": "AI Tool Documentation Template\nFor transparency, consider including a section in your dissertation methods chapter:\n\nAI tools were used in the following capacities during this research: [list specific uses]. All AI-assisted outputs were reviewed, verified, and approved by the author. The analytical framework, interpretation of results, and scholarly conclusions represent the independent work of the author. The dissertation source code, including all analysis functions, is available at [repository URL] for verification."
+  },
+  {
+    "objectID": "ai_ethics.html#data-security",
+    "href": "ai_ethics.html#data-security",
+    "title": "AI Ethics in Research",
+    "section": "Data Security",
+    "text": "Data Security\nWhen using the REST API and MCP tools:\n\nThe default API binds to localhost only — it is not externally accessible\nNo authentication is required for the default configuration (appropriate for local development)\nIf deploying publicly, add authentication middleware to the RestRserve application\nNever expose sensitive or identifiable student data through the API without appropriate de-identification"
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About This Framework",
+    "section": "",
+    "text": "This framework demonstrates how to write a dissertation that treats AI as a collaborator in analysis, writing, and dissemination. It is built on three core components:\n\nAn R package housing data, analysis functions, a REST API, and documentation\nQuarto source files that produce both a thesis PDF and an interactive website\nA NextJS web application providing interactive visualizations and an AI chatbot"
+  },
+  {
+    "objectID": "about.html#ai-native-dissertation-framework",
+    "href": "about.html#ai-native-dissertation-framework",
+    "title": "About This Framework",
+    "section": "",
+    "text": "This framework demonstrates how to write a dissertation that treats AI as a collaborator in analysis, writing, and dissemination. It is built on three core components:\n\nAn R package housing data, analysis functions, a REST API, and documentation\nQuarto source files that produce both a thesis PDF and an interactive website\nA NextJS web application providing interactive visualizations and an AI chatbot"
+  },
+  {
+    "objectID": "about.html#why-ai-native",
+    "href": "about.html#why-ai-native",
+    "title": "About This Framework",
+    "section": "Why AI-Native?",
+    "text": "Why AI-Native?\nTraditional dissertations are static documents. An AI-native dissertation is a living system where readers can explore the research interactively, ask questions via a chatbot, and verify results through transparent, reproducible code.\nThe “AI-native” designation means AI is integrated throughout the workflow — not as an afterthought, but as a design principle. The R package exposes analysis functions via REST APIs and MCP (Model Context Protocol) endpoints so that AI agents can responsibly access and reason about the research."
+  },
+  {
+    "objectID": "about.html#authors",
+    "href": "about.html#authors",
+    "title": "About This Framework",
+    "section": "Authors",
+    "text": "Authors\n\nDamian W. Betebenner — Center for Assessment (NCIEA)\nAdam R. Van Iwaarden — Center for Assessment (NCIEA)"
+  },
+  {
+    "objectID": "about.html#license",
+    "href": "about.html#license",
+    "title": "About This Framework",
+    "section": "License",
+    "text": "License\nThis project is licensed under the MIT License."
+  },
+  {
+    "objectID": "about.html#acknowledgments",
+    "href": "about.html#acknowledgments",
+    "title": "About This Framework",
+    "section": "Acknowledgments",
+    "text": "Acknowledgments\nThis framework supports an approach to emancipatory data science through AI-native application development."
+  },
+  {
+    "objectID": "api_reference.html",
+    "href": "api_reference.html",
+    "title": "API Reference",
+    "section": "",
+    "text": "The dissertation R package exposes a REST API via RestRserve. Start the server with:\nlibrary(dissertation)\nrun_dissertation_api(port = 8000)"
+  },
+  {
+    "objectID": "api_reference.html#rest-api-endpoints",
+    "href": "api_reference.html#rest-api-endpoints",
+    "title": "API Reference",
+    "section": "",
+    "text": "The dissertation R package exposes a REST API via RestRserve. Start the server with:\nlibrary(dissertation)\nrun_dissertation_api(port = 8000)"
+  },
+  {
+    "objectID": "api_reference.html#endpoints",
+    "href": "api_reference.html#endpoints",
+    "title": "API Reference",
+    "section": "Endpoints",
+    "text": "Endpoints\n\nGET /summary\nReturns assessment summary statistics with optional filtering and grouping.\nParameters:\n\n\n\nParameter\nType\nDefault\nDescription\n\n\n\n\ncontent_area\nstring\n“All”\n“READING”, “MATHEMATICS”, or “All”\n\n\nyear\nstring\n“All”\nAcademic year in YYYY_YYYY format, or “All”\n\n\ngroup_by\nstring\n“NONE”\nGrouping variable (see below)\n\n\ninclude_meta\nboolean\nfalse\nInclude dataset metadata\n\n\n\nValid group_by values: NONE, CONTENT_AREA, GRADE, DISTRICT_NUMBER, SCHOOL_NUMBER, YEAR\nExample: GET /summary?content_area=READING&group_by=GRADE\n\n\nGET /analysis\nRuns detailed assessment analyses.\nParameters:\n\n\n\nParameter\nType\nDefault\nDescription\n\n\n\n\ntype\nstring\n“achievement_trends”\nAnalysis type (see below)\n\n\ncontent_area\nstring\n“All”\nContent area filter\n\n\ngrade\nstring\n“All”\nGrade level filter\n\n\ninclude_meta\nboolean\nfalse\nInclude analysis metadata\n\n\n\nValid type values: achievement_trends, score_distribution, district_comparison, cohort_progress\nExample: GET /analysis?type=district_comparison&content_area=MATHEMATICS\n\n\nGET /chapters\nReturns dissertation chapter information with optional linked data.\nParameters:\n\n\n\nParameter\nType\nDefault\nDescription\n\n\n\n\nchapter\nstring/int\n“all”\nChapter name or number (1-5)\n\n\ninclude_data\nboolean\nfalse\nInclude associated analysis results\n\n\n\nExample: GET /chapters?chapter=results&include_data=true\n\n\nGET /analyses\nDiscover available analysis types and valid parameter values.\nExample: GET /analyses\n\n\nGET /data/variables\nReturns metadata about the dataset’s variables.\nExample: GET /data/variables\n\n\nGET /openapi.json\nReturns the OpenAPI 3.0 specification for the API."
+  },
+  {
+    "objectID": "api_reference.html#response-format",
+    "href": "api_reference.html#response-format",
+    "title": "API Reference",
+    "section": "Response Format",
+    "text": "Response Format\nAll endpoints return JSON with a consistent structure:\n{\n  \"status\": \"success\",\n  \"summary\": [...],\n  \"filters\": {\n    \"content_area\": \"READING\",\n    \"year\": \"All\",\n    \"group_by\": \"GRADE\"\n  },\n  \"metadata\": { ... }\n}\nError responses include a descriptive message:\n{\n  \"status\": \"error\",\n  \"message\": \"Invalid content_area 'Physics'. Valid options: ALL, READING, MATHEMATICS\",\n  \"endpoint\": \"/summary\",\n  \"timestamp\": \"2026-04-01 12:00:00\",\n  \"code\": \"INTERNAL_ERROR\"\n}"
+  },
+  {
+    "objectID": "content/chapters/introduction.html",
+    "href": "content/chapters/introduction.html",
+    "title": "Introduction",
+    "section": "",
+    "text": "Educational assessment data provides the foundation for understanding student achievement across schools, districts, and states. Standardized assessments in reading and mathematics generate scale scores that enable comparisons of student performance relative to grade-level expectations. When examined longitudinally — across multiple years and grade levels — these data reveal patterns of achievement that inform educational policy, resource allocation, and instructional practice.\nAchievement levels derived from scale scores (such as Beginning, Developing, Proficient, and Advanced) provide an accessible framework for categorizing student performance. Tracking the proportion of students reaching proficiency over time, across content areas, and between districts offers a practical lens on educational equity and effectiveness."
+  },
+  {
+    "objectID": "content/chapters/introduction.html#sec-background",
+    "href": "content/chapters/introduction.html#sec-background",
+    "title": "Introduction",
+    "section": "",
+    "text": "Educational assessment data provides the foundation for understanding student achievement across schools, districts, and states. Standardized assessments in reading and mathematics generate scale scores that enable comparisons of student performance relative to grade-level expectations. When examined longitudinally — across multiple years and grade levels — these data reveal patterns of achievement that inform educational policy, resource allocation, and instructional practice.\nAchievement levels derived from scale scores (such as Beginning, Developing, Proficient, and Advanced) provide an accessible framework for categorizing student performance. Tracking the proportion of students reaching proficiency over time, across content areas, and between districts offers a practical lens on educational equity and effectiveness."
+  },
+  {
+    "objectID": "content/chapters/introduction.html#sec-problem",
+    "href": "content/chapters/introduction.html#sec-problem",
+    "title": "Introduction",
+    "section": "2 Problem Statement",
+    "text": "2 Problem Statement\nDespite the widespread availability of assessment data, systematic analyses that examine achievement patterns across multiple dimensions — time, geography, grade level, and content area — remain underutilized in educational research. This dissertation addresses this gap using r format(nrow(dissertation::assessmentData), big.mark = \",\") longitudinal assessment records spanning r length(unique(dissertation::assessmentData$YEAR)) academic years across r length(unique(dissertation::assessmentData$DISTRICT_NUMBER)) districts."
+  },
+  {
+    "objectID": "content/chapters/introduction.html#sec-research-questions",
+    "href": "content/chapters/introduction.html#sec-research-questions",
+    "title": "Introduction",
+    "section": "3 Research Questions",
+    "text": "3 Research Questions\nThis dissertation is guided by three research questions:\n\nRQ1: What are the longitudinal achievement trends in Reading and Mathematics, and how do proficiency rates change over time?\nRQ2: How does student achievement vary across districts, and what patterns of between-district inequality are evident?\nRQ3: How do cohorts of students progress through grade levels, and what do achievement trajectories reveal about the stability of student performance?"
+  },
+  {
+    "objectID": "content/chapters/introduction.html#sec-significance",
+    "href": "content/chapters/introduction.html#sec-significance",
+    "title": "Introduction",
+    "section": "4 Significance",
+    "text": "4 Significance\nThis work contributes to the field in three ways. First, it provides empirical evidence on longitudinal achievement patterns using a multi-year, multi-district assessment dataset. Second, it demonstrates analytic approaches for examining between-district variation in student outcomes. Third, the entire analysis is implemented as a reproducible, AI-native framework that other researchers can fork, customize, and extend for their own dissertation research."
+  },
+  {
+    "objectID": "content/chapters/introduction.html#sec-organization",
+    "href": "content/chapters/introduction.html#sec-organization",
+    "title": "Introduction",
+    "section": "5 Organization of the Dissertation",
+    "text": "5 Organization of the Dissertation\nThe remainder of this dissertation is organized as follows. Chapter 2 reviews the literature on assessment-based accountability, achievement measurement, and educational equity. Chapter 3 describes the data sources, measures, and analytic methods. Chapter 4 presents the results organized by research question. Chapter 5 discusses the findings, implications, limitations, and directions for future research."
+  },
+  {
+    "objectID": "content/chapters/methods.html",
+    "href": "content/chapters/methods.html",
+    "title": "Methods",
+    "section": "",
+    "text": "This chapter describes the data, measures, and analytic methods used to address the research questions. All analyses are implemented as reproducible R functions within the dissertation R package, ensuring complete transparency and replicability."
+  },
+  {
+    "objectID": "content/chapters/methods.html#sec-methods-overview",
+    "href": "content/chapters/methods.html#sec-methods-overview",
+    "title": "Methods",
+    "section": "",
+    "text": "This chapter describes the data, measures, and analytic methods used to address the research questions. All analyses are implemented as reproducible R functions within the dissertation R package, ensuring complete transparency and replicability."
+  },
+  {
+    "objectID": "content/chapters/methods.html#sec-data-source",
+    "href": "content/chapters/methods.html#sec-data-source",
+    "title": "Methods",
+    "section": "2 Data Source",
+    "text": "2 Data Source\nThe dataset comprises 368,301 longitudinal assessment records for 67,547 students across grades 10, 3, 4, 5, 6, 7, 8, 9 in MATHEMATICS and READING spanning 5 academic years (2020_2021, 2021_2022, 2022_2023, 2023_2024, 2024_2025)."
+  },
+  {
+    "objectID": "content/chapters/methods.html#sec-sample",
+    "href": "content/chapters/methods.html#sec-sample",
+    "title": "Methods",
+    "section": "3 Sample Description",
+    "text": "3 Sample Description\n\n\n\n\nTable 1: Sample Size by Content Area and Year\n\n\n\n\n\n\nCONTENT_AREA\nYEAR\nN_Students\nN_Observations\n\n\n\n\nMATHEMATICS\n2020_2021\n35,620\n35,620\n\n\nMATHEMATICS\n2021_2022\n36,458\n36,458\n\n\nMATHEMATICS\n2022_2023\n37,041\n37,041\n\n\nMATHEMATICS\n2023_2024\n37,640\n37,640\n\n\nMATHEMATICS\n2024_2025\n37,965\n37,965\n\n\nREADING\n2020_2021\n35,404\n35,404\n\n\nREADING\n2021_2022\n36,229\n36,229\n\n\nREADING\n2022_2023\n36,807\n36,807\n\n\nREADING\n2023_2024\n37,411\n37,411\n\n\nREADING\n2024_2025\n37,726\n37,726\n\n\n\n\n\n\n\n\nThe sample includes students from 3 districts and 121 schools. Table 1 presents the sample composition by content area and year."
+  },
+  {
+    "objectID": "content/chapters/methods.html#sec-measures",
+    "href": "content/chapters/methods.html#sec-measures",
+    "title": "Methods",
+    "section": "4 Measures",
+    "text": "4 Measures\n\n4.1 Scale Scores\nStudent achievement is measured using scale scores in Reading and Mathematics. Scale scores range from NA to NA across the dataset.\n\n\n4.2 Achievement Levels\nScale scores are classified into performance levels using grade-specific cut points. The levels in the dataset are: Advanced, No Score, Partially Proficient, Proficient, Unsatisfactory. Students at the Proficient or Advanced level are considered to have met grade-level expectations.\n\n\n4.3 Organizational Variables\nRecords include district identifiers (DISTRICT_NUMBER) and school identifiers (SCHOOL_NUMBER), enabling analyses of between-district and between-school variation."
+  },
+  {
+    "objectID": "content/chapters/methods.html#sec-analytic-approach",
+    "href": "content/chapters/methods.html#sec-analytic-approach",
+    "title": "Methods",
+    "section": "5 Analytic Approach",
+    "text": "5 Analytic Approach\nThe analyses are organized to address each research question:\nRQ1 — Achievement Trends: Longitudinal achievement patterns are examined by computing mean scores and proficiency rates by year and content area using the analyzeAssessment(\"achievement_trends\") function.\nRQ2 — District Variation: Between-district comparisons use analyzeAssessment(\"district_comparison\") to examine variation in mean scores, proficiency rates, and sample sizes across the 3 districts in the dataset.\nRQ3 — Cohort Progress: Cohort tracking via analyzeAssessment(\"cohort_progress\") examines how students with longitudinal records progress through grade levels over time.\nAdditionally, score distribution analyses using analyzeAssessment(\"score_distribution\") provide percentile breakpoints (10th, 25th, 50th, 75th, 90th) to characterize the full shape of the achievement distribution."
+  },
+  {
+    "objectID": "content/chapters/methods.html#sec-reproducibility",
+    "href": "content/chapters/methods.html#sec-reproducibility",
+    "title": "Methods",
+    "section": "6 Reproducibility",
+    "text": "6 Reproducibility\nAll analyses are implemented in the dissertation R package and can be replicated by installing the package and calling the analysis functions directly:\n\nlibrary(dissertation)\nsummarizeAssessment(content_area = \"READING\", group_by = \"GRADE\")\nanalyzeAssessment(\"achievement_trends\", content_area = \"MATHEMATICS\")\n\nThe complete analysis code, data, and documentation are available via the package’s GitHub repository and REST API."
+  },
+  {
+    "objectID": "customization_guide.html",
+    "href": "customization_guide.html",
+    "title": "Customization Guide",
+    "section": "",
+    "text": "This guide walks through the steps to transform this template into your own dissertation."
+  },
+  {
+    "objectID": "customization_guide.html#adapting-the-framework-for-your-dissertation",
+    "href": "customization_guide.html#adapting-the-framework-for-your-dissertation",
+    "title": "Customization Guide",
+    "section": "",
+    "text": "This guide walks through the steps to transform this template into your own dissertation."
+  },
+  {
+    "objectID": "customization_guide.html#step-1-replace-the-dataset",
+    "href": "customization_guide.html#step-1-replace-the-dataset",
+    "title": "Customization Guide",
+    "section": "Step 1: Replace the Dataset",
+    "text": "Step 1: Replace the Dataset\nThe seed dataset (assessmentData) demonstrates the structure. Replace it with your own:\nlibrary(data.table)\n\n# Load your data\nmy_data &lt;- fread(\"path/to/your/data.csv\")\n\n# Save in the package format\nsave(my_data, file = \"data/my_data.rda\", compress = \"xz\")\nThen update R/data.R with documentation matching your variables."
+  },
+  {
+    "objectID": "customization_guide.html#step-2-modify-the-analysis-functions",
+    "href": "customization_guide.html#step-2-modify-the-analysis-functions",
+    "title": "Customization Guide",
+    "section": "Step 2: Modify the Analysis Functions",
+    "text": "Step 2: Modify the Analysis Functions\nEdit R/analysis.R to match your research questions. The key pattern to maintain is:\nmyAnalysis &lt;- function(param1 = \"default\", include_meta = FALSE) {\n    # 1. Validate inputs\n    # 2. Filter/process data\n    # 3. Compute results as a data.table\n    # 4. Return structured list with status, results, interpretation\n    list(\n        status = \"success\",\n        results = my_results_dt,\n        interpretation = \"Plain-language summary...\",\n        filters = list(param1 = param1)\n    )\n}\nThis pattern ensures your functions work seamlessly with the REST API and MCP tools."
+  },
+  {
+    "objectID": "customization_guide.html#step-3-update-the-api-endpoints",
+    "href": "customization_guide.html#step-3-update-the-api-endpoints",
+    "title": "Customization Guide",
+    "section": "Step 3: Update the API Endpoints",
+    "text": "Step 3: Update the API Endpoints\nEdit R/api.R to expose your new functions. Follow the existing endpoint pattern:\n\nParse query parameters from the request\nCall your analysis function\nReturn JSON response with CORS headers"
+  },
+  {
+    "objectID": "customization_guide.html#step-4-write-your-dissertation-chapters",
+    "href": "customization_guide.html#step-4-write-your-dissertation-chapters",
+    "title": "Customization Guide",
+    "section": "Step 4: Write Your Dissertation Chapters",
+    "text": "Step 4: Write Your Dissertation Chapters\nReplace the template content in quarto_website/content/chapters/ with your own writing. The Quarto files support:\n\nInline R code: `r nrow(assessmentData)` for dynamic values\nCode chunks for tables and figures\nCross-references between sections\nBibliography via references.bib"
+  },
+  {
+    "objectID": "customization_guide.html#step-5-configure-your-three-output-formats",
+    "href": "customization_guide.html#step-5-configure-your-three-output-formats",
+    "title": "Customization Guide",
+    "section": "Step 5: Configure Your Three Output Formats",
+    "text": "Step 5: Configure Your Three Output Formats\nThe dissertation renders three ways from the same .qmd source files:\n\n5a. Website (default)\nThe interactive website with navigation, search, and chapter links. No configuration needed — this is the default render:\ncd quarto_website\nquarto render\n\n\n5b. Thesis PDF — Formal University Submission\nThis uses your institution’s thesis.cls to produce a PDF that meets Graduate School formatting requirements. The CU Boulder thesis.cls is included as an exemplar.\nTo use the included CU Boulder template:\n\nEdit inst/thesis/thesis-preamble.tex with your dissertation metadata (title, name, committee, abstract, degree, department)\nRender with:\n\ncd quarto_website\nquarto render --profile thesis\nTo adapt for your own university:\n\nObtain your institution’s thesis/dissertation .cls or .sty file. Many graduate schools provide this as a LaTeX template, or you may need to create one from a Word template (AI can help with this).\nPlace it in inst/thesis/, replacing (or alongside) thesis.cls\nRead the annotated comments in the existing thesis.cls — they explain what each section does and what to change. The inst/thesis/ANNOTATION_GUIDE.txt provides a detailed adaptation workflow.\nEdit inst/thesis/thesis-preamble.tex to use the preamble commands your class file expects\nUpdate _quarto-thesis.yml to reference your class file:\n\nformat:\n  pdf:\n    documentclass: your-thesis-class\n    classoption: [your, options]\n    include-in-header: ../inst/thesis/thesis-preamble.tex\n\n\n5c. Working Paper — Versioned HTML + PDF\nA clean, modern document format for sharing and iterating on the research beyond the formal dissertation. Think of it as the dissertation becoming v1.0 of an evolving research product:\ncd quarto_website\nquarto render --profile working-paper\nThis produces both HTML and PDF with:\n\nA versioned header (e.g., “Working Paper v1.0”)\nAcademic working paper styling (serif body text, clean tables, code folding)\nTable of contents and section numbering\nSuitable for posting to SSRN, sharing with collaborators, or hosting independently\n\nTo update the version number, edit the header in _quarto-working-paper.yml:\ninclude-in-header: |\n  \\fancyhead[L]{\\small\\itshape Working Paper v1.1}"
+  },
+  {
+    "objectID": "customization_guide.html#step-6-update-the-mcp-schema",
+    "href": "customization_guide.html#step-6-update-the-mcp-schema",
+    "title": "Customization Guide",
+    "section": "Step 6: Update the MCP Schema",
+    "text": "Step 6: Update the MCP Schema\nIf you modify the API endpoints, update the mcp-schema.json in the dissertation-ai repository to reflect your new tools."
+  },
+  {
+    "objectID": "customization_guide.html#step-7-update-package-metadata",
+    "href": "customization_guide.html#step-7-update-package-metadata",
+    "title": "Customization Guide",
+    "section": "Step 7: Update Package Metadata",
+    "text": "Step 7: Update Package Metadata\nEdit DESCRIPTION with your name, title, and description. Update R/dissertation-package.R and R/zzz.R with your package name if you rename it."
+  },
+  {
+    "objectID": "customization_guide.html#testing-your-changes",
+    "href": "customization_guide.html#testing-your-changes",
+    "title": "Customization Guide",
+    "section": "Testing Your Changes",
+    "text": "Testing Your Changes\nAfter modifications, verify everything works:\n# Run tests\ndevtools::test()\n\n# Check package\ndevtools::check()\n\n# Test API\nrun_dissertation_api()\n# Visit http://localhost:8000/openapi.json\nRender all three outputs to verify:\ncd quarto_website\nquarto render                          # Website\nquarto render --profile thesis         # Formal thesis PDF\nquarto render --profile working-paper  # Working paper HTML + PDF"
+  },
+  {
+    "objectID": "getting_started.html",
+    "href": "getting_started.html",
+    "title": "Getting Started",
+    "section": "",
+    "text": "Before using this framework, ensure you have the following installed:\n\nR (&gt;= 4.5): https://cran.r-project.org/\nQuarto (&gt;= 1.6): https://quarto.org/docs/get-started/\nGit: https://git-scm.com/\nRStudio or VS Code: Your preferred IDE\nNode.js (LTS, optional): For the web application extras"
+  },
+  {
+    "objectID": "getting_started.html#prerequisites",
+    "href": "getting_started.html#prerequisites",
+    "title": "Getting Started",
+    "section": "",
+    "text": "Before using this framework, ensure you have the following installed:\n\nR (&gt;= 4.5): https://cran.r-project.org/\nQuarto (&gt;= 1.6): https://quarto.org/docs/get-started/\nGit: https://git-scm.com/\nRStudio or VS Code: Your preferred IDE\nNode.js (LTS, optional): For the web application extras"
+  },
+  {
+    "objectID": "getting_started.html#quick-start",
+    "href": "getting_started.html#quick-start",
+    "title": "Getting Started",
+    "section": "Quick Start",
+    "text": "Quick Start\n\n1. Fork and Clone\nFork both repositories on GitHub, then clone them:\ngit clone https://github.com/YOUR-USERNAME/dissertation.git dissertation-rpkg\ngit clone https://github.com/YOUR-USERNAME/dissertation-ai.git dissertation-ai\n\n\n2. Install the R Package\n# From the dissertation-rpkg directory\ndevtools::install(\"dissertation\")\n\n# Load and verify\nlibrary(dissertation)\ndata(assessmentData)\nhead(assessmentData)\n\n\n3. Explore the Analysis Functions\n# Summary statistics\nsummarizeAssessment()\nsummarizeAssessment(content_area = \"READING\", group_by = \"GRADE\")\n\n# Detailed analyses\nanalyzeAssessment(\"achievement_trends\")\nanalyzeAssessment(\"district_comparison\")\nanalyzeAssessment(\"score_distribution\", grade = \"5\")\n\n# Chapter information\ngetChapterSummary(\"results\", include_data = TRUE)\n\n# Discovery\ngetAvailableAnalyses()\n\n\n4. Start the REST API\nrun_dissertation_api(port = 8000)\n\n# Then visit:\n# http://localhost:8000/summary?content_area=READING\n# http://localhost:8000/analysis?type=achievement_trends\n# http://localhost:8000/openapi.json\n\n\n5. Render the Outputs\nThe same .qmd source files produce three different outputs:\ncd dissertation-rpkg/dissertation/quarto_website\n\n# Interactive website (default)\nquarto render\n\n# Formal thesis PDF using institutional thesis.cls\nquarto render --profile thesis\n\n# Working paper (HTML + PDF) for sharing and versioning\nquarto render --profile working-paper"
+  },
+  {
+    "objectID": "getting_started.html#next-steps",
+    "href": "getting_started.html#next-steps",
+    "title": "Getting Started",
+    "section": "Next Steps",
+    "text": "Next Steps\n\nRead the Customization Guide to adapt the framework for your dissertation\nExplore the API Reference for endpoint documentation\nReview AI Ethics in Research for responsible AI integration"
+  },
+  {
+    "objectID": "news.html",
+    "href": "news.html",
+    "title": "News",
+    "section": "",
+    "text": "Initial release of the AI-native dissertation framework.\n\nAssessment dataset with 368,301 longitudinal records across 3 academic years\nCore analysis functions: summarizeAssessment(), analyzeAssessment(), getChapterSummary(), getAvailableAnalyses()\nFour analysis types: achievement trends, score distributions, district comparisons, cohort progress\nREST API with 6 endpoints via RestRserve\nQuarto website with 5 dissertation chapters\nThesis PDF output profile for institutional formatting\nComprehensive test suite\nCustomization guide for dissertation authors"
+  },
+  {
+    "objectID": "news.html#dissertation-0.0-0.1-april-2026",
+    "href": "news.html#dissertation-0.0-0.1-april-2026",
+    "title": "News",
+    "section": "",
+    "text": "Initial release of the AI-native dissertation framework.\n\nAssessment dataset with 368,301 longitudinal records across 3 academic years\nCore analysis functions: summarizeAssessment(), analyzeAssessment(), getChapterSummary(), getAvailableAnalyses()\nFour analysis types: achievement trends, score distributions, district comparisons, cohort progress\nREST API with 6 endpoints via RestRserve\nQuarto website with 5 dissertation chapters\nThesis PDF output profile for institutional formatting\nComprehensive test suite\nCustomization guide for dissertation authors"
+  }
+]

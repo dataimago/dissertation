@@ -8,7 +8,7 @@
 .Ruserdata
 
 # Quarto rendering output
-docs/
+# docs/ is committed for GitHub Pages deployment
 quarto_website/_freeze/
 quarto_website/.quarto/
 quarto_website/_site/
