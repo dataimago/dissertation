@@ -6,11 +6,11 @@
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="site_libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dbc92dda8186f57fa2e333fbb71d6a9d.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.9.36">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-23bbe8b5e4efc1e257f6d59dce478b08.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.9.37">
 
   <meta name="author" content="Damian Betebenner">
-  <meta name="dcterms.date" content="2026-04-08">
+  <meta name="dcterms.date" content="2026-04-09">
   <title>An AI-Native Dissertation Framework – The AI-Native Dissertation</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -218,7 +218,7 @@ Damian Betebenner
 </div>
 </div>
 
-  <p class="date">April 8, 2026</p>
+  <p class="date">April 9, 2026</p>
 </section>
 <section class="slide level2">
 <h2>Today’s Journey</h2>
@@ -476,12 +476,22 @@ Damian Betebenner
 </section>
 <section class="slide level2">
 <h2>600 Years of Transmission</h2>
-<div class="cell" data-reveal="true" data-fig-responsive="false" data-layout-align="default">
+<div class="cell" data-reveal="true" data-eval="true" data-fig-responsive="false" data-layout-align="default">
 <div class="cell-output-display">
 <div>
 <p></p><figure class=""><p></p>
 <div>
+<pre class="mermaid mermaid-js">%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '22px', 'fontFamily': 'Inter, system-ui, sans-serif'}, 'flowchart': {'nodeSpacing': 80, 'rankSpacing': 80, 'padding': 20, 'htmlLabels': true}}}%%
+flowchart LR
+    A["🗣️ &lt;b&gt;Oral&lt;/b&gt;&lt;br/&gt;&lt;i&gt;1 → few&lt;/i&gt;"] --&gt; B["📜 &lt;b&gt;Manuscript&lt;/b&gt;&lt;br/&gt;&lt;i&gt;1 → few&lt;/i&gt;"]
+    B --&gt; C["📖 &lt;b&gt;Printed&lt;/b&gt;&lt;br/&gt;&lt;i&gt;1 → many&lt;/i&gt;"]
+    C --&gt; D["📄 &lt;b&gt;PDF&lt;/b&gt;&lt;br/&gt;&lt;i&gt;1 → many, faster&lt;/i&gt;"]
 
+    style A fill:#fef3c7,stroke:#f59e0b,stroke-width:2px,color:#000
+    style B fill:#fef3c7,stroke:#f59e0b,stroke-width:2px,color:#000
+    style C fill:#dbeafe,stroke:#3b82f6,stroke-width:2px,color:#000
+    style D fill:#dbeafe,stroke:#3b82f6,stroke-width:2px,color:#000
+</pre>
 </div>
 <p></p></figure><p></p>
 </div>
@@ -518,12 +528,25 @@ Damian Betebenner
 </section>
 <section class="slide level2">
 <h2>One Source, Many Channels</h2>
-<div class="cell" data-reveal="true" data-fig-responsive="false" data-layout-align="default">
+<div class="cell" data-reveal="true" data-eval="true" data-fig-responsive="false" data-layout-align="default">
 <div class="cell-output-display">
 <div>
 <p></p><figure class=""><p></p>
 <div>
+<pre class="mermaid mermaid-js">%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '20px', 'fontFamily': 'Inter, system-ui, sans-serif'}, 'flowchart': {'nodeSpacing': 60, 'rankSpacing': 70, 'padding': 20, 'htmlLabels': true}}}%%
+flowchart TB
+    S["📝 &lt;b&gt;Dissertation Content&lt;/b&gt;&lt;br/&gt;&lt;i&gt;authored once&lt;/i&gt;"]
+    S --&gt; H["👤 &lt;b&gt;Human Reader&lt;/b&gt;&lt;br/&gt;Website / PDF / Thesis"]
+    S --&gt; A["🤖 &lt;b&gt;AI Agent&lt;/b&gt;&lt;br/&gt;MCP Tools / Structured Data"]
+    S --&gt; D["📊 &lt;b&gt;Data Analyst&lt;/b&gt;&lt;br/&gt;REST API / R Package"]
+    S --&gt; V["👥 &lt;b&gt;Non-Specialist&lt;/b&gt;&lt;br/&gt;Interactive Dashboard"]
 
+    style S fill:#f0f9ff,stroke:#0ea5e9,color:#000,stroke-width:3px
+    style H fill:#dbeafe,stroke:#3b82f6,stroke-width:2px,color:#000
+    style A fill:#ede9fe,stroke:#8b5cf6,stroke-width:2px,color:#000
+    style D fill:#dcfce7,stroke:#22c55e,stroke-width:2px,color:#000
+    style V fill:#fef3c7,stroke:#f59e0b,stroke-width:2px,color:#000
+</pre>
 </div>
 <p></p></figure><p></p>
 </div>
@@ -630,12 +653,40 @@ Damian Betebenner
 </section>
 <section class="slide level2">
 <h2>Architecture Overview</h2>
-<div class="cell" data-reveal="true" data-fig-responsive="false" data-layout-align="default">
+<div class="cell" data-reveal="true" data-eval="true" data-fig-responsive="false" data-layout-align="default">
 <div class="cell-output-display">
 <div>
 <p></p><figure class=""><p></p>
 <div>
+<pre class="mermaid mermaid-js">%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '18px', 'fontFamily': 'Inter, system-ui, sans-serif'}, 'flowchart': {'nodeSpacing': 50, 'rankSpacing': 60, 'padding': 18, 'htmlLabels': true, 'subGraphTitleMargin': {'top': 10, 'bottom': 10}}}}%%
+flowchart TB
+    subgraph rpkg ["📦 dissertation-rpkg"]
+        R["&lt;b&gt;R Package&lt;/b&gt;&lt;br/&gt;Core analysis engine"]
+        Q["&lt;b&gt;Quarto&lt;/b&gt;&lt;br/&gt;Website / Thesis / Working Paper"]
+        API["&lt;b&gt;REST API&lt;/b&gt;&lt;br/&gt;6 endpoints via RestRserve"]
+    end
 
+    subgraph ai ["🚀 dissertation-ai"]
+        SU["&lt;b&gt;shared-utils&lt;/b&gt;&lt;br/&gt;Types, API clients"]
+        MCP["&lt;b&gt;mcp-tools&lt;/b&gt;&lt;br/&gt;Schema loader, proxy"]
+        WA["&lt;b&gt;NextJS Web App&lt;/b&gt;&lt;br/&gt;Interactive frontend"]
+    end
+
+    R --&gt; API
+    R --&gt; Q
+    API --&gt; SU
+    SU --&gt; MCP
+    SU --&gt; WA
+
+    style R fill:#dbeafe,stroke:#3b82f6,stroke-width:2px,color:#000
+    style Q fill:#dbeafe,stroke:#3b82f6,stroke-width:2px,color:#000
+    style API fill:#dcfce7,stroke:#22c55e,stroke-width:2px,color:#000
+    style SU fill:#ede9fe,stroke:#8b5cf6,stroke-width:2px,color:#000
+    style MCP fill:#ede9fe,stroke:#8b5cf6,stroke-width:2px,color:#000
+    style WA fill:#fef3c7,stroke:#f59e0b,stroke-width:2px,color:#000
+    style rpkg fill:#f0f9ff,stroke:#3b82f6,stroke-width:2px
+    style ai fill:#faf5ff,stroke:#8b5cf6,stroke-width:2px
+</pre>
 </div>
 <p></p></figure><p></p>
 </div>
@@ -853,12 +904,21 @@ Author: Your Name</code></pre>
 </section>
 <section class="slide level2">
 <h2>The Workflow</h2>
-<div class="cell" data-reveal="true" data-fig-responsive="false" data-layout-align="default">
+<div class="cell" data-reveal="true" data-eval="true" data-fig-responsive="false" data-layout-align="default">
 <div class="cell-output-display">
 <div>
 <p></p><figure class=""><p></p>
 <div>
+<pre class="mermaid mermaid-js">%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '22px', 'fontFamily': 'Inter, system-ui, sans-serif'}, 'flowchart': {'nodeSpacing': 80, 'rankSpacing': 100, 'padding': 20, 'htmlLabels': true}}}%%
+flowchart LR
+    W["✍️ &lt;b&gt;Write&lt;/b&gt;&lt;br/&gt;Draft content&lt;br/&gt;with AI assist"] --&gt; R["🔄 &lt;b&gt;Render&lt;/b&gt;&lt;br/&gt;quarto render&lt;br/&gt;pnpm build"]
+    R --&gt; V["👀 &lt;b&gt;Review&lt;/b&gt;&lt;br/&gt;Website, PDF,&lt;br/&gt;Dashboard"]
+    V --&gt; W
 
+    style W fill:#ede9fe,stroke:#8b5cf6,stroke-width:2px,color:#000
+    style R fill:#dbeafe,stroke:#3b82f6,stroke-width:2px,color:#000
+    style V fill:#dcfce7,stroke:#22c55e,stroke-width:2px,color:#000
+</pre>
 </div>
 <p></p></figure><p></p>
 </div>
@@ -936,12 +996,28 @@ Author: Your Name</code></pre>
 </section>
 <section class="slide level2">
 <h2>The Build Pipeline</h2>
-<div class="cell" data-reveal="true" data-fig-responsive="false" data-layout-align="default">
+<div class="cell" data-reveal="true" data-eval="true" data-fig-responsive="false" data-layout-align="default">
 <div class="cell-output-display">
 <div>
 <p></p><figure class=""><p></p>
 <div>
+<pre class="mermaid mermaid-js">%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '20px', 'fontFamily': 'Inter, system-ui, sans-serif'}, 'flowchart': {'nodeSpacing': 60, 'rankSpacing': 80, 'padding': 18, 'htmlLabels': true}}}%%
+flowchart LR
+    A["&lt;b&gt;quarto render&lt;/b&gt;"] --&gt; B["Static HTML&lt;br/&gt;Website + PDF"]
+    C["&lt;b&gt;pnpm build&lt;/b&gt;"] --&gt; D["NextJS App&lt;br/&gt;Static + Dynamic"]
+    E["&lt;b&gt;git push&lt;/b&gt;"] --&gt; F["GitHub Actions&lt;br/&gt;CI/CD"]
+    F --&gt; G["Vercel&lt;br/&gt;Live Deployment"]
+    F --&gt; H["GitHub Pages&lt;br/&gt;Quarto Site"]
 
+    style A fill:#dbeafe,stroke:#3b82f6,stroke-width:2px,color:#000
+    style B fill:#dbeafe,stroke:#3b82f6,stroke-width:2px,color:#000
+    style C fill:#ede9fe,stroke:#8b5cf6,stroke-width:2px,color:#000
+    style D fill:#ede9fe,stroke:#8b5cf6,stroke-width:2px,color:#000
+    style E fill:#dcfce7,stroke:#22c55e,stroke-width:2px,color:#000
+    style F fill:#fef3c7,stroke:#f59e0b,stroke-width:2px,color:#000
+    style G fill:#fef3c7,stroke:#f59e0b,stroke-width:2px,color:#000
+    style H fill:#fef3c7,stroke:#f59e0b,stroke-width:2px,color:#000
+</pre>
 </div>
 <p></p></figure><p></p>
 </div>
@@ -999,12 +1075,27 @@ Author: Your Name</code></pre>
 </section>
 <section class="slide level2">
 <h2>The Ongoing Workflow</h2>
-<div class="cell" data-reveal="true" data-fig-responsive="false" data-layout-align="default">
+<div class="cell" data-reveal="true" data-eval="true" data-fig-responsive="false" data-layout-align="default">
 <div class="cell-output-display">
 <div>
 <p></p><figure class=""><p></p>
 <div>
+<pre class="mermaid mermaid-js">%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '20px', 'fontFamily': 'Inter, system-ui, sans-serif'}, 'flowchart': {'nodeSpacing': 50, 'rankSpacing': 60, 'padding': 18, 'htmlLabels': true}}}%%
+flowchart TB
+    A["✍️ &lt;b&gt;Write content&lt;/b&gt;&lt;br/&gt;chapters, analysis"] --&gt; B["🔄 &lt;b&gt;Render locally&lt;/b&gt;&lt;br/&gt;quarto render, pnpm dev"]
+    B --&gt; C["👀 &lt;b&gt;Review all formats&lt;/b&gt;&lt;br/&gt;web, PDF, dashboard"]
+    C --&gt; D{"Satisfied?"}
+    D --&gt;|"No"| A
+    D --&gt;|"Yes"| E["📤 &lt;b&gt;Push to GitHub&lt;/b&gt;"]
+    E --&gt; F["🚀 &lt;b&gt;Auto-deploy&lt;/b&gt;&lt;br/&gt;GitHub Pages + Vercel"]
 
+    style A fill:#ede9fe,stroke:#8b5cf6,stroke-width:2px,color:#000
+    style B fill:#dbeafe,stroke:#3b82f6,stroke-width:2px,color:#000
+    style C fill:#dcfce7,stroke:#22c55e,stroke-width:2px,color:#000
+    style D fill:#fef3c7,stroke:#f59e0b,stroke-width:2px,color:#000
+    style E fill:#dcfce7,stroke:#22c55e,stroke-width:2px,color:#000
+    style F fill:#dbeafe,stroke:#3b82f6,stroke-width:2px,color:#000
+</pre>
 </div>
 <p></p></figure><p></p>
 </div>
