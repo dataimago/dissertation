@@ -443,7 +443,7 @@ We digitized the **container** but not the **knowledge**.
 %%| echo: false
 %%| eval: true
 %%| fig-responsive: false
-%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '22px', 'fontFamily': 'Inter, system-ui, sans-serif'}, 'flowchart': {'nodeSpacing': 80, 'rankSpacing': 80, 'padding': 20, 'htmlLabels': true}}}%%
+%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '22px', 'fontFamily': 'Inter, system-ui, sans-serif'}, 'flowchart': {'nodeSpacing': 80, 'rankSpacing': 80, 'padding': 20, 'htmlLabels': true, 'useMaxWidth': false}}}%%
 flowchart LR
     A["🗣️ <b>Oral</b><br/><i>1 → few</i>"] --> B["📜 <b>Manuscript</b><br/><i>1 → few</i>"]
     B --> C["📖 <b>Printed</b><br/><i>1 → many</i>"]
@@ -505,7 +505,7 @@ For the first time in history, the **consumers** of research are not exclusively
 %%| echo: false
 %%| eval: true
 %%| fig-responsive: false
-%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '20px', 'fontFamily': 'Inter, system-ui, sans-serif'}, 'flowchart': {'nodeSpacing': 60, 'rankSpacing': 70, 'padding': 20, 'htmlLabels': true}}}%%
+%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '20px', 'fontFamily': 'Inter, system-ui, sans-serif'}, 'flowchart': {'nodeSpacing': 60, 'rankSpacing': 70, 'padding': 20, 'htmlLabels': true, 'useMaxWidth': false}}}%%
 flowchart TB
     S["📝 <b>Dissertation Content</b><br/><i>authored once</i>"]
     S --> H["👤 <b>Human Reader</b><br/>Website / PDF / Thesis"]
@@ -630,7 +630,7 @@ All rendered from the **same source content**.
 %%| echo: false
 %%| eval: true
 %%| fig-responsive: false
-%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '18px', 'fontFamily': 'Inter, system-ui, sans-serif'}, 'flowchart': {'nodeSpacing': 50, 'rankSpacing': 60, 'padding': 18, 'htmlLabels': true, 'subGraphTitleMargin': {'top': 10, 'bottom': 10}}}}%%
+%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '18px', 'fontFamily': 'Inter, system-ui, sans-serif'}, 'flowchart': {'nodeSpacing': 50, 'rankSpacing': 60, 'padding': 18, 'htmlLabels': true, 'useMaxWidth': false, 'subGraphTitleMargin': {'top': 10, 'bottom': 10}}}}%%
 flowchart TB
     subgraph rpkg ["📦 dissertation-rpkg"]
         R["<b>R Package</b><br/>Core analysis engine"]
@@ -975,7 +975,7 @@ Three views of the same content. Change a chapter, re-render, see updates everyw
 %%| echo: false
 %%| eval: true
 %%| fig-responsive: false
-%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '22px', 'fontFamily': 'Inter, system-ui, sans-serif'}, 'flowchart': {'nodeSpacing': 80, 'rankSpacing': 100, 'padding': 20, 'htmlLabels': true}}}%%
+%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '22px', 'fontFamily': 'Inter, system-ui, sans-serif'}, 'flowchart': {'nodeSpacing': 80, 'rankSpacing': 100, 'padding': 20, 'htmlLabels': true, 'useMaxWidth': false}}}%%
 flowchart LR
     W["✍️ <b>Write</b><br/>Draft content<br/>with AI assist"] --> R["🔄 <b>Render</b><br/>quarto render<br/>pnpm build"]
     R --> V["👀 <b>Review</b><br/>Website, PDF,<br/>Dashboard"]
@@ -1113,7 +1113,7 @@ Then reference it in your prose: *"As shown in @fig-trends, ..."*
 %%| echo: false
 %%| eval: true
 %%| fig-responsive: false
-%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '20px', 'fontFamily': 'Inter, system-ui, sans-serif'}, 'flowchart': {'nodeSpacing': 60, 'rankSpacing': 80, 'padding': 18, 'htmlLabels': true}}}%%
+%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '20px', 'fontFamily': 'Inter, system-ui, sans-serif'}, 'flowchart': {'nodeSpacing': 60, 'rankSpacing': 80, 'padding': 18, 'htmlLabels': true, 'useMaxWidth': false}}}%%
 flowchart LR
     A["<b>quarto render</b>"] --> B["Static HTML<br/>Website + PDF"]
     C["<b>pnpm build</b>"] --> D["NextJS App<br/>Static + Dynamic"]
@@ -1205,7 +1205,7 @@ Two URLs, one content source:
 %%| echo: false
 %%| eval: true
 %%| fig-responsive: false
-%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '20px', 'fontFamily': 'Inter, system-ui, sans-serif'}, 'flowchart': {'nodeSpacing': 50, 'rankSpacing': 60, 'padding': 18, 'htmlLabels': true}}}%%
+%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '20px', 'fontFamily': 'Inter, system-ui, sans-serif'}, 'flowchart': {'nodeSpacing': 50, 'rankSpacing': 60, 'padding': 18, 'htmlLabels': true, 'useMaxWidth': false}}}%%
 flowchart TB
     A["✍️ <b>Write content</b><br/>chapters, analysis"] --> B["🔄 <b>Render locally</b><br/>quarto render, pnpm dev"]
     B --> C["👀 <b>Review all formats</b><br/>web, PDF, dashboard"]
