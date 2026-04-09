@@ -441,6 +441,7 @@ We digitized the **container** but not the **knowledge**.
 
 ```{mermaid}
 %%| echo: false
+%%| eval: true
 %%| fig-responsive: false
 %%{init: {'theme': 'base', 'themeVariables': {'fontSize': '22px', 'fontFamily': 'Inter, system-ui, sans-serif'}, 'flowchart': {'nodeSpacing': 80, 'rankSpacing': 80, 'padding': 20, 'htmlLabels': true}}}%%
 flowchart LR
@@ -502,6 +503,7 @@ For the first time in history, the **consumers** of research are not exclusively
 
 ```{mermaid}
 %%| echo: false
+%%| eval: true
 %%| fig-responsive: false
 %%{init: {'theme': 'base', 'themeVariables': {'fontSize': '20px', 'fontFamily': 'Inter, system-ui, sans-serif'}, 'flowchart': {'nodeSpacing': 60, 'rankSpacing': 70, 'padding': 20, 'htmlLabels': true}}}%%
 flowchart TB
@@ -626,6 +628,7 @@ All rendered from the **same source content**.
 
 ```{mermaid}
 %%| echo: false
+%%| eval: true
 %%| fig-responsive: false
 %%{init: {'theme': 'base', 'themeVariables': {'fontSize': '18px', 'fontFamily': 'Inter, system-ui, sans-serif'}, 'flowchart': {'nodeSpacing': 50, 'rankSpacing': 60, 'padding': 18, 'htmlLabels': true, 'subGraphTitleMargin': {'top': 10, 'bottom': 10}}}}%%
 flowchart TB
@@ -970,6 +973,7 @@ Three views of the same content. Change a chapter, re-render, see updates everyw
 
 ```{mermaid}
 %%| echo: false
+%%| eval: true
 %%| fig-responsive: false
 %%{init: {'theme': 'base', 'themeVariables': {'fontSize': '22px', 'fontFamily': 'Inter, system-ui, sans-serif'}, 'flowchart': {'nodeSpacing': 80, 'rankSpacing': 100, 'padding': 20, 'htmlLabels': true}}}%%
 flowchart LR
@@ -1107,6 +1111,7 @@ Then reference it in your prose: *"As shown in @fig-trends, ..."*
 
 ```{mermaid}
 %%| echo: false
+%%| eval: true
 %%| fig-responsive: false
 %%{init: {'theme': 'base', 'themeVariables': {'fontSize': '20px', 'fontFamily': 'Inter, system-ui, sans-serif'}, 'flowchart': {'nodeSpacing': 60, 'rankSpacing': 80, 'padding': 18, 'htmlLabels': true}}}%%
 flowchart LR
@@ -1198,6 +1203,7 @@ Two URLs, one content source:
 
 ```{mermaid}
 %%| echo: false
+%%| eval: true
 %%| fig-responsive: false
 %%{init: {'theme': 'base', 'themeVariables': {'fontSize': '20px', 'fontFamily': 'Inter, system-ui, sans-serif'}, 'flowchart': {'nodeSpacing': 50, 'rankSpacing': 60, 'padding': 18, 'htmlLabels': true}}}%%
 flowchart TB
